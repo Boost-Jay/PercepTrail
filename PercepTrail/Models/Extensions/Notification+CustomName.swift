@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Notification.Name {
-    
-    static let <#customName#> = Notification.Name("")
-}
+//extension Notification.Name {
+//    
+//    static let <#customName#> = Notification.Name("")
+//}
