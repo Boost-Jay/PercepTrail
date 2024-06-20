@@ -15,8 +15,7 @@ class TrainingMainViewController: UIViewController {
     @IBOutlet weak var lbTotalPoints: UILabel!
     @IBOutlet weak var lbWalkingDistance: UILabel!
     @IBOutlet weak var lbTrainingTime: UILabel!
-    
-    
+        
     // MARK: - Properties
     
     
@@ -31,22 +30,24 @@ class TrainingMainViewController: UIViewController {
     // MARK: - UI Settings
     
     fileprivate func setupUI() {
-        
     }
     
     // MARK: - IBAction
     
     @IBAction func showTakePhotoVC(_ sender: Any) {
-        
+        print("1")
     }
     
     @IBAction func showSiteVisitVC(_ sender: Any) {
+        print("2")
     }
     
     @IBAction func showQuickQuizVC(_ sender: Any) {
+        print("3")
     }
     
     @IBAction func showGroupTask(_ sender: Any) {
+        print("4")
     }
     
     // MARK: - Function

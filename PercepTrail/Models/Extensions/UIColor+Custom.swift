@@ -20,6 +20,10 @@ extension UIColor {
         let blue = CGFloat(rgbValue & 0xFF) / 256.0
         return UIColor(red: red, green: green, blue: blue, alpha: CGFloat(alpha))
     }
-    /// navigationBar 的顏色，色碼：#036EB8
-    static let navigationBar = UIColor.fromHex(rgbValue: 0x13AD67)
+    
+    /// 主頁面 button color
+    static let TakePhotoColor = UIColor.fromHex(rgbValue: 0x7FA884)
+    static let SiteVisitColor = UIColor.fromHex(rgbValue: 0xDCBCC3)
+    static let QuickQuizColor = UIColor.fromHex(rgbValue: 0xF0E5E1)
+    static let GroupTaskColor = UIColor.fromHex(rgbValue: 0xD6D6D6)
 }
