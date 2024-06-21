@@ -1,5 +1,5 @@
 {
-  "originHash" : "8f41067740b6399ffc93220974bde95c34fe4fe411e2dc043beb699efc0e7d84",
+  "originHash" : "d2593105f567fe38a7be4008e9c386566c1676ba80808b8576aa0382f1216ff0",
   "pins" : [
     {
       "identity" : "iqkeyboardmanager",
@@ -8,6 +8,33 @@
       "state" : {
         "revision" : "19e111f9246b3407fe0c334dc78fa890c40d8c67",
         "version" : "7.0.3"
+      }
+    },
+    {
+      "identity" : "mkringprogressview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maxkonovalov/MKRingProgressView.git",
+      "state" : {
+        "revision" : "660888aab1d2ab0ed7eb9eb53caec12af4955fa7",
+        "version" : "2.3.0"
+      }
+    },
+    {
+      "identity" : "progressindicatorview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/ProgressIndicatorView.git",
+      "state" : {
+        "revision" : "3c33c42939e5bcbd91e20b2ca32ea4fa1b823653",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "swiftfortunewheel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sh-khashimov/SwiftFortuneWheel.git",
+      "state" : {
+        "revision" : "a0646fc23fbd3be8014f3436715b06be665c4016",
+        "version" : "1.4.4"
       }
     }
   ],

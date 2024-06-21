@@ -34,6 +34,10 @@
 		559632142C2454270016F826 /* Store.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559632132C2454270016F826 /* Store.storyboard */; };
 		559632162C24545C0016F826 /* PersonInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559632152C24545C0016F826 /* PersonInfo.storyboard */; };
 		559632182C2454C50016F826 /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559632172C2454C50016F826 /* Training.storyboard */; };
+		55B7AA7C2C254CBE002B6964 /* QuickQuiz in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AA7B2C254CBE002B6964 /* QuickQuiz */; };
+		55B7AA7F2C255001002B6964 /* SwiftFortuneWheel in Frameworks */ = {isa = PBXBuildFile; productRef = 55B7AA7E2C255001002B6964 /* SwiftFortuneWheel */; };
+		55B7AA822C25518E002B6964 /* MKRingProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = 55B7AA812C25518E002B6964 /* MKRingProgressView */; };
+		55B7AA852C2553F3002B6964 /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 55B7AA842C2553F3002B6964 /* ProgressIndicatorView */; };
 		55D474A82C2014A9000BE329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D474A72C2014A9000BE329 /* AppDelegate.swift */; };
 		55D474AA2C2014A9000BE329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D474A92C2014A9000BE329 /* SceneDelegate.swift */; };
 		55D474AF2C2014A9000BE329 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 55D474AE2C2014A9000BE329 /* Base */; };
@@ -77,6 +81,7 @@
 		559632132C2454270016F826 /* Store.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Store.storyboard; sourceTree = "<group>"; };
 		559632152C24545C0016F826 /* PersonInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonInfo.storyboard; sourceTree = "<group>"; };
 		559632172C2454C50016F826 /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
+		55B7AA7B2C254CBE002B6964 /* QuickQuiz */ = {isa = PBXFileReference; lastKnownFileType = folder; path = QuickQuiz; sourceTree = "<group>"; };
 		55D474A42C2014A9000BE329 /* PercepTrail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PercepTrail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D474A72C2014A9000BE329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D474A92C2014A9000BE329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +104,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B7AA7F2C255001002B6964 /* SwiftFortuneWheel in Frameworks */,
+				55B7AA822C25518E002B6964 /* MKRingProgressView in Frameworks */,
+				55B7AA852C2553F3002B6964 /* ProgressIndicatorView in Frameworks */,
 				55D475552C207D7A000BE329 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +171,7 @@
 		559632192C2454F60016F826 /* Training */ = {
 			isa = PBXGroup;
 			children = (
+				55B7AA7B2C254CBE002B6964 /* QuickQuiz */,
 				559632172C2454C50016F826 /* Training.storyboard */,
 				5596320F2C244D3E0016F826 /* TrainingMainViewController.swift */,
 				5596321D2C2455760016F826 /* Components */,
@@ -315,6 +324,9 @@
 			name = PercepTrail;
 			packageProductDependencies = (
 				55D475542C207D7A000BE329 /* IQKeyboardManagerSwift */,
+				55B7AA7E2C255001002B6964 /* SwiftFortuneWheel */,
+				55B7AA812C25518E002B6964 /* MKRingProgressView */,
+				55B7AA842C2553F3002B6964 /* ProgressIndicatorView */,
 			);
 			productName = PercepTrail;
 			productReference = 55D474A42C2014A9000BE329 /* PercepTrail.app */;
@@ -346,6 +358,9 @@
 			mainGroup = 55D4749B2C2014A9000BE329;
 			packageReferences = (
 				55D475532C207D7A000BE329 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				55B7AA7D2C255001002B6964 /* XCRemoteSwiftPackageReference "SwiftFortuneWheel" */,
+				55B7AA802C25518E002B6964 /* XCRemoteSwiftPackageReference "MKRingProgressView" */,
+				55B7AA832C2553F3002B6964 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
 			);
 			productRefGroup = 55D474A52C2014A9000BE329 /* Products */;
 			projectDirPath = "";
@@ -366,6 +381,7 @@
 				559632122C2453CC0016F826 /* Trophy.storyboard in Resources */,
 				559632182C2454C50016F826 /* Training.storyboard in Resources */,
 				55D474AF2C2014A9000BE329 /* Base in Resources */,
+				55B7AA7C2C254CBE002B6964 /* QuickQuiz in Resources */,
 				5589E14F2C22E34400D56AC8 /* Initial.storyboard in Resources */,
 				559632142C2454270016F826 /* Store.storyboard in Resources */,
 				5589E14E2C22E33400D56AC8 /* Main.storyboard in Resources */,
@@ -635,6 +651,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		55B7AA7D2C255001002B6964 /* XCRemoteSwiftPackageReference "SwiftFortuneWheel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sh-khashimov/SwiftFortuneWheel.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.4.4;
+			};
+		};
+		55B7AA802C25518E002B6964 /* XCRemoteSwiftPackageReference "MKRingProgressView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxkonovalov/MKRingProgressView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.3.0;
+			};
+		};
+		55B7AA832C2553F3002B6964 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ProgressIndicatorView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.0;
+			};
+		};
 		55D475532C207D7A000BE329 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -646,6 +686,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		55B7AA7E2C255001002B6964 /* SwiftFortuneWheel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55B7AA7D2C255001002B6964 /* XCRemoteSwiftPackageReference "SwiftFortuneWheel" */;
+			productName = SwiftFortuneWheel;
+		};
+		55B7AA812C25518E002B6964 /* MKRingProgressView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55B7AA802C25518E002B6964 /* XCRemoteSwiftPackageReference "MKRingProgressView" */;
+			productName = MKRingProgressView;
+		};
+		55B7AA842C2553F3002B6964 /* ProgressIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55B7AA832C2553F3002B6964 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */;
+			productName = ProgressIndicatorView;
+		};
 		55D475542C207D7A000BE329 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 55D475532C207D7A000BE329 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
