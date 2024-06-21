@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressIndicatorView
 
 class LevelViewController: UIViewController {
     

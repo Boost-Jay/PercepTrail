@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftFortuneWheel
 
 class WheelViewController: UIViewController {
     

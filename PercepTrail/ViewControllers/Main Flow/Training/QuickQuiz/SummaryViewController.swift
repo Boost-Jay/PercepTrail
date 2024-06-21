@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MKRingProgressView
 
 class SummaryViewController: UIViewController {
     
