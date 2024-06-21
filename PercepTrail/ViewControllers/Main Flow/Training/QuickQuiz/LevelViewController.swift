@@ -1,21 +1,22 @@
 //
-//  TrainingMainViewController.swift
+//  LevelViewController.swift
 //  PercepTrail
 //
-//  Created by 王柏崴 on 6/20/24.
+//  Created by 王柏崴 on 6/21/24.
 //
 
 import UIKit
 
-class TrainingMainViewController: UIViewController {
+class LevelViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var vProgressRing: UIView!
-    @IBOutlet weak var lbTotalPoints: UILabel!
-    @IBOutlet weak var lbWalkingDistance: UILabel!
-    @IBOutlet weak var lbTrainingTime: UILabel!
-        
+    @IBOutlet weak var lbQuestion: UILabel!
+    @IBOutlet weak var imgQuestion: UIImageView!
+    @IBOutlet weak var lbHint: UILabel!
+    @IBOutlet weak var vProgressStrip: UIView!
+    
+    
     // MARK: - Properties
     
     
@@ -30,13 +31,19 @@ class TrainingMainViewController: UIViewController {
     // MARK: - UI Settings
     
     fileprivate func setupUI() {
+        
     }
     
     // MARK: - IBAction
-
     
+    @IBAction func isClickedTrue(_ sender: Any) {
+    }
+    
+    @IBAction func isClickedFalse(_ sender: Any) {
+    }
     
     // MARK: - Function
+    
     
     
 }
@@ -50,7 +57,8 @@ class TrainingMainViewController: UIViewController {
 @available(iOS 17.0, *)
 #Preview {
     let vc = UIStoryboard(name: "Main", bundle: nil)
-    return vc.instantiateViewController(withIdentifier: "TrainingMainViewController")
+    return vc.instantiateViewController(withIdentifier: "LevelViewController")
 }
+
 
 

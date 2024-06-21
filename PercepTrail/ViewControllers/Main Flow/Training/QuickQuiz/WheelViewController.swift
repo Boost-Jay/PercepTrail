@@ -1,21 +1,19 @@
 //
-//  TrainingMainViewController.swift
+//  WheelViewController.swift
 //  PercepTrail
 //
-//  Created by 王柏崴 on 6/20/24.
+//  Created by 王柏崴 on 6/21/24.
 //
 
 import UIKit
 
-class TrainingMainViewController: UIViewController {
+class WheelViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var vProgressRing: UIView!
-    @IBOutlet weak var lbTotalPoints: UILabel!
-    @IBOutlet weak var lbWalkingDistance: UILabel!
-    @IBOutlet weak var lbTrainingTime: UILabel!
-        
+    @IBOutlet weak var vWheel: UIView!
+    
+    
     // MARK: - Properties
     
     
@@ -30,13 +28,19 @@ class TrainingMainViewController: UIViewController {
     // MARK: - UI Settings
     
     fileprivate func setupUI() {
+        
     }
     
     // MARK: - IBAction
-
+    
+    @IBAction func spinWheel(_ sender: Any) {
+        
+    }
     
     
     // MARK: - Function
+    
+    
     
     
 }
@@ -50,7 +54,8 @@ class TrainingMainViewController: UIViewController {
 @available(iOS 17.0, *)
 #Preview {
     let vc = UIStoryboard(name: "Main", bundle: nil)
-    return vc.instantiateViewController(withIdentifier: "TrainingMainViewController")
+    return vc.instantiateViewController(withIdentifier: "QuickQuizViewController")
 }
+
 
 

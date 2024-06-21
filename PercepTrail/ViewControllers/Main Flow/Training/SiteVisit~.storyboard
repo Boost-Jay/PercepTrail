@@ -28,6 +28,7 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="showTakePhotoVC:" destination="hpw-6g-PES" eventType="touchUpInside" id="SlE-xg-dOj"/>
                                     <segue destination="2v5-dM-Cnb" kind="show" id="779-q2-ECE"/>
                                 </connections>
                             </button>
@@ -52,7 +53,8 @@
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="pMy-1f-0pH" kind="show" id="8dh-ez-Plk"/>
+                                    <action selector="showSiteVisitVC:" destination="hpw-6g-PES" eventType="touchUpInside" id="cgQ-2p-n8o"/>
+                                    <segue destination="8qe-n7-S7w" kind="show" id="8dh-ez-Plk"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="E4S-FQ-vQs">
@@ -76,7 +78,8 @@
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="AJc-Lg-q8k" kind="show" id="c60-Nc-L4X"/>
+                                    <action selector="showQuickQuizVC:" destination="hpw-6g-PES" eventType="touchUpInside" id="sYv-Bi-VzQ"/>
+                                    <segue destination="4DC-Iz-A7H" kind="show" id="c60-Nc-L4X"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dmQ-VH-HVK">
@@ -100,7 +103,8 @@
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="tGX-W9-aWp" kind="show" id="3DE-uE-fan"/>
+                                    <action selector="showGroupTask:" destination="hpw-6g-PES" eventType="touchUpInside" id="9uS-Oc-kbM"/>
+                                    <segue destination="u4P-eM-wyH" kind="show" id="3DE-uE-fan"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ITa-Zl-Rq3">
@@ -363,6 +367,54 @@
             </objects>
             <point key="canvasLocation" x="1705" y="-625"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="uPZ-Cg-Esu">
+            <objects>
+                <viewController id="8qe-n7-S7w" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="juM-DO-6f2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="E0J-SA-Cpk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="09b-1Z-6mB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aSe-EE-UzH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="108"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QI8-n4-0OP">
+            <objects>
+                <viewController id="4DC-Iz-A7H" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XcF-bd-sWt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="fpc-em-Aul"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bSw-u4-dHZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FvC-JT-wkv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2123" y="108"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FoT-ru-yCs">
+            <objects>
+                <viewController id="u4P-eM-wyH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C2z-7X-ARH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eK2-qL-TZO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3G5-Ee-QSk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1L9-dd-YMT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3015" y="108"/>
+        </scene>
         <!--TakePhone-->
         <scene sceneID="ixj-xB-vh2">
             <objects>
@@ -371,37 +423,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjo-7A-Zm6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029" y="-201"/>
-        </scene>
-        <!--SiteVisit-->
-        <scene sceneID="CpO-cM-M8Q">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SiteVisit" id="pMy-1f-0pH" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="oPz-2i-RQs"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wo2-gc-0gN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1314" y="-201"/>
-        </scene>
-        <!--QuickQuiz-->
-        <scene sceneID="LaE-br-ayU">
-            <objects>
-                <viewControllerPlaceholder storyboardName="QuickQuiz" id="AJc-Lg-q8k" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ruZ-Ku-RTt"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kYj-rD-vGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2089" y="-201"/>
-        </scene>
-        <!--GroupTask-->
-        <scene sceneID="0QJ-QM-6t0">
-            <objects>
-                <viewControllerPlaceholder storyboardName="GroupTask" id="tGX-W9-aWp" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ghd-SZ-jhC"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uey-UA-GjO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2437" y="-201"/>
+            <point key="canvasLocation" x="373" y="-335"/>
         </scene>
     </scenes>
     <resources>
