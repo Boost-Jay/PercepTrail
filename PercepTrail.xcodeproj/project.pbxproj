@@ -34,10 +34,20 @@
 		559632142C2454270016F826 /* Store.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559632132C2454270016F826 /* Store.storyboard */; };
 		559632162C24545C0016F826 /* PersonInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559632152C24545C0016F826 /* PersonInfo.storyboard */; };
 		559632182C2454C50016F826 /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559632172C2454C50016F826 /* Training.storyboard */; };
-		55B7AA7C2C254CBE002B6964 /* QuickQuiz in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AA7B2C254CBE002B6964 /* QuickQuiz */; };
 		55B7AA7F2C255001002B6964 /* SwiftFortuneWheel in Frameworks */ = {isa = PBXBuildFile; productRef = 55B7AA7E2C255001002B6964 /* SwiftFortuneWheel */; };
 		55B7AA822C25518E002B6964 /* MKRingProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = 55B7AA812C25518E002B6964 /* MKRingProgressView */; };
 		55B7AA852C2553F3002B6964 /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 55B7AA842C2553F3002B6964 /* ProgressIndicatorView */; };
+		55B7AAB62C256522002B6964 /* TakePhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AAB52C256522002B6964 /* TakePhone.storyboard */; };
+		55B7AAB82C25652F002B6964 /* TakePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAB72C25652F002B6964 /* TakePhoneViewController.swift */; };
+		55B7AABA2C2565DD002B6964 /* SiteVisit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AAB92C2565DD002B6964 /* SiteVisit.storyboard */; };
+		55B7AABC2C2565E9002B6964 /* SiteVisitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AABB2C2565E9002B6964 /* SiteVisitViewController.swift */; };
+		55B7AABE2C2565F7002B6964 /* GroupTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AABD2C2565F7002B6964 /* GroupTask.storyboard */; };
+		55B7AAC02C2565FF002B6964 /* GroupTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AABF2C2565FF002B6964 /* GroupTaskViewController.swift */; };
+		55B7AAC22C256609002B6964 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAC12C256609002B6964 /* LevelViewController.swift */; };
+		55B7AAC42C256611002B6964 /* QuickQuiz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AAC32C256611002B6964 /* QuickQuiz.storyboard */; };
+		55B7AAC62C25661A002B6964 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAC52C25661A002B6964 /* SummaryViewController.swift */; };
+		55B7AAC82C256623002B6964 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAC72C256623002B6964 /* TimerViewController.swift */; };
+		55B7AACA2C25662B002B6964 /* WheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAC92C25662B002B6964 /* WheelViewController.swift */; };
 		55D474A82C2014A9000BE329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D474A72C2014A9000BE329 /* AppDelegate.swift */; };
 		55D474AA2C2014A9000BE329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D474A92C2014A9000BE329 /* SceneDelegate.swift */; };
 		55D474AF2C2014A9000BE329 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 55D474AE2C2014A9000BE329 /* Base */; };
@@ -81,7 +91,17 @@
 		559632132C2454270016F826 /* Store.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Store.storyboard; sourceTree = "<group>"; };
 		559632152C24545C0016F826 /* PersonInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonInfo.storyboard; sourceTree = "<group>"; };
 		559632172C2454C50016F826 /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
-		55B7AA7B2C254CBE002B6964 /* QuickQuiz */ = {isa = PBXFileReference; lastKnownFileType = folder; path = QuickQuiz; sourceTree = "<group>"; };
+		55B7AAB52C256522002B6964 /* TakePhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TakePhone.storyboard; sourceTree = "<group>"; };
+		55B7AAB72C25652F002B6964 /* TakePhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhoneViewController.swift; sourceTree = "<group>"; };
+		55B7AAB92C2565DD002B6964 /* SiteVisit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SiteVisit.storyboard; sourceTree = "<group>"; };
+		55B7AABB2C2565E9002B6964 /* SiteVisitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteVisitViewController.swift; sourceTree = "<group>"; };
+		55B7AABD2C2565F7002B6964 /* GroupTask.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupTask.storyboard; sourceTree = "<group>"; };
+		55B7AABF2C2565FF002B6964 /* GroupTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTaskViewController.swift; sourceTree = "<group>"; };
+		55B7AAC12C256609002B6964 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
+		55B7AAC32C256611002B6964 /* QuickQuiz.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QuickQuiz.storyboard; sourceTree = "<group>"; };
+		55B7AAC52C25661A002B6964 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		55B7AAC72C256623002B6964 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		55B7AAC92C25662B002B6964 /* WheelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelViewController.swift; sourceTree = "<group>"; };
 		55D474A42C2014A9000BE329 /* PercepTrail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PercepTrail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D474A72C2014A9000BE329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D474A92C2014A9000BE329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,7 +191,10 @@
 		559632192C2454F60016F826 /* Training */ = {
 			isa = PBXGroup;
 			children = (
-				55B7AA7B2C254CBE002B6964 /* QuickQuiz */,
+				55B7AAAA2C256373002B6964 /* QuickQuiz */,
+				55B7AAA52C256317002B6964 /* GroupTask */,
+				55B7AAA02C25627D002B6964 /* SiteVisit */,
+				55B7AA9B2C2561E4002B6964 /* TakePhone */,
 				559632172C2454C50016F826 /* Training.storyboard */,
 				5596320F2C244D3E0016F826 /* TrainingMainViewController.swift */,
 				5596321D2C2455760016F826 /* Components */,
@@ -208,6 +231,45 @@
 			children = (
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		55B7AA9B2C2561E4002B6964 /* TakePhone */ = {
+			isa = PBXGroup;
+			children = (
+				55B7AAB72C25652F002B6964 /* TakePhoneViewController.swift */,
+				55B7AAB52C256522002B6964 /* TakePhone.storyboard */,
+			);
+			path = TakePhone;
+			sourceTree = "<group>";
+		};
+		55B7AAA02C25627D002B6964 /* SiteVisit */ = {
+			isa = PBXGroup;
+			children = (
+				55B7AAB92C2565DD002B6964 /* SiteVisit.storyboard */,
+				55B7AABB2C2565E9002B6964 /* SiteVisitViewController.swift */,
+			);
+			path = SiteVisit;
+			sourceTree = "<group>";
+		};
+		55B7AAA52C256317002B6964 /* GroupTask */ = {
+			isa = PBXGroup;
+			children = (
+				55B7AABD2C2565F7002B6964 /* GroupTask.storyboard */,
+				55B7AABF2C2565FF002B6964 /* GroupTaskViewController.swift */,
+			);
+			path = GroupTask;
+			sourceTree = "<group>";
+		};
+		55B7AAAA2C256373002B6964 /* QuickQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				55B7AAC32C256611002B6964 /* QuickQuiz.storyboard */,
+				55B7AAC92C25662B002B6964 /* WheelViewController.swift */,
+				55B7AAC72C256623002B6964 /* TimerViewController.swift */,
+				55B7AAC12C256609002B6964 /* LevelViewController.swift */,
+				55B7AAC52C25661A002B6964 /* SummaryViewController.swift */,
+			);
+			path = QuickQuiz;
 			sourceTree = "<group>";
 		};
 		55D4749B2C2014A9000BE329 = {
@@ -376,16 +438,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B7AAC42C256611002B6964 /* QuickQuiz.storyboard in Resources */,
 				55D474B12C2014AA000BE329 /* Assets.xcassets in Resources */,
 				55D474B42C2014AA000BE329 /* Base in Resources */,
 				559632122C2453CC0016F826 /* Trophy.storyboard in Resources */,
 				559632182C2454C50016F826 /* Training.storyboard in Resources */,
 				55D474AF2C2014A9000BE329 /* Base in Resources */,
-				55B7AA7C2C254CBE002B6964 /* QuickQuiz in Resources */,
+				55B7AAB62C256522002B6964 /* TakePhone.storyboard in Resources */,
 				5589E14F2C22E34400D56AC8 /* Initial.storyboard in Resources */,
 				559632142C2454270016F826 /* Store.storyboard in Resources */,
 				5589E14E2C22E33400D56AC8 /* Main.storyboard in Resources */,
 				559632162C24545C0016F826 /* PersonInfo.storyboard in Resources */,
+				55B7AABA2C2565DD002B6964 /* SiteVisit.storyboard in Resources */,
+				55B7AABE2C2565F7002B6964 /* GroupTask.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,13 +462,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5507D8C72C208BE800A47FA3 /* RequestError.swift in Sources */,
+				55B7AABC2C2565E9002B6964 /* SiteVisitViewController.swift in Sources */,
 				5589E1592C22FECF00D56AC8 /* HeightViewController.swift in Sources */,
 				5507D8D22C2142FA00A47FA3 /* GeneralResponse.swift in Sources */,
 				5507D8C12C208B9300A47FA3 /* Encodable+JsonToDict.swift in Sources */,
+				55B7AAC02C2565FF002B6964 /* GroupTaskViewController.swift in Sources */,
 				55D475302C20224C000BE329 /* UserPreferences.swift in Sources */,
 				5589E1652C2303D900D56AC8 /* PrivacyConsentViewController.swift in Sources */,
 				55D475482C204C61000BE329 /* UIColor+Custom.swift in Sources */,
+				55B7AAB82C25652F002B6964 /* TakePhoneViewController.swift in Sources */,
+				55B7AACA2C25662B002B6964 /* WheelViewController.swift in Sources */,
 				5589E15F2C22FF0700D56AC8 /* MedicationUsageViewController.swift in Sources */,
+				55B7AAC82C256623002B6964 /* TimerViewController.swift in Sources */,
 				5589E1532C22FE5800D56AC8 /* NicknameViewController.swift in Sources */,
 				5589E1512C22E61100D56AC8 /* WelcomeViewController.swift in Sources */,
 				55D4754D2C2077A9000BE329 /* CommandBase.swift in Sources */,
@@ -424,9 +494,11 @@
 				5507D8CA2C208C9000A47FA3 /* ContentType.swift in Sources */,
 				5589E1552C22FEB000D56AC8 /* BirthDateViewController.swift in Sources */,
 				5589E15B2C22FEE000D56AC8 /* WeightViewController.swift in Sources */,
+				55B7AAC22C256609002B6964 /* LevelViewController.swift in Sources */,
 				5589E1612C22FF1700D56AC8 /* ActivityLevelViewController.swift in Sources */,
 				5507D8CC2C208CB000A47FA3 /* HeaderFields.swift in Sources */,
 				5589E1632C22FF2400D56AC8 /* ResidenceViewController.swift in Sources */,
+				55B7AAC62C25661A002B6964 /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
