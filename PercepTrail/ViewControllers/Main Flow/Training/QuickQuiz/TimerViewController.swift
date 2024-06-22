@@ -16,6 +16,7 @@ class TimerViewController: UIViewController {
     
     // MARK: - Properties
     
+    var prizeName: String?
     
     
     // MARK: - LifeCycle
@@ -28,18 +29,28 @@ class TimerViewController: UIViewController {
     // MARK: - UI Settings
     
     fileprivate func setupUI() {
-        
+        lbTimer.text = "計時：\(prizeName ?? "無資料")"
     }
     
     // MARK: - IBAction
     
     @IBAction func pushToLevelVC(_ sender: Any) {
+        performSegue(withIdentifier: "pushToLevelVC", sender: nil)
     }
     
     
     // MARK: - Function
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pushToLevelVC" {
+            if let levelVC = segue.destination as? LevelViewController {
+                if let firstChar = prizeName?.first, let firstNumber = Int(String(firstChar)) {
+                    levelVC.prizeTime = firstNumber
+                }
+            }
+        }
+    }
+
     
 }
 

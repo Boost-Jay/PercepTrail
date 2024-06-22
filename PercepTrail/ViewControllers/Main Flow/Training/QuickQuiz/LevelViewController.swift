@@ -20,6 +20,7 @@ class LevelViewController: UIViewController {
     
     // MARK: - Properties
     
+    var prizeTime: Int?
     
     
     // MARK: - LifeCycle
@@ -27,6 +28,8 @@ class LevelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        print(prizeTime)
     }
     
     // MARK: - UI Settings

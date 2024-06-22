@@ -41,7 +41,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="spinWheel:" destination="4DC-Iz-A7H" eventType="touchUpInside" id="tfD-br-Xeb"/>
+                                    <action selector="rotateTap:" destination="4DC-Iz-A7H" eventType="touchUpInside" id="tfD-br-Xeb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快問快答" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Py-GM-Jj9">
@@ -50,22 +50,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPU-b5-kvc">
-                                <rect key="frame" x="24" y="266" width="345" height="345"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPU-b5-kvc" customClass="SwiftFortuneWheel" customModule="SwiftFortuneWheel">
+                                <rect key="frame" x="24" y="279" width="319" height="319"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="darkBlueRightPinImage" translatesAutoresizingMaskIntoConstraints="NO" id="EVS-Kx-3CS">
+                                <rect key="frame" x="335" y="415.33333333333331" width="46.333333333333314" height="46.333333333333314"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fpc-em-Aul"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wPU-b5-kvc" firstAttribute="centerY" secondItem="fpc-em-Aul" secondAttribute="centerY" id="0rk-Mb-D6q"/>
-                            <constraint firstItem="wPU-b5-kvc" firstAttribute="height" secondItem="XcF-bd-sWt" secondAttribute="height" multiplier="0.40493" id="7ch-pZ-KsZ"/>
                             <constraint firstItem="0Py-GM-Jj9" firstAttribute="height" secondItem="fpc-em-Aul" secondAttribute="height" multiplier="0.101449" id="Bzm-MA-xWu"/>
+                            <constraint firstItem="wPU-b5-kvc" firstAttribute="height" secondItem="XcF-bd-sWt" secondAttribute="height" multiplier="0.374413" id="Gsc-96-xcJ"/>
                             <constraint firstItem="0Py-GM-Jj9" firstAttribute="leading" secondItem="fpc-em-Aul" secondAttribute="leading" constant="24" id="PfW-pt-LCR"/>
+                            <constraint firstItem="EVS-Kx-3CS" firstAttribute="width" secondItem="wPU-b5-kvc" secondAttribute="width" multiplier="0.144928" id="a6g-2F-SfQ"/>
+                            <constraint firstItem="EVS-Kx-3CS" firstAttribute="leading" secondItem="wPU-b5-kvc" secondAttribute="trailing" constant="-8" id="b10-jn-r6Y"/>
                             <constraint firstItem="CAP-aN-Mf5" firstAttribute="height" secondItem="XcF-bd-sWt" secondAttribute="height" multiplier="0.0762911" id="b4z-y8-PgZ"/>
-                            <constraint firstItem="fpc-em-Aul" firstAttribute="trailing" secondItem="wPU-b5-kvc" secondAttribute="trailing" constant="24" id="dno-z4-w8d"/>
+                            <constraint firstItem="EVS-Kx-3CS" firstAttribute="height" secondItem="wPU-b5-kvc" secondAttribute="height" multiplier="0.144928" id="bLb-PL-eZo"/>
+                            <constraint firstItem="fpc-em-Aul" firstAttribute="trailing" secondItem="wPU-b5-kvc" secondAttribute="trailing" constant="50" id="dno-z4-w8d"/>
                             <constraint firstItem="fpc-em-Aul" firstAttribute="trailing" secondItem="CAP-aN-Mf5" secondAttribute="trailing" constant="24" id="doB-Dy-Vxz"/>
                             <constraint firstItem="fpc-em-Aul" firstAttribute="bottom" secondItem="CAP-aN-Mf5" secondAttribute="bottom" constant="32" id="ig1-zZ-Ahq"/>
+                            <constraint firstItem="EVS-Kx-3CS" firstAttribute="centerY" secondItem="wPU-b5-kvc" secondAttribute="centerY" id="jVk-uN-0S2"/>
                             <constraint firstItem="fpc-em-Aul" firstAttribute="trailing" secondItem="0Py-GM-Jj9" secondAttribute="trailing" constant="24" id="mbP-hZ-8jH"/>
                             <constraint firstItem="0Py-GM-Jj9" firstAttribute="top" secondItem="fpc-em-Aul" secondAttribute="top" constant="64" id="rFF-hQ-nbr"/>
                             <constraint firstItem="wPU-b5-kvc" firstAttribute="leading" secondItem="fpc-em-Aul" secondAttribute="leading" constant="24" id="u0j-gM-vSx"/>
@@ -75,6 +82,7 @@
                     <navigationItem key="navigationItem" id="bSw-u4-dHZ"/>
                     <connections>
                         <outlet property="vWheel" destination="wPU-b5-kvc" id="Tgh-zo-9Fg"/>
+                        <segue destination="pJU-qd-VKu" kind="show" identifier="pushToTimerVC" id="jol-lw-n7k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FvC-JT-wkv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -90,20 +98,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快問快答" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdb-JU-72F">
-                                <rect key="frame" x="24" y="123" width="345" height="78"/>
+                                <rect key="frame" x="24" y="64" width="345" height="87.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="64"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="計時3分鐘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujR-KS-CdS">
-                                <rect key="frame" x="0.0" y="400" width="393" height="77"/>
+                                <rect key="frame" x="0.0" y="362" width="393" height="128"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="64"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOu-8y-gfe">
-                                <rect key="frame" x="24" y="720.33333333333337" width="345" height="65.666666666666629"/>
+                                <rect key="frame" x="24" y="754.33333333333337" width="345" height="65.666666666666629"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
@@ -135,7 +143,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="SL3-ll-2FY" firstAttribute="trailing" secondItem="Fdb-JU-72F" secondAttribute="trailing" constant="24" id="3bh-9I-NcR"/>
-                            <constraint firstItem="ujR-KS-CdS" firstAttribute="height" secondItem="vqB-jY-27g" secondAttribute="height" multiplier="0.0903756" id="8JH-nR-Wgo"/>
+                            <constraint firstItem="ujR-KS-CdS" firstAttribute="height" secondItem="vqB-jY-27g" secondAttribute="height" multiplier="0.15" id="8JH-nR-Wgo"/>
                             <constraint firstItem="Fdb-JU-72F" firstAttribute="top" secondItem="SL3-ll-2FY" secondAttribute="top" constant="64" id="DsF-hr-qEL"/>
                             <constraint firstItem="SL3-ll-2FY" firstAttribute="trailing" secondItem="wOu-8y-gfe" secondAttribute="trailing" constant="24" id="MXd-2u-pHa"/>
                             <constraint firstItem="ujR-KS-CdS" firstAttribute="leading" secondItem="SL3-ll-2FY" secondAttribute="leading" id="Mij-db-cgu"/>
@@ -151,6 +159,7 @@
                     <navigationItem key="navigationItem" id="N1f-9k-qiA"/>
                     <connections>
                         <outlet property="lbTimer" destination="ujR-KS-CdS" id="IeT-q4-AEw"/>
+                        <segue destination="25Z-ZW-kEV" kind="show" identifier="pushToLevelVC" id="8Oo-F7-w9w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8S-vM-soL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -162,11 +171,11 @@
             <objects>
                 <viewController storyboardIdentifier="LevelViewController" id="25Z-ZW-kEV" customClass="LevelViewController" customModule="PercepTrail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FdS-qc-NDe">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLE-U6-biY">
-                                <rect key="frame" x="24" y="632.66666666666663" width="149" height="153.33333333333337"/>
+                                <rect key="frame" x="24" y="658.33333333333337" width="149" height="151.66666666666663"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
@@ -194,7 +203,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epu-k4-ltR">
-                                <rect key="frame" x="220" y="632.66666666666663" width="149" height="153.33333333333337"/>
+                                <rect key="frame" x="220" y="658.33333333333337" width="149" height="151.66666666666663"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
@@ -222,26 +231,26 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="51e-KD-723">
-                                <rect key="frame" x="16" y="87" width="120" height="120"/>
+                                <rect key="frame" x="16" y="28.000000000000007" width="120" height="118.66666666666669"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PwG-fd-IQc">
-                                <rect key="frame" x="8" y="399.66666666666669" width="377" height="209.00000000000006"/>
+                                <rect key="frame" x="8" y="427.99999999999994" width="377" height="206.33333333333331"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLk-RV-Tyf">
-                                <rect key="frame" x="0.0" y="229" width="393" height="50"/>
+                                <rect key="frame" x="0.0" y="168.66666666666666" width="393" height="49.333333333333343"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="HJ8-ZA-WwF">
-                                <rect key="frame" x="150" y="90" width="243" height="114"/>
+                                <rect key="frame" x="150" y="31.000000000000007" width="243" height="112.66666666666669"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快問快答" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDo-Cr-Z2N">
-                                <rect key="frame" x="210.66666666666663" y="129" width="122" height="36"/>
+                                <rect key="frame" x="210.66666666666663" y="69.666666666666671" width="122" height="35.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="計時3分鐘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvu-OV-otQ">
-                                <rect key="frame" x="8" y="298" width="377" height="77"/>
+                                <rect key="frame" x="8" y="327" width="377" height="76.333333333333314"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <nil key="textColor"/>
@@ -289,6 +298,7 @@
                     <connections>
                         <outlet property="imgQuestion" destination="PwG-fd-IQc" id="4b4-QR-bhx"/>
                         <outlet property="lbHint" destination="ZDo-Cr-Z2N" id="ARt-fB-Qha"/>
+                        <outlet property="lbQuestion" destination="Mvu-OV-otQ" id="LZU-vx-b3B"/>
                         <outlet property="vProgressStrip" destination="DLk-RV-Tyf" id="eaw-Mr-71c"/>
                     </connections>
                 </viewController>
@@ -416,6 +426,7 @@
     </scenes>
     <resources>
         <image name="bubble" width="128" height="128"/>
+        <image name="darkBlueRightPinImage" width="29" height="25"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
