@@ -62,7 +62,7 @@ class TimerViewController: UIViewController {
 
 @available(iOS 17.0, *)
 #Preview {
-    let vc = UIStoryboard(name: "Main", bundle: nil)
+    let vc = UIStoryboard(name: "QuickQuiz", bundle: nil)
     return vc.instantiateViewController(withIdentifier: "TimerViewController")
 }
 

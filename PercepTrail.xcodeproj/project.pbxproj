@@ -36,7 +36,6 @@
 		559632182C2454C50016F826 /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559632172C2454C50016F826 /* Training.storyboard */; };
 		55B7AA7F2C255001002B6964 /* SwiftFortuneWheel in Frameworks */ = {isa = PBXBuildFile; productRef = 55B7AA7E2C255001002B6964 /* SwiftFortuneWheel */; };
 		55B7AA822C25518E002B6964 /* MKRingProgressView in Frameworks */ = {isa = PBXBuildFile; productRef = 55B7AA812C25518E002B6964 /* MKRingProgressView */; };
-		55B7AA852C2553F3002B6964 /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 55B7AA842C2553F3002B6964 /* ProgressIndicatorView */; };
 		55B7AAB62C256522002B6964 /* TakePhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AAB52C256522002B6964 /* TakePhone.storyboard */; };
 		55B7AAB82C25652F002B6964 /* TakePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAB72C25652F002B6964 /* TakePhoneViewController.swift */; };
 		55B7AABA2C2565DD002B6964 /* SiteVisit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AAB92C2565DD002B6964 /* SiteVisit.storyboard */; };
@@ -48,6 +47,8 @@
 		55B7AAC62C25661A002B6964 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAC52C25661A002B6964 /* SummaryViewController.swift */; };
 		55B7AAC82C256623002B6964 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAC72C256623002B6964 /* TimerViewController.swift */; };
 		55B7AACA2C25662B002B6964 /* WheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAC92C25662B002B6964 /* WheelViewController.swift */; };
+		55BEF15D2C266B2200DA811B /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 55BEF15C2C266B2200DA811B /* ProgressIndicatorView */; };
+		55BEF1702C268E1D00DA811B /* RingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF16F2C268E1D00DA811B /* RingStatus.swift */; };
 		55D474A82C2014A9000BE329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D474A72C2014A9000BE329 /* AppDelegate.swift */; };
 		55D474AA2C2014A9000BE329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D474A92C2014A9000BE329 /* SceneDelegate.swift */; };
 		55D474AF2C2014A9000BE329 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 55D474AE2C2014A9000BE329 /* Base */; };
@@ -102,6 +103,7 @@
 		55B7AAC52C25661A002B6964 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		55B7AAC72C256623002B6964 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		55B7AAC92C25662B002B6964 /* WheelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelViewController.swift; sourceTree = "<group>"; };
+		55BEF16F2C268E1D00DA811B /* RingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingStatus.swift; sourceTree = "<group>"; };
 		55D474A42C2014A9000BE329 /* PercepTrail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PercepTrail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D474A72C2014A9000BE329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D474A92C2014A9000BE329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,7 +128,7 @@
 			files = (
 				55B7AA7F2C255001002B6964 /* SwiftFortuneWheel in Frameworks */,
 				55B7AA822C25518E002B6964 /* MKRingProgressView in Frameworks */,
-				55B7AA852C2553F3002B6964 /* ProgressIndicatorView in Frameworks */,
+				55BEF15D2C266B2200DA811B /* ProgressIndicatorView in Frameworks */,
 				55D475552C207D7A000BE329 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,8 +270,17 @@
 				55B7AAC72C256623002B6964 /* TimerViewController.swift */,
 				55B7AAC12C256609002B6964 /* LevelViewController.swift */,
 				55B7AAC52C25661A002B6964 /* SummaryViewController.swift */,
+				55BEF16E2C268DF600DA811B /* Components */,
 			);
 			path = QuickQuiz;
+			sourceTree = "<group>";
+		};
+		55BEF16E2C268DF600DA811B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				55BEF16F2C268E1D00DA811B /* RingStatus.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		55D4749B2C2014A9000BE329 = {
@@ -388,7 +399,7 @@
 				55D475542C207D7A000BE329 /* IQKeyboardManagerSwift */,
 				55B7AA7E2C255001002B6964 /* SwiftFortuneWheel */,
 				55B7AA812C25518E002B6964 /* MKRingProgressView */,
-				55B7AA842C2553F3002B6964 /* ProgressIndicatorView */,
+				55BEF15C2C266B2200DA811B /* ProgressIndicatorView */,
 			);
 			productName = PercepTrail;
 			productReference = 55D474A42C2014A9000BE329 /* PercepTrail.app */;
@@ -422,7 +433,7 @@
 				55D475532C207D7A000BE329 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				55B7AA7D2C255001002B6964 /* XCRemoteSwiftPackageReference "SwiftFortuneWheel" */,
 				55B7AA802C25518E002B6964 /* XCRemoteSwiftPackageReference "MKRingProgressView" */,
-				55B7AA832C2553F3002B6964 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
+				55BEF15B2C266B2200DA811B /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
 			);
 			productRefGroup = 55D474A52C2014A9000BE329 /* Products */;
 			projectDirPath = "";
@@ -470,6 +481,7 @@
 				55D475302C20224C000BE329 /* UserPreferences.swift in Sources */,
 				5589E1652C2303D900D56AC8 /* PrivacyConsentViewController.swift in Sources */,
 				55D475482C204C61000BE329 /* UIColor+Custom.swift in Sources */,
+				55BEF1702C268E1D00DA811B /* RingStatus.swift in Sources */,
 				55B7AAB82C25652F002B6964 /* TakePhoneViewController.swift in Sources */,
 				55B7AACA2C25662B002B6964 /* WheelViewController.swift in Sources */,
 				5589E15F2C22FF0700D56AC8 /* MedicationUsageViewController.swift in Sources */,
@@ -739,12 +751,12 @@
 				version = 2.3.0;
 			};
 		};
-		55B7AA832C2553F3002B6964 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */ = {
+		55BEF15B2C266B2200DA811B /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/exyte/ProgressIndicatorView.git";
+			repositoryURL = "https://github.com/Boost-Jay/ProgressIndicatorView.git";
 			requirement = {
-				kind = exactVersion;
-				version = 1.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 		55D475532C207D7A000BE329 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
@@ -768,9 +780,9 @@
 			package = 55B7AA802C25518E002B6964 /* XCRemoteSwiftPackageReference "MKRingProgressView" */;
 			productName = MKRingProgressView;
 		};
-		55B7AA842C2553F3002B6964 /* ProgressIndicatorView */ = {
+		55BEF15C2C266B2200DA811B /* ProgressIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 55B7AA832C2553F3002B6964 /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */;
+			package = 55BEF15B2C266B2200DA811B /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */;
 			productName = ProgressIndicatorView;
 		};
 		55D475542C207D7A000BE329 /* IQKeyboardManagerSwift */ = {

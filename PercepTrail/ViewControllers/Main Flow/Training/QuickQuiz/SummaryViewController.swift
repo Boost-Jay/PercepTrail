@@ -8,53 +8,90 @@
 import UIKit
 import MKRingProgressView
 
+@IBDesignable
 class SummaryViewController: UIViewController {
     
     // MARK: - IBOutlet
     
     @IBOutlet weak var lbTotalPoints: UILabel!
-    
+    @IBOutlet weak var vPointRing: RingProgressView!
     
     // MARK: - Properties
     
-    
+    var correctCount: Int = 0
+    var incorrectCount: Int = 0
+    var maxPoint: Int = 0
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calculatePoints()
         setupUI()
-    }
-    
-    // MARK: - UI Settings
-    
-    fileprivate func setupUI() {
-        
     }
     
     // MARK: - IBAction
     
-    @IBAction func pushToTrainingVC(_ sender: Any) {
+    @IBAction func homeButtonPressed(_ unwindSegue: UIStoryboardSegue) {
+        let storyboard = UIStoryboard(name: "Training", bundle: nil)
+        if let homeVC = storyboard.instantiateViewController(withIdentifier: "TrainingMainViewController") as? TrainingMainViewController {
+            present(homeVC, animated: true, completion: nil)
+        }
     }
     
+    // MARK: - Functions
     
-    // MARK: - Function
+    fileprivate func calculatePoints() {
+        let pointsFromCorrect = correctCount * 100
+        let pointsFromIncorrect = incorrectCount * 50
+        maxPoint = pointsFromCorrect - pointsFromIncorrect
+        
+        if maxPoint < 0 {
+            maxPoint = 20
+        }
+    }
     
+    fileprivate func setupUI() {
+        vPointRing.progress = 0.0
+        lbTotalPoints.text = "+ \(maxPoint)"
+        updateProgressAnimated()
+    }
     
+    private func updateProgressAnimated() {
+        let finalProgress = calculateFinalProgress()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            UIView.animate(withDuration: 2.0) {
+                self.vPointRing.progress = finalProgress
+            }
+        }
+        
+        if maxPoint > UserPreferences.shared.maxPoint {
+            UserPreferences.shared.maxPoint = maxPoint
+        }
+    }
     
+    private func calculateFinalProgress() -> Double {
+        var progress: Double
+        if UserPreferences.shared.maxPoint == 0 {
+            UserPreferences.shared.maxPoint = maxPoint
+            progress = 1.0
+        } else {
+            let maxPointPreference = UserPreferences.shared.maxPoint
+            progress = Double(maxPoint) / Double(maxPointPreference)
+        }
+        
+        if progress > 3 {
+            progress = 3.0
+        }
+        
+        let formattedProgress = String(format: "%.2f", progress)
+        return Double(formattedProgress) ?? progress
+    }
+
 }
-
-// MARK: - Extensions
-
-
-
-// MARK: - Protocols
 
 @available(iOS 17.0, *)
 #Preview {
-    let vc = UIStoryboard(name: "Main", bundle: nil)
+    let vc = UIStoryboard(name: "QuickQuiz", bundle: nil)
     return vc.instantiateViewController(withIdentifier: "SummaryViewController")
 }
-
-
-

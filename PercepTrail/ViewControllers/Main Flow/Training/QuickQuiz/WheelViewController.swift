@@ -146,8 +146,8 @@ extension SFWConfiguration {
 
 @available(iOS 17.0, *)
 #Preview {
-    let vc = UIStoryboard(name: "Main", bundle: nil)
-    return vc.instantiateViewController(withIdentifier: "QuickQuizViewController")
+    let vc = UIStoryboard(name: "QuickQuiz", bundle: nil)
+    return vc.instantiateViewController(withIdentifier: "WheelViewController")
 }
 
 
