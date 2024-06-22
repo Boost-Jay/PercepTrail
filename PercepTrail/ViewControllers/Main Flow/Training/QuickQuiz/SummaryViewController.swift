@@ -8,7 +8,6 @@
 import UIKit
 import MKRingProgressView
 
-@IBDesignable
 class SummaryViewController: UIViewController {
     
     // MARK: - IBOutlet
@@ -33,8 +32,8 @@ class SummaryViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func homeButtonPressed(_ unwindSegue: UIStoryboardSegue) {
-        let storyboard = UIStoryboard(name: "Training", bundle: nil)
-        if let homeVC = storyboard.instantiateViewController(withIdentifier: "TrainingMainViewController") as? TrainingMainViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
             present(homeVC, animated: true, completion: nil)
         }
     }
@@ -59,6 +58,7 @@ class SummaryViewController: UIViewController {
     
     private func updateProgressAnimated() {
         let finalProgress = calculateFinalProgress()
+        print("finalProgress: \(finalProgress)")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             UIView.animate(withDuration: 2.0) {
                 self.vPointRing.progress = finalProgress

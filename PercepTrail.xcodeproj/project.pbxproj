@@ -63,6 +63,8 @@
 		55D475512C207962000BE329 /* Alert+AddMultipleActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D475502C207961000BE329 /* Alert+AddMultipleActions.swift */; };
 		55D475552C207D7A000BE329 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 55D475542C207D7A000BE329 /* IQKeyboardManagerSwift */; };
 		55DB49B92C245BE700397C97 /* NewLaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB49B82C245BE700397C97 /* NewLaunchScreenViewController.swift */; };
+		7B3ED5BF2C26EA150066149A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3ED5BE2C26EA150066149A /* MainTabBarController.swift */; };
+		7B3ED5C12C26EE120066149A /* UIImage+Resized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3ED5C02C26EE120066149A /* UIImage+Resized.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +121,8 @@
 		55D4754E2C2077DF000BE329 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		55D475502C207961000BE329 /* Alert+AddMultipleActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+AddMultipleActions.swift"; sourceTree = "<group>"; };
 		55DB49B82C245BE700397C97 /* NewLaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLaunchScreenViewController.swift; sourceTree = "<group>"; };
+		7B3ED5BE2C26EA150066149A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		7B3ED5C02C26EE120066149A /* UIImage+Resized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resized.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,18 +312,11 @@
 				55D474B52C2014AA000BE329 /* Info.plist */,
 				55D4754B2C207786000BE329 /* Utilities */,
 				55D4752C2C2019AF000BE329 /* Models */,
-				55D4752A2C201908000BE329 /* Components */,
+				7B3ED5BB2C26E94F0066149A /* Components */,
 				55D4752D2C2019B7000BE329 /* ViewControllers */,
 				55D4752B2C20192C000BE329 /* Resources */,
 			);
 			path = PercepTrail;
-			sourceTree = "<group>";
-		};
-		55D4752A2C201908000BE329 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		55D4752B2C20192C000BE329 /* Resources */ = {
@@ -358,6 +355,7 @@
 				55D475472C204C61000BE329 /* UIColor+Custom.swift */,
 				55D475492C2073CA000BE329 /* Notification+CustomName.swift */,
 				55D475502C207961000BE329 /* Alert+AddMultipleActions.swift */,
+				7B3ED5C02C26EE120066149A /* UIImage+Resized.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -377,6 +375,14 @@
 				5507D8D12C2142FA00A47FA3 /* GeneralResponse.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		7B3ED5BB2C26E94F0066149A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7B3ED5BE2C26EA150066149A /* MainTabBarController.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,6 +480,7 @@
 			files = (
 				5507D8C72C208BE800A47FA3 /* RequestError.swift in Sources */,
 				55B7AABC2C2565E9002B6964 /* SiteVisitViewController.swift in Sources */,
+				7B3ED5BF2C26EA150066149A /* MainTabBarController.swift in Sources */,
 				5589E1592C22FECF00D56AC8 /* HeightViewController.swift in Sources */,
 				5507D8D22C2142FA00A47FA3 /* GeneralResponse.swift in Sources */,
 				5507D8C12C208B9300A47FA3 /* Encodable+JsonToDict.swift in Sources */,
@@ -495,6 +502,7 @@
 				5507D8C32C208BAB00A47FA3 /* ErrorType.swift in Sources */,
 				5589E15D2C22FEF100D56AC8 /* ChronicConditionViewController.swift in Sources */,
 				55D474A82C2014A9000BE329 /* AppDelegate.swift in Sources */,
+				7B3ED5C12C26EE120066149A /* UIImage+Resized.swift in Sources */,
 				55D4754F2C2077DF000BE329 /* Alert.swift in Sources */,
 				55D474AA2C2014A9000BE329 /* SceneDelegate.swift in Sources */,
 				55D475512C207962000BE329 /* Alert+AddMultipleActions.swift in Sources */,
