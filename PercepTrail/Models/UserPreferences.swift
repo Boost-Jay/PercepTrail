@@ -25,10 +25,18 @@ final class UserPreferences {
     
     enum PreferenceKey: String {
         case maxPoint
+        
+        case TotalScore
     }
     
     var maxPoint: Int {
         get { userPreference.integer(forKey: PreferenceKey.maxPoint.rawValue) }
         set { userPreference.set(newValue, forKey: PreferenceKey.maxPoint.rawValue) }
+    }
+    
+    
+    var TotalScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.TotalScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.TotalScore.rawValue) }
     }
 }

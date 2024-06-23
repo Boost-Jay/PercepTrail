@@ -29,27 +29,6 @@ class SummaryViewController: UIViewController {
         setupUI()
     }
     
-    // MARK: - IBAction
-    
-    @IBAction func homeButtonPressed(_ unwindSegue: UIStoryboardSegue) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
-            present(homeVC, animated: true, completion: nil)
-        }
-    }
-    
-    // MARK: - Functions
-    
-    fileprivate func calculatePoints() {
-        let pointsFromCorrect = correctCount * 100
-        let pointsFromIncorrect = incorrectCount * 50
-        maxPoint = pointsFromCorrect - pointsFromIncorrect
-        
-        if maxPoint < 0 {
-            maxPoint = 20
-        }
-    }
-    
     fileprivate func setupUI() {
         vPointRing.progress = 0.0
         lbTotalPoints.text = "+ \(maxPoint)"
@@ -70,6 +49,29 @@ class SummaryViewController: UIViewController {
         }
     }
     
+    // MARK: - IBAction
+    
+    @IBAction func homeButtonPressed(_ unwindSegue: UIStoryboardSegue) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
+            present(homeVC, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Functions
+    
+    fileprivate func calculatePoints() {
+        let pointsFromCorrect = correctCount * 100
+        let pointsFromIncorrect = incorrectCount * 50
+        maxPoint = pointsFromCorrect - pointsFromIncorrect
+        
+        UserPreferences.shared.TotalScore += maxPoint
+        
+        if maxPoint < 0 {
+            maxPoint = 20
+        }
+    }
+    
     private func calculateFinalProgress() -> Double {
         var progress: Double
         if UserPreferences.shared.maxPoint == 0 {
@@ -87,7 +89,6 @@ class SummaryViewController: UIViewController {
         let formattedProgress = String(format: "%.2f", progress)
         return Double(formattedProgress) ?? progress
     }
-
 }
 
 @available(iOS 17.0, *)

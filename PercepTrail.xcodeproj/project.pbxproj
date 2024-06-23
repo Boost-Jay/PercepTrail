@@ -65,6 +65,8 @@
 		55DB49B92C245BE700397C97 /* NewLaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB49B82C245BE700397C97 /* NewLaunchScreenViewController.swift */; };
 		7B3ED5BF2C26EA150066149A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3ED5BE2C26EA150066149A /* MainTabBarController.swift */; };
 		7B3ED5C12C26EE120066149A /* UIImage+Resized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3ED5C02C26EE120066149A /* UIImage+Resized.swift */; };
+		7B77263D2C28028500D71DCB /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 7B77263C2C28028500D71DCB /* SQLite */; };
+		7B7726402C28089500D71DCB /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77263F2C28089500D71DCB /* LocalDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +125,7 @@
 		55DB49B82C245BE700397C97 /* NewLaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLaunchScreenViewController.swift; sourceTree = "<group>"; };
 		7B3ED5BE2C26EA150066149A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7B3ED5C02C26EE120066149A /* UIImage+Resized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resized.swift"; sourceTree = "<group>"; };
+		7B77263F2C28089500D71DCB /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B77263D2C28028500D71DCB /* SQLite in Frameworks */,
 				55B7AA7F2C255001002B6964 /* SwiftFortuneWheel in Frameworks */,
 				55B7AA822C25518E002B6964 /* MKRingProgressView in Frameworks */,
 				55BEF15D2C266B2200DA811B /* ProgressIndicatorView in Frameworks */,
@@ -330,6 +334,7 @@
 		55D4752C2C2019AF000BE329 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7B77263E2C28087900D71DCB /* Database */,
 				55D475522C207CF7000BE329 /* API */,
 				5507D8AE2C208A4900A47FA3 /* Network */,
 				55D4752E2C20220C000BE329 /* Extensions */,
@@ -385,6 +390,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		7B77263E2C28087900D71DCB /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7B77263F2C28089500D71DCB /* LocalDatabase.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -406,6 +419,7 @@
 				55B7AA7E2C255001002B6964 /* SwiftFortuneWheel */,
 				55B7AA812C25518E002B6964 /* MKRingProgressView */,
 				55BEF15C2C266B2200DA811B /* ProgressIndicatorView */,
+				7B77263C2C28028500D71DCB /* SQLite */,
 			);
 			productName = PercepTrail;
 			productReference = 55D474A42C2014A9000BE329 /* PercepTrail.app */;
@@ -440,6 +454,7 @@
 				55B7AA7D2C255001002B6964 /* XCRemoteSwiftPackageReference "SwiftFortuneWheel" */,
 				55B7AA802C25518E002B6964 /* XCRemoteSwiftPackageReference "MKRingProgressView" */,
 				55BEF15B2C266B2200DA811B /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
+				7B77263B2C28028500D71DCB /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 55D474A52C2014A9000BE329 /* Products */;
 			projectDirPath = "";
@@ -508,6 +523,7 @@
 				55D475512C207962000BE329 /* Alert+AddMultipleActions.swift in Sources */,
 				5507D8CE2C208CC400A47FA3 /* RequestMethod.swift in Sources */,
 				559632102C244D3E0016F826 /* TrainingMainViewController.swift in Sources */,
+				7B7726402C28089500D71DCB /* LocalDatabase.swift in Sources */,
 				5507D8D02C208D1600A47FA3 /* PercepTrailDataAPIClient.swift in Sources */,
 				55D4754A2C2073CA000BE329 /* Notification+CustomName.swift in Sources */,
 				5507D8C52C208BCF00A47FA3 /* PercepTrailNetworkManager.swift in Sources */,
@@ -775,6 +791,14 @@
 				version = 7.0.3;
 			};
 		};
+		7B77263B2C28028500D71DCB /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.15.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -797,6 +821,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 55D475532C207D7A000BE329 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		7B77263C2C28028500D71DCB /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B77263B2C28028500D71DCB /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

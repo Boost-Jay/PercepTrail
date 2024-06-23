@@ -8,6 +8,8 @@
 import UIKit
 import SwiftFortuneWheel
 
+// MARK: - WheelViewController
+
 class WheelViewController: UIViewController {
     
     // MARK: - IBOutlet
@@ -20,7 +22,6 @@ class WheelViewController: UIViewController {
             vWheel.isSpinEnabled = false
         }
     }
-    
     
     // MARK: - Properties
     
@@ -41,21 +42,13 @@ class WheelViewController: UIViewController {
     }()
     
     var finishIndex: Int {
-        return Int.random(in: 0..<vWheel.slices.count)
+        return Int.random(in: 0 ..< vWheel.slices.count)
     }
-    
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-    }
-    
-    // MARK: - UI Settings
-    
-    fileprivate func setupUI() {
-        
     }
     
     // MARK: - IBAction
@@ -76,9 +69,6 @@ class WheelViewController: UIViewController {
         }
     }
 
-
-    
-    
     // MARK: - Function
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,8 +98,8 @@ extension TextPreferences {
         }
     
         var textPreferences = TextPreferences(textColorType: textColorType,
-                                                 font: font,
-                                                 verticalOffset: 5)
+                                              font: font,
+                                              verticalOffset: 5)
         
         textPreferences.horizontalOffset = horizontalOffset
         textPreferences.orientation = .vertical
@@ -138,9 +128,7 @@ extension SFWConfiguration {
         
         wheelPreferences.imageAnchor = anchorImage
 
-        let configuration = SFWConfiguration(wheelPreferences: wheelPreferences, spinButtonPreferences: spin)
-
-        return configuration
+        return SFWConfiguration(wheelPreferences: wheelPreferences, spinButtonPreferences: spin)
     }
 }
 
@@ -149,6 +137,3 @@ extension SFWConfiguration {
     let vc = UIStoryboard(name: "QuickQuiz", bundle: nil)
     return vc.instantiateViewController(withIdentifier: "WheelViewController")
 }
-
-
-

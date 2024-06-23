@@ -5,15 +5,6 @@
 //  Created by 王柏崴 on 6/17/24.
 //
 
-import Foundation
-
-//
-//  Alert.swift
-//  gin-frontend
-//
-//  Created by 王柏崴 on 3/2/24.
-//
-
 import UIKit
 
 // MARK: - Alert

@@ -30,6 +30,7 @@ class TrainingMainViewController: UIViewController {
     // MARK: - UI Settings
     
     fileprivate func setupUI() {
+        lbTotalPoints.text = "\(UserPreferences.shared.TotalScore)"
     }
     
     // MARK: - IBAction
