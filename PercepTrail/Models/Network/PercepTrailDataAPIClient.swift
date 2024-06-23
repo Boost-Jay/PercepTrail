@@ -12,8 +12,8 @@ import Foundation
 enum PercepTrailDataAPIClient {
     static let httpBaseUrl = "http://"
     
-    /// local ip address
-    static let serverAdress = "127.0.0.1:8080"
+    /// OpenAI ip address
+    static let serverAdress = "api.openai.com"
     
     enum ContentType: String {
         case json = "application/json"
@@ -33,25 +33,24 @@ enum PercepTrailDataAPIClient {
         var endpoint: String {
             switch self {
             case .v1:
-                return "v1"
+                return "/v1"
             case .v2:
-                return "v2"
+                return "/v2"
             }
         }
         
         var description: String {
-            let base = "/api/"
-            return base + self.endpoint
+            return self.endpoint
         }
     }
     
     enum Endpoint {
-        case exampleData(ApiVersion)
+        case chatGPT4V(ApiVersion)
         
         var endpoint: String {
             switch self {
-            case .exampleData(let apiVersion):
-                return apiVersion.description + "/example/create"
+            case .chatGPT4V(let apiVersion):
+                return apiVersion.description + "/chat/completions"
             }
         }
     }

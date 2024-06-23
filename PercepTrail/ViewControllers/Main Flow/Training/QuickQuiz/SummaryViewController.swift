@@ -44,8 +44,8 @@ class SummaryViewController: UIViewController {
             }
         }
         
-        if maxPoint > UserPreferences.shared.maxPoint {
-            UserPreferences.shared.maxPoint = maxPoint
+        if maxPoint > UserPreferences.shared.QQScore {
+            UserPreferences.shared.QQScore = maxPoint
         }
     }
     
@@ -74,11 +74,11 @@ class SummaryViewController: UIViewController {
     
     private func calculateFinalProgress() -> Double {
         var progress: Double
-        if UserPreferences.shared.maxPoint == 0 {
-            UserPreferences.shared.maxPoint = maxPoint
+        if UserPreferences.shared.QQScore == 0 {
+            UserPreferences.shared.QQScore = maxPoint
             progress = 1.0
         } else {
-            let maxPointPreference = UserPreferences.shared.maxPoint
+            let maxPointPreference = UserPreferences.shared.QQScore
             progress = Double(maxPoint) / Double(maxPointPreference)
         }
         

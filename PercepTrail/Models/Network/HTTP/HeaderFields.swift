@@ -10,7 +10,7 @@ import Foundation
 enum HeaderFields: String, CustomStringConvertible {
     
     /// 定義 HTTP 標頭欄位
-    case authentication = "Authorization"
+    case authorization = "Authorization"
     
     case contentType = "Content-Type"
     

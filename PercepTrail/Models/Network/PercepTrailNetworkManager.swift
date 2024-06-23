@@ -23,13 +23,15 @@ final class NetworkManager {
     func requestData<E, D>(method: RequestMethod,
                            path: ClientAPI.Endpoint,
                            parameters: E,
+                           needToken: Bool,
                            finish: @escaping (Result<D, Error>) -> Void)
         where E: Encodable, D: Decodable {
         do {
             // 發送請求並獲取回應
             let request = try handleHttpMethod(method: method,
                                                path: path,
-                                               parameters: parameters)
+                                               parameters: parameters,
+                                               needToken: needToken)
             
             session.dataTask(with: request) { data, response, error in
                 
@@ -86,23 +88,27 @@ final class NetworkManager {
     }
     
     private func handleHttpMethod<E>(method: RequestMethod,
-                                     path: ClientAPI.Endpoint,
-                                     parameters: E) throws -> URLRequest
-        where E: Encodable {
-        let baseURL = ClientAPI.httpBaseUrl
-        let serverURL = ClientAPI.serverAdress
-        let endpoint = path.endpoint
-        guard let url = URL(string: baseURL + serverURL + endpoint) else {
-            throw URLError(.badURL)
-        }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = method.rawValue
-        let contentType = HeaderFields.contentType.rawValue
-        let json = ContentType.json.rawValue
-        urlRequest.allHTTPHeaderFields = [
-            contentType: json
-        ]
+                                         path: ClientAPI.Endpoint,
+                                         parameters: E,
+                                         needToken: Bool) throws -> URLRequest
+            where E: Encodable {
+            let baseURL = ClientAPI.httpBaseUrl
+            let serverURL = ClientAPI.serverAdress
+            let endpoint = path.endpoint
+            guard let url = URL(string: baseURL + serverURL + endpoint) else {
+                throw URLError(.badURL)
+            }
+            
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = method.rawValue
+            
+            var headers = [
+                HeaderFields.contentType.rawValue: ContentType.json.rawValue
+            ]
+            
+            if needToken {
+                headers[HeaderFields.authorization.rawValue] = "Bearer \(token)"
+            }
         
         // 將參數轉換為字典
         let parameters = try? parameters.toDictionary()
