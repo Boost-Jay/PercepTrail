@@ -12,6 +12,8 @@ final class NetworkManager {
     
     private let session: URLSession
     
+    private let token = ProcessInfo.processInfo.environment["API_TOKEN"] ?? ""
+
     private init() {
         let configuration = URLSessionConfiguration.default
         session = URLSession(configuration: configuration)
