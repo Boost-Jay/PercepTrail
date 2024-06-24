@@ -7,6 +7,7 @@
 
 import UIKit
 import MKRingProgressView
+import SDWebImage
 
 class SummaryViewController: UIViewController {
     
@@ -38,15 +39,10 @@ class SummaryViewController: UIViewController {
         setupImage()
     }
     
-    private func setupImage() {
-        imgPartner.alpha = 1.0
-        imgPartner.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.4)
-        imgPartner.layer.cornerRadius = 15
-        imgPartner.layer.masksToBounds = true
-        imgPartner.image = UIImage(named: "partner")
-        
-//        imageBG.image = UIImage(named: "bg")
+    fileprivate func setupImage() {
+        imgPartner.sd_setImage(with: URL(fileURLWithPath: Bundle.main.path(forResource: "summary", ofType: "gif")!))
     }
+
 
     
     private func updateProgressAnimated() {

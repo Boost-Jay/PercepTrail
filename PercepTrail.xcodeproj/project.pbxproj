@@ -49,6 +49,9 @@
 		55B7AACA2C25662B002B6964 /* WheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAC92C25662B002B6964 /* WheelViewController.swift */; };
 		55BEF15D2C266B2200DA811B /* ProgressIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 55BEF15C2C266B2200DA811B /* ProgressIndicatorView */; };
 		55BEF1702C268E1D00DA811B /* RingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF16F2C268E1D00DA811B /* RingStatus.swift */; };
+		55BEF1A02C292C1100DA811B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 55BEF19F2C292C1100DA811B /* SDWebImage */; };
+		55BEF1A22C292C1100DA811B /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55BEF1A12C292C1100DA811B /* SDWebImageMapKit */; };
+		55BEF1A42C292CD100DA811B /* summary.gif in Resources */ = {isa = PBXBuildFile; fileRef = 55BEF1A32C292CD100DA811B /* summary.gif */; };
 		55D474A82C2014A9000BE329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D474A72C2014A9000BE329 /* AppDelegate.swift */; };
 		55D474AA2C2014A9000BE329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D474A92C2014A9000BE329 /* SceneDelegate.swift */; };
 		55D474AF2C2014A9000BE329 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 55D474AE2C2014A9000BE329 /* Base */; };
@@ -108,6 +111,7 @@
 		55B7AAC72C256623002B6964 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		55B7AAC92C25662B002B6964 /* WheelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelViewController.swift; sourceTree = "<group>"; };
 		55BEF16F2C268E1D00DA811B /* RingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingStatus.swift; sourceTree = "<group>"; };
+		55BEF1A32C292CD100DA811B /* summary.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = summary.gif; sourceTree = "<group>"; };
 		55D474A42C2014A9000BE329 /* PercepTrail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PercepTrail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D474A72C2014A9000BE329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D474A92C2014A9000BE329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,10 +137,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BEF1A02C292C1100DA811B /* SDWebImage in Frameworks */,
 				7B77263D2C28028500D71DCB /* SQLite in Frameworks */,
 				55B7AA7F2C255001002B6964 /* SwiftFortuneWheel in Frameworks */,
 				55B7AA822C25518E002B6964 /* MKRingProgressView in Frameworks */,
 				55BEF15D2C266B2200DA811B /* ProgressIndicatorView in Frameworks */,
+				55BEF1A22C292C1100DA811B /* SDWebImageMapKit in Frameworks */,
 				55D475552C207D7A000BE329 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +332,7 @@
 		55D4752B2C20192C000BE329 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55BEF1A32C292CD100DA811B /* summary.gif */,
 				55D474B02C2014AA000BE329 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -420,6 +427,8 @@
 				55B7AA812C25518E002B6964 /* MKRingProgressView */,
 				55BEF15C2C266B2200DA811B /* ProgressIndicatorView */,
 				7B77263C2C28028500D71DCB /* SQLite */,
+				55BEF19F2C292C1100DA811B /* SDWebImage */,
+				55BEF1A12C292C1100DA811B /* SDWebImageMapKit */,
 			);
 			productName = PercepTrail;
 			productReference = 55D474A42C2014A9000BE329 /* PercepTrail.app */;
@@ -455,6 +464,7 @@
 				55B7AA802C25518E002B6964 /* XCRemoteSwiftPackageReference "MKRingProgressView" */,
 				55BEF15B2C266B2200DA811B /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
 				7B77263B2C28028500D71DCB /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				55BEF19E2C292C1100DA811B /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 55D474A52C2014A9000BE329 /* Products */;
 			projectDirPath = "";
@@ -473,6 +483,7 @@
 				55B7AAC42C256611002B6964 /* QuickQuiz.storyboard in Resources */,
 				55D474B12C2014AA000BE329 /* Assets.xcassets in Resources */,
 				55D474B42C2014AA000BE329 /* Base in Resources */,
+				55BEF1A42C292CD100DA811B /* summary.gif in Resources */,
 				559632122C2453CC0016F826 /* Trophy.storyboard in Resources */,
 				559632182C2454C50016F826 /* Training.storyboard in Resources */,
 				55D474AF2C2014A9000BE329 /* Base in Resources */,
@@ -783,6 +794,14 @@
 				kind = branch;
 			};
 		};
+		55BEF19E2C292C1100DA811B /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.19.3;
+			};
+		};
 		55D475532C207D7A000BE329 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -816,6 +835,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 55BEF15B2C266B2200DA811B /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */;
 			productName = ProgressIndicatorView;
+		};
+		55BEF19F2C292C1100DA811B /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55BEF19E2C292C1100DA811B /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		55BEF1A12C292C1100DA811B /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55BEF19E2C292C1100DA811B /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 		55D475542C207D7A000BE329 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
