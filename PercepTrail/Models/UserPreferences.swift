@@ -19,19 +19,19 @@ final class UserPreferences {
     }
     
     private func registerDefaults() {
-        let defaults = [PreferenceKey.QQScore.rawValue: 0]
+        let defaults = [PreferenceKey.MaxQQScore.rawValue: 0]
         userPreference.register(defaults: defaults)
     }
     
     enum PreferenceKey: String {
-        case QQScore
+        case MaxQQScore
         
         case TotalScore
     }
     
-    var QQScore: Int {
-        get { userPreference.integer(forKey: PreferenceKey.QQScore.rawValue) }
-        set { userPreference.set(newValue, forKey: PreferenceKey.QQScore.rawValue) }
+    var MaxQQScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.MaxQQScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.MaxQQScore.rawValue) }
     }
     
     

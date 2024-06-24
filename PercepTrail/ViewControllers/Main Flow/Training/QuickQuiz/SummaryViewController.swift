@@ -14,12 +14,14 @@ class SummaryViewController: UIViewController {
     
     @IBOutlet weak var lbTotalPoints: UILabel!
     @IBOutlet weak var vPointRing: RingProgressView!
+    @IBOutlet weak var imgPartner: UIImageView!
+    @IBOutlet weak var imageBG: UIImageView!
     
     // MARK: - Properties
     
     var correctCount: Int = 0
     var incorrectCount: Int = 0
-    var maxPoint: Int = 0
+    var totalPoint: Int = 0
     
     // MARK: - LifeCycle
     
@@ -31,9 +33,21 @@ class SummaryViewController: UIViewController {
     
     fileprivate func setupUI() {
         vPointRing.progress = 0.0
-        lbTotalPoints.text = "+ \(maxPoint)"
+        lbTotalPoints.text = "+ \(totalPoint)"
         updateProgressAnimated()
+        setupImage()
     }
+    
+    private func setupImage() {
+        imgPartner.alpha = 1.0
+        imgPartner.backgroundColor = UIColor.systemTeal.withAlphaComponent(0.4)
+        imgPartner.layer.cornerRadius = 15
+        imgPartner.layer.masksToBounds = true
+        imgPartner.image = UIImage(named: "partner")
+        
+//        imageBG.image = UIImage(named: "bg")
+    }
+
     
     private func updateProgressAnimated() {
         let finalProgress = calculateFinalProgress()
@@ -44,8 +58,8 @@ class SummaryViewController: UIViewController {
             }
         }
         
-        if maxPoint > UserPreferences.shared.QQScore {
-            UserPreferences.shared.QQScore = maxPoint
+        if totalPoint > UserPreferences.shared.MaxQQScore {
+            UserPreferences.shared.MaxQQScore = totalPoint
         }
     }
     
@@ -63,23 +77,23 @@ class SummaryViewController: UIViewController {
     fileprivate func calculatePoints() {
         let pointsFromCorrect = correctCount * 100
         let pointsFromIncorrect = incorrectCount * 50
-        maxPoint = pointsFromCorrect - pointsFromIncorrect
+        totalPoint = pointsFromCorrect - pointsFromIncorrect
         
-        UserPreferences.shared.TotalScore += maxPoint
+        UserPreferences.shared.TotalScore += totalPoint
         
-        if maxPoint < 0 {
-            maxPoint = 20
+        if totalPoint < 0 {
+            totalPoint = 20
         }
     }
     
     private func calculateFinalProgress() -> Double {
         var progress: Double
-        if UserPreferences.shared.QQScore == 0 {
-            UserPreferences.shared.QQScore = maxPoint
+        if UserPreferences.shared.MaxQQScore == 0 {
+            UserPreferences.shared.MaxQQScore = totalPoint
             progress = 1.0
         } else {
-            let maxPointPreference = UserPreferences.shared.QQScore
-            progress = Double(maxPoint) / Double(maxPointPreference)
+            let maxPointPreference = UserPreferences.shared.MaxQQScore
+            progress = Double(totalPoint) / Double(maxPointPreference)
         }
         
         if progress > 3 {

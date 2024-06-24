@@ -18,7 +18,7 @@ enum PercepTrailDataAPIClient {
     enum ContentType: String {
         case json = "application/json"
     }
-
+    
     enum HTTPMethod: String {
         case get = "GET"
         

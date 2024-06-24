@@ -12,8 +12,8 @@ final class NetworkManager {
     
     private let session: URLSession
     
-    private let token = ProcessInfo.processInfo.environment["API_TOKEN"] ?? ""
-
+    private let token = ProcessInfo.processInfo.environment["Need_GPT_Token"] ?? ""
+    
     private init() {
         let configuration = URLSessionConfiguration.default
         session = URLSession(configuration: configuration)
@@ -25,7 +25,7 @@ final class NetworkManager {
                            parameters: E,
                            needToken: Bool,
                            finish: @escaping (Result<D, Error>) -> Void)
-        where E: Encodable, D: Decodable {
+    where E: Encodable, D: Decodable {
         do {
             // 發送請求並獲取回應
             let request = try handleHttpMethod(method: method,
@@ -35,9 +35,9 @@ final class NetworkManager {
             
             session.dataTask(with: request) { data, response, error in
                 
-                #if DEBUG
+#if DEBUG
                 print("Error: \(String(describing: error?.localizedDescription))")
-                #endif
+#endif
                 
                 guard error == nil else {
                     // 處理未知錯誤
@@ -55,10 +55,10 @@ final class NetworkManager {
                     return
                 }
                 
-                #if DEBUG
+#if DEBUG
                 print("data value :")
                 assertionFailure(String(data: data, encoding: .utf8) ?? "")
-                #endif
+#endif
                 
                 do {
                     // 解析 JSON 回應
@@ -69,10 +69,10 @@ final class NetworkManager {
                     } else {
                         finish(.failure(ErrorType.failedRequest(httpResponse: httpResponse)))
                     }
-                                        
-                    #if DEBUG
+                    
+#if DEBUG
                     self.printNetworkProgress(request, parameters, result)
-                    #endif
+#endif
                     
                     // 處理 JSON 解析錯誤
                 } catch let error as DecodingError {
@@ -88,38 +88,38 @@ final class NetworkManager {
     }
     
     private func handleHttpMethod<E>(method: RequestMethod,
-                                         path: ClientAPI.Endpoint,
-                                         parameters: E,
-                                         needToken: Bool) throws -> URLRequest
-            where E: Encodable {
-            let baseURL = ClientAPI.httpBaseUrl
-            let serverURL = ClientAPI.serverAdress
-            let endpoint = path.endpoint
-            guard let url = URL(string: baseURL + serverURL + endpoint) else {
-                throw URLError(.badURL)
-            }
-            
-            var urlRequest = URLRequest(url: url)
-            urlRequest.httpMethod = method.rawValue
-            
-            var headers = [
-                HeaderFields.contentType.rawValue: ContentType.json.rawValue
-            ]
-            
-            if needToken {
-                headers[HeaderFields.authorization.rawValue] = "Bearer \(token)"
-            }
+                                     path: ClientAPI.Endpoint,
+                                     parameters: E,
+                                     needToken: Bool) throws -> URLRequest
+    where E: Encodable {
+        let baseURL = ClientAPI.httpBaseUrl
+        let serverURL = ClientAPI.serverAdress
+        let endpoint = path.endpoint
+        guard let url = URL(string: baseURL + serverURL + endpoint) else {
+            throw URLError(.badURL)
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = method.rawValue
+        
+        var headers = [
+            HeaderFields.contentType.rawValue: ContentType.json.rawValue
+        ]
+        
+        if needToken {
+            headers[HeaderFields.authorization.rawValue] = "Bearer \(token)"
+        }
         
         // 將參數轉換為字典
         let parameters = try? parameters.toDictionary()
-
+        
         switch method {
         case .get:
             // 處理 GET 請求的 URL
             urlRequest.url = requestWithURL(url: url.absoluteString,
                                             parameters: parameters as?
-                                                [String: String] ?? [:])
-
+                                            [String: String] ?? [:])
+            
         default:
             urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: parameters ?? [:],
                                                               options: .prettyPrinted)
@@ -145,7 +145,7 @@ final class NetworkManager {
     private func printNetworkProgress<E, D>(_ urlRequest: URLRequest,
                                             _ parameters: E,
                                             _ results: D) where E: Encodable, D: Decodable {
-        #if DEBUG
+#if DEBUG
         print("=======================================")
         print("- URL: \(urlRequest.url?.absoluteString ?? "")")
         print("- Header: \(urlRequest.allHTTPHeaderFields ?? [:])")
@@ -154,6 +154,6 @@ final class NetworkManager {
         print("---------------Response----------------")
         print(results)
         print("=======================================")
-        #endif
+#endif
     }
 }
