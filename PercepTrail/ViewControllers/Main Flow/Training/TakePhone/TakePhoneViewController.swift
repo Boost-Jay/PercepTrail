@@ -18,8 +18,11 @@ class TakePhoneViewController: UIViewController {
     @IBOutlet var vScanRect: UIView!
     @IBOutlet var btnTakePhone: UIButton!
     @IBOutlet var btnCheckmark: UIButton!
+    @IBOutlet weak var btnRemove: UIButton!
+    @IBOutlet weak var btnBackVC: UIButton!
     @IBOutlet var lbHint: UILabel!
-
+    @IBOutlet weak var lbCancle: UILabel!
+    
     // MARK: - Variables
 
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
@@ -47,6 +50,9 @@ class TakePhoneViewController: UIViewController {
         setupButtonImage()
         setupButtonStatus()
         lbHint.text = "拍照"
+        lbCancle.isHidden = true
+        btnBackVC.isHidden = false
+        
     }
 
     private func setupButtonStatus() {
@@ -55,6 +61,9 @@ class TakePhoneViewController: UIViewController {
 
         btnTakePhone.isHidden = false
         btnTakePhone.isEnabled = true
+        
+        btnRemove.isHidden = true
+        btnRemove.isEnabled = false
     }
 
     private func setupButtonImage() {
@@ -66,6 +75,11 @@ class TakePhoneViewController: UIViewController {
         if let checkmarkImage = UIImage(systemName: "checkmark")?.withTintColor(.white, renderingMode: .alwaysOriginal) {
             let resizedCheckmarkImage = checkmarkImage.resizeImage(to: CGSize(width: 60, height: 60))
             btnCheckmark.setImage(resizedCheckmarkImage, for: .normal)
+        }
+        
+        if let xmarkImage = UIImage(systemName: "xmark")?.withTintColor(.white, renderingMode: .alwaysOriginal) {
+            let resizedxmarkImage = xmarkImage.resizeImage(to: CGSize(width: 60, height: 60))
+            btnRemove.setImage(resizedxmarkImage, for: .normal)
         }
     }
 
@@ -114,6 +128,28 @@ class TakePhoneViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func cancelPhoto(_ sender: Any) {
+        vScanRect.subviews.forEach { $0.removeFromSuperview() }
+
+        // 重新啟動攝影機預覽
+        if !captureSession.isRunning {
+            captureSession.startRunning()
+        }
+		
+        btnCheckmark.isHidden = true
+        btnCheckmark.isEnabled = false
+        lbCancle.isHidden = true
+        btnBackVC.isHidden = false
+        btnBackVC.isEnabled = true
+        btnTakePhone.isEnabled = true
+        btnTakePhone.isHidden = false
+        btnRemove.isHidden = true
+        btnRemove.isEnabled = false
+        
+        lbHint.text = "拍照"
+    }
+
 
     @IBAction func goHomeVC(_ sender: Any) {
         goHomeVC()
@@ -257,6 +293,12 @@ extension TakePhoneViewController: AVCapturePhotoCaptureDelegate {
 
                 self.btnTakePhone.isHidden = true
                 self.btnTakePhone.isEnabled = false
+                
+                self.btnRemove.isHidden = false
+                self.btnRemove.isEnabled = true
+                
+                self.lbCancle.isHidden = false
+                self.btnBackVC.isHidden = true
 
                 self.lbHint.text = "保存"
             } else {

@@ -16,6 +16,8 @@
 		5507D8CE2C208CC400A47FA3 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507D8CD2C208CC400A47FA3 /* RequestMethod.swift */; };
 		5507D8D02C208D1600A47FA3 /* PercepTrailDataAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507D8CF2C208D1600A47FA3 /* PercepTrailDataAPIClient.swift */; };
 		5507D8D22C2142FA00A47FA3 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507D8D12C2142FA00A47FA3 /* GeneralResponse.swift */; };
+		551C5A6C2C29915A00EB4553 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C5A6B2C29915A00EB4553 /* ExerciseViewController.swift */; };
+		551C5A6E2C29917300EB4553 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C5A6D2C29917300EB4553 /* WorkoutViewController.swift */; };
 		5589E14E2C22E33400D56AC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5589E14D2C22E33400D56AC8 /* Main.storyboard */; };
 		5589E14F2C22E34400D56AC8 /* Initial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D474AD2C2014A9000BE329 /* Initial.storyboard */; };
 		5589E1512C22E61100D56AC8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589E1502C22E61100D56AC8 /* WelcomeViewController.swift */; };
@@ -39,7 +41,6 @@
 		55B7AAB62C256522002B6964 /* TakePhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AAB52C256522002B6964 /* TakePhone.storyboard */; };
 		55B7AAB82C25652F002B6964 /* TakePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAB72C25652F002B6964 /* TakePhoneViewController.swift */; };
 		55B7AABA2C2565DD002B6964 /* SiteVisit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AAB92C2565DD002B6964 /* SiteVisit.storyboard */; };
-		55B7AABC2C2565E9002B6964 /* SiteVisitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AABB2C2565E9002B6964 /* SiteVisitViewController.swift */; };
 		55B7AABE2C2565F7002B6964 /* GroupTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B7AABD2C2565F7002B6964 /* GroupTask.storyboard */; };
 		55B7AAC02C2565FF002B6964 /* GroupTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AABF2C2565FF002B6964 /* GroupTaskViewController.swift */; };
 		55B7AAC22C256609002B6964 /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7AAC12C256609002B6964 /* LevelViewController.swift */; };
@@ -52,6 +53,12 @@
 		55BEF1A02C292C1100DA811B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 55BEF19F2C292C1100DA811B /* SDWebImage */; };
 		55BEF1A22C292C1100DA811B /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55BEF1A12C292C1100DA811B /* SDWebImageMapKit */; };
 		55BEF1A42C292CD100DA811B /* summary.gif in Resources */ = {isa = PBXBuildFile; fileRef = 55BEF1A32C292CD100DA811B /* summary.gif */; };
+		55BEF1AA2C293B2500DA811B /* ActivityDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF1A92C293B2500DA811B /* ActivityDiscoveryViewController.swift */; };
+		55BEF1AC2C293B4A00DA811B /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF1AB2C293B4A00DA811B /* RouteViewController.swift */; };
+		55BEF1AE2C293BFC00DA811B /* Summary2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF1AD2C293BE800DA811B /* Summary2ViewController.swift */; };
+		55BEF1B02C293CBB00DA811B /* PairingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF1AF2C293CBB00DA811B /* PairingViewController.swift */; };
+		55BEF1B22C293CF900DA811B /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF1B12C293CF900DA811B /* PuzzleViewController.swift */; };
+		55BEF1B42C293D0600DA811B /* IdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEF1B32C293D0600DA811B /* IdentificationViewController.swift */; };
 		55D474A82C2014A9000BE329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D474A72C2014A9000BE329 /* AppDelegate.swift */; };
 		55D474AA2C2014A9000BE329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D474A92C2014A9000BE329 /* SceneDelegate.swift */; };
 		55D474AF2C2014A9000BE329 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 55D474AE2C2014A9000BE329 /* Base */; };
@@ -82,6 +89,8 @@
 		5507D8CD2C208CC400A47FA3 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		5507D8CF2C208D1600A47FA3 /* PercepTrailDataAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercepTrailDataAPIClient.swift; sourceTree = "<group>"; };
 		5507D8D12C2142FA00A47FA3 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
+		551C5A6B2C29915A00EB4553 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		551C5A6D2C29917300EB4553 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		5589E14D2C22E33400D56AC8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5589E1502C22E61100D56AC8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5589E1522C22FE5800D56AC8 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +111,6 @@
 		55B7AAB52C256522002B6964 /* TakePhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TakePhone.storyboard; sourceTree = "<group>"; };
 		55B7AAB72C25652F002B6964 /* TakePhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhoneViewController.swift; sourceTree = "<group>"; };
 		55B7AAB92C2565DD002B6964 /* SiteVisit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SiteVisit.storyboard; sourceTree = "<group>"; };
-		55B7AABB2C2565E9002B6964 /* SiteVisitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteVisitViewController.swift; sourceTree = "<group>"; };
 		55B7AABD2C2565F7002B6964 /* GroupTask.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupTask.storyboard; sourceTree = "<group>"; };
 		55B7AABF2C2565FF002B6964 /* GroupTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTaskViewController.swift; sourceTree = "<group>"; };
 		55B7AAC12C256609002B6964 /* LevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +120,12 @@
 		55B7AAC92C25662B002B6964 /* WheelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheelViewController.swift; sourceTree = "<group>"; };
 		55BEF16F2C268E1D00DA811B /* RingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingStatus.swift; sourceTree = "<group>"; };
 		55BEF1A32C292CD100DA811B /* summary.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = summary.gif; sourceTree = "<group>"; };
+		55BEF1A92C293B2500DA811B /* ActivityDiscoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDiscoveryViewController.swift; sourceTree = "<group>"; };
+		55BEF1AB2C293B4A00DA811B /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
+		55BEF1AD2C293BE800DA811B /* Summary2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary2ViewController.swift; sourceTree = "<group>"; };
+		55BEF1AF2C293CBB00DA811B /* PairingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingViewController.swift; sourceTree = "<group>"; };
+		55BEF1B12C293CF900DA811B /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
+		55BEF1B32C293D0600DA811B /* IdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationViewController.swift; sourceTree = "<group>"; };
 		55D474A42C2014A9000BE329 /* PercepTrail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PercepTrail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D474A72C2014A9000BE329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D474A92C2014A9000BE329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +210,8 @@
 			children = (
 				5589E14D2C22E33400D56AC8 /* Main.storyboard */,
 				55DB49B82C245BE700397C97 /* NewLaunchScreenViewController.swift */,
+				551C5A6B2C29915A00EB4553 /* ExerciseViewController.swift */,
+				551C5A6D2C29917300EB4553 /* WorkoutViewController.swift */,
 				559632192C2454F60016F826 /* Training */,
 				5596321C2C24553F0016F826 /* Trophy */,
 				5596321B2C24552E0016F826 /* Store */,
@@ -207,13 +223,12 @@
 		559632192C2454F60016F826 /* Training */ = {
 			isa = PBXGroup;
 			children = (
-				55B7AAAA2C256373002B6964 /* QuickQuiz */,
-				55B7AAA52C256317002B6964 /* GroupTask */,
-				55B7AAA02C25627D002B6964 /* SiteVisit */,
-				55B7AA9B2C2561E4002B6964 /* TakePhone */,
 				559632172C2454C50016F826 /* Training.storyboard */,
 				5596320F2C244D3E0016F826 /* TrainingMainViewController.swift */,
-				5596321D2C2455760016F826 /* Components */,
+				55B7AA9B2C2561E4002B6964 /* TakePhone */,
+				55B7AAA02C25627D002B6964 /* SiteVisit */,
+				55B7AAAA2C256373002B6964 /* QuickQuiz */,
+				55B7AAA52C256317002B6964 /* GroupTask */,
 			);
 			path = Training;
 			sourceTree = "<group>";
@@ -245,6 +260,7 @@
 		5596321D2C2455760016F826 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				55BEF1AD2C293BE800DA811B /* Summary2ViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -262,7 +278,9 @@
 			isa = PBXGroup;
 			children = (
 				55B7AAB92C2565DD002B6964 /* SiteVisit.storyboard */,
-				55B7AABB2C2565E9002B6964 /* SiteVisitViewController.swift */,
+				55BEF1A92C293B2500DA811B /* ActivityDiscoveryViewController.swift */,
+				55BEF1AB2C293B4A00DA811B /* RouteViewController.swift */,
+				55BEF1A52C29343F00DA811B /* 3Games */,
 			);
 			path = SiteVisit;
 			sourceTree = "<group>";
@@ -284,17 +302,43 @@
 				55B7AAC72C256623002B6964 /* TimerViewController.swift */,
 				55B7AAC12C256609002B6964 /* LevelViewController.swift */,
 				55B7AAC52C25661A002B6964 /* SummaryViewController.swift */,
-				55BEF16E2C268DF600DA811B /* Components */,
 			);
 			path = QuickQuiz;
 			sourceTree = "<group>";
 		};
-		55BEF16E2C268DF600DA811B /* Components */ = {
+		55BEF1A52C29343F00DA811B /* 3Games */ = {
 			isa = PBXGroup;
 			children = (
-				55BEF16F2C268E1D00DA811B /* RingStatus.swift */,
+				55BEF1A82C2934CB00DA811B /* Pairing */,
+				55BEF1A72C2934C000DA811B /* Puzzle */,
+				55BEF1A62C2934B800DA811B /* Identification */,
+				5596321D2C2455760016F826 /* Components */,
 			);
-			path = Components;
+			path = 3Games;
+			sourceTree = "<group>";
+		};
+		55BEF1A62C2934B800DA811B /* Identification */ = {
+			isa = PBXGroup;
+			children = (
+				55BEF1B32C293D0600DA811B /* IdentificationViewController.swift */,
+			);
+			path = Identification;
+			sourceTree = "<group>";
+		};
+		55BEF1A72C2934C000DA811B /* Puzzle */ = {
+			isa = PBXGroup;
+			children = (
+				55BEF1B12C293CF900DA811B /* PuzzleViewController.swift */,
+			);
+			path = Puzzle;
+			sourceTree = "<group>";
+		};
+		55BEF1A82C2934CB00DA811B /* Pairing */ = {
+			isa = PBXGroup;
+			children = (
+				55BEF1AF2C293CBB00DA811B /* PairingViewController.swift */,
+			);
+			path = Pairing;
 			sourceTree = "<group>";
 		};
 		55D4749B2C2014A9000BE329 = {
@@ -393,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				7B3ED5BE2C26EA150066149A /* MainTabBarController.swift */,
+				55BEF16F2C268E1D00DA811B /* RingStatus.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -505,16 +550,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5507D8C72C208BE800A47FA3 /* RequestError.swift in Sources */,
-				55B7AABC2C2565E9002B6964 /* SiteVisitViewController.swift in Sources */,
+				55BEF1AC2C293B4A00DA811B /* RouteViewController.swift in Sources */,
 				7B3ED5BF2C26EA150066149A /* MainTabBarController.swift in Sources */,
 				5589E1592C22FECF00D56AC8 /* HeightViewController.swift in Sources */,
 				5507D8D22C2142FA00A47FA3 /* GeneralResponse.swift in Sources */,
 				5507D8C12C208B9300A47FA3 /* Encodable+JsonToDict.swift in Sources */,
 				55B7AAC02C2565FF002B6964 /* GroupTaskViewController.swift in Sources */,
+				55BEF1B22C293CF900DA811B /* PuzzleViewController.swift in Sources */,
 				55D475302C20224C000BE329 /* UserPreferences.swift in Sources */,
 				5589E1652C2303D900D56AC8 /* PrivacyConsentViewController.swift in Sources */,
 				55D475482C204C61000BE329 /* UIColor+Custom.swift in Sources */,
+				55BEF1B02C293CBB00DA811B /* PairingViewController.swift in Sources */,
 				55BEF1702C268E1D00DA811B /* RingStatus.swift in Sources */,
+				55BEF1B42C293D0600DA811B /* IdentificationViewController.swift in Sources */,
 				55B7AAB82C25652F002B6964 /* TakePhoneViewController.swift in Sources */,
 				55B7AACA2C25662B002B6964 /* WheelViewController.swift in Sources */,
 				5589E15F2C22FF0700D56AC8 /* MedicationUsageViewController.swift in Sources */,
@@ -524,9 +572,11 @@
 				55D4754D2C2077A9000BE329 /* CommandBase.swift in Sources */,
 				55DB49B92C245BE700397C97 /* NewLaunchScreenViewController.swift in Sources */,
 				5589E1572C22FEC000D56AC8 /* GenderViewController.swift in Sources */,
+				551C5A6E2C29917300EB4553 /* WorkoutViewController.swift in Sources */,
 				55D475332C202335000BE329 /* AppDefine.swift in Sources */,
 				5507D8C32C208BAB00A47FA3 /* ErrorType.swift in Sources */,
 				5589E15D2C22FEF100D56AC8 /* ChronicConditionViewController.swift in Sources */,
+				55BEF1AA2C293B2500DA811B /* ActivityDiscoveryViewController.swift in Sources */,
 				55D474A82C2014A9000BE329 /* AppDelegate.swift in Sources */,
 				7B3ED5C12C26EE120066149A /* UIImage+Resized.swift in Sources */,
 				55D4754F2C2077DF000BE329 /* Alert.swift in Sources */,
@@ -546,6 +596,8 @@
 				5507D8CC2C208CB000A47FA3 /* HeaderFields.swift in Sources */,
 				5589E1632C22FF2400D56AC8 /* ResidenceViewController.swift in Sources */,
 				55B7AAC62C25661A002B6964 /* SummaryViewController.swift in Sources */,
+				551C5A6C2C29915A00EB4553 /* ExerciseViewController.swift in Sources */,
+				55BEF1AE2C293BFC00DA811B /* Summary2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

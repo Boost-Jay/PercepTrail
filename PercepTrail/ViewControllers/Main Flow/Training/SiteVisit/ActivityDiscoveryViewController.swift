@@ -1,16 +1,17 @@
 //
-//  SiteVisitViewController.swift
+//  ActivityDiscoveryViewController.swift
 //  PercepTrail
 //
-//  Created by 王柏崴 on 6/21/24.
+//  Created by 王柏崴 on 6/24/24.
 //
 
 import UIKit
 
-class SiteVisitViewController: UIViewController {
+class ActivityDiscoveryViewController: UIViewController {
     
     // MARK: - IBOutlet
     
+    @IBOutlet weak var vMap: MKMapView!
     
     
     // MARK: - Properties
@@ -32,6 +33,9 @@ class SiteVisitViewController: UIViewController {
     
     // MARK: - IBAction
     
+    @IBAction func openTaskPage(_ sender: Any) {
+        
+    }
     
     
     // MARK: - Function
@@ -48,8 +52,8 @@ class SiteVisitViewController: UIViewController {
 
 @available(iOS 17.0, *)
 #Preview {
-    let vc = UIStoryboard(name: "Main", bundle: nil)
-    return vc.instantiateViewController(withIdentifier: "SiteVisitViewController")
+    let vc = UIStoryboard(name: "SiteVisit", bundle: nil)
+    return vc.instantiateViewController(withIdentifier: "ActivityDiscoveryViewController")
 }
 
 

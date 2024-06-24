@@ -70,6 +70,31 @@
                                     <action selector="pressedPhoto:" destination="5UG-VE-enC" eventType="touchUpInside" id="SNZ-L0-OP5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拍照" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqp-aO-G6v">
+                                <rect key="frame" x="244.66666666666663" y="786" width="100" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRq-ur-NwH">
+                                <rect key="frame" x="48.333333333333343" y="678" width="100" height="100"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelPhoto:" destination="5UG-VE-enC" eventType="touchUpInside" id="pdc-Le-Z3p"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取消" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCa-QX-hrc">
+                                <rect key="frame" x="48.333333333333343" y="786" width="100" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tf8-uE-Cjr">
                                 <rect key="frame" x="244.66666666666663" y="678" width="100" height="100"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,31 +109,33 @@
                                     <action selector="savePhoto:" destination="5UG-VE-enC" eventType="touchUpInside" id="phe-P4-CcH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拍照" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqp-aO-G6v">
-                                <rect key="frame" x="244.66666666666663" y="786" width="100" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gI7-Xc-XfD"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="tf8-uE-Cjr" firstAttribute="width" secondItem="VP3-of-Ldk" secondAttribute="width" id="0ta-Fg-pKb"/>
+                            <constraint firstItem="fCa-QX-hrc" firstAttribute="centerX" secondItem="mRq-ur-NwH" secondAttribute="centerX" id="2hy-pR-6Oq"/>
                             <constraint firstItem="rzm-Ce-AXI" firstAttribute="leading" secondItem="gI7-Xc-XfD" secondAttribute="leading" id="7tc-Hx-9xU"/>
+                            <constraint firstItem="mRq-ur-NwH" firstAttribute="centerX" secondItem="gI7-Xc-XfD" secondAttribute="centerX" multiplier="0.5" id="8La-zK-09h"/>
                             <constraint firstItem="VP3-of-Ldk" firstAttribute="height" secondItem="MKh-KT-PlC" secondAttribute="height" multiplier="0.117371" id="CCZ-iE-S5P"/>
                             <constraint firstItem="VP3-of-Ldk" firstAttribute="top" secondItem="rzm-Ce-AXI" secondAttribute="bottom" constant="48" id="DIE-qN-05a"/>
                             <constraint firstItem="Rqp-aO-G6v" firstAttribute="width" secondItem="VP3-of-Ldk" secondAttribute="width" id="Dje-oz-qEC"/>
+                            <constraint firstItem="fCa-QX-hrc" firstAttribute="width" secondItem="mRq-ur-NwH" secondAttribute="width" id="Hcw-nY-QaI"/>
                             <constraint firstItem="Rqp-aO-G6v" firstAttribute="centerX" secondItem="VP3-of-Ldk" secondAttribute="centerX" id="Ko4-54-1N4"/>
                             <constraint firstItem="gI7-Xc-XfD" firstAttribute="bottom" secondItem="2K8-lQ-X9Z" secondAttribute="bottom" constant="24" id="QKB-tD-rNZ"/>
                             <constraint firstItem="2K8-lQ-X9Z" firstAttribute="width" secondItem="MKh-KT-PlC" secondAttribute="width" multiplier="0.4" id="RI9-PT-1GY"/>
+                            <constraint firstItem="mRq-ur-NwH" firstAttribute="centerY" secondItem="tf8-uE-Cjr" secondAttribute="centerY" id="SE1-oH-0Dn"/>
                             <constraint firstItem="VP3-of-Ldk" firstAttribute="centerX" secondItem="gI7-Xc-XfD" secondAttribute="centerX" multiplier="1.5" id="SHo-Nu-jEb"/>
+                            <constraint firstItem="fCa-QX-hrc" firstAttribute="top" secondItem="mRq-ur-NwH" secondAttribute="bottom" constant="8" symbolic="YES" id="Tdr-7q-4OJ"/>
                             <constraint firstItem="VP3-of-Ldk" firstAttribute="width" secondItem="MKh-KT-PlC" secondAttribute="width" multiplier="0.254453" id="ZWb-gY-taD"/>
+                            <constraint firstItem="mRq-ur-NwH" firstAttribute="height" secondItem="tf8-uE-Cjr" secondAttribute="height" id="a4W-d2-UYD"/>
                             <constraint firstItem="tf8-uE-Cjr" firstAttribute="centerY" secondItem="VP3-of-Ldk" secondAttribute="centerY" id="bi7-im-vzK"/>
+                            <constraint firstItem="fCa-QX-hrc" firstAttribute="height" secondItem="mRq-ur-NwH" secondAttribute="height" multiplier="0.3" id="bpG-cH-NCh"/>
                             <constraint firstItem="Rqp-aO-G6v" firstAttribute="top" secondItem="VP3-of-Ldk" secondAttribute="bottom" constant="8" symbolic="YES" id="bwj-dG-5Y1"/>
                             <constraint firstItem="rzm-Ce-AXI" firstAttribute="top" secondItem="gI7-Xc-XfD" secondAttribute="top" constant="24" id="cVz-sm-lfm"/>
                             <constraint firstItem="VP3-of-Ldk" firstAttribute="bottom" secondItem="2K8-lQ-X9Z" secondAttribute="bottom" multiplier="0.98" id="h8a-yM-pUt"/>
                             <constraint firstItem="2K8-lQ-X9Z" firstAttribute="centerX" secondItem="gI7-Xc-XfD" secondAttribute="centerX" multiplier="0.6" id="kVJ-C0-We1"/>
+                            <constraint firstItem="mRq-ur-NwH" firstAttribute="width" secondItem="tf8-uE-Cjr" secondAttribute="width" id="nDi-uI-jmU"/>
                             <constraint firstItem="tf8-uE-Cjr" firstAttribute="centerX" secondItem="VP3-of-Ldk" secondAttribute="centerX" id="rFt-Za-AxX"/>
                             <constraint firstItem="tf8-uE-Cjr" firstAttribute="height" secondItem="VP3-of-Ldk" secondAttribute="height" id="uXe-bi-wnq"/>
                             <constraint firstItem="gI7-Xc-XfD" firstAttribute="trailing" secondItem="rzm-Ce-AXI" secondAttribute="trailing" id="wLb-d7-zgq"/>
@@ -117,8 +144,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="IIJ-wL-I1A"/>
                     <connections>
+                        <outlet property="btnBackVC" destination="2K8-lQ-X9Z" id="aDc-zU-H7f"/>
                         <outlet property="btnCheckmark" destination="tf8-uE-Cjr" id="xK1-Bh-Rxp"/>
+                        <outlet property="btnRemove" destination="mRq-ur-NwH" id="hMW-tc-1mQ"/>
                         <outlet property="btnTakePhone" destination="VP3-of-Ldk" id="Wcx-ue-kyr"/>
+                        <outlet property="lbCancle" destination="fCa-QX-hrc" id="61W-xk-Sdy"/>
                         <outlet property="lbHint" destination="Rqp-aO-G6v" id="jib-PP-Brn"/>
                         <outlet property="vScanRect" destination="rzm-Ce-AXI" id="VoF-CJ-YWy"/>
                     </connections>
@@ -142,6 +172,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
