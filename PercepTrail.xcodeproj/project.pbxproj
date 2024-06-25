@@ -15,7 +15,6 @@
 		5507D8CC2C208CB000A47FA3 /* HeaderFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507D8CB2C208CB000A47FA3 /* HeaderFields.swift */; };
 		5507D8CE2C208CC400A47FA3 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507D8CD2C208CC400A47FA3 /* RequestMethod.swift */; };
 		5507D8D02C208D1600A47FA3 /* PercepTrailDataAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507D8CF2C208D1600A47FA3 /* PercepTrailDataAPIClient.swift */; };
-		5507D8D22C2142FA00A47FA3 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5507D8D12C2142FA00A47FA3 /* GeneralResponse.swift */; };
 		551C5A6C2C29915A00EB4553 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C5A6B2C29915A00EB4553 /* ExerciseViewController.swift */; };
 		551C5A6E2C29917300EB4553 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C5A6D2C29917300EB4553 /* WorkoutViewController.swift */; };
 		551C5A702C29B19400EB4553 /* ProgressIndicatorViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C5A6F2C29B19400EB4553 /* ProgressIndicatorViewWrapper.swift */; };
@@ -74,6 +73,9 @@
 		55D475512C207962000BE329 /* Alert+AddMultipleActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D475502C207961000BE329 /* Alert+AddMultipleActions.swift */; };
 		55D475552C207D7A000BE329 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 55D475542C207D7A000BE329 /* IQKeyboardManagerSwift */; };
 		55DB49B92C245BE700397C97 /* NewLaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB49B82C245BE700397C97 /* NewLaunchScreenViewController.swift */; };
+		7B352EA62C2A94C500D92A43 /* ActivityAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B352EA52C2A94C500D92A43 /* ActivityAnnotation.swift */; };
+		7B352EA82C2A9E3C00D92A43 /* ChatGPT4VisionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B352EA72C2A9E3C00D92A43 /* ChatGPT4VisionRequest.swift */; };
+		7B352EAA2C2A9E5E00D92A43 /* ChatGPT4VisionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B352EA92C2A9E5E00D92A43 /* ChatGPT4VisionResponse.swift */; };
 		7B3ED5BF2C26EA150066149A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3ED5BE2C26EA150066149A /* MainTabBarController.swift */; };
 		7B3ED5C12C26EE120066149A /* UIImage+Resized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3ED5C02C26EE120066149A /* UIImage+Resized.swift */; };
 		7B77263D2C28028500D71DCB /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 7B77263C2C28028500D71DCB /* SQLite */; };
@@ -89,7 +91,6 @@
 		5507D8CB2C208CB000A47FA3 /* HeaderFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFields.swift; sourceTree = "<group>"; };
 		5507D8CD2C208CC400A47FA3 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		5507D8CF2C208D1600A47FA3 /* PercepTrailDataAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercepTrailDataAPIClient.swift; sourceTree = "<group>"; };
-		5507D8D12C2142FA00A47FA3 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		551C5A6B2C29915A00EB4553 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		551C5A6D2C29917300EB4553 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		551C5A6F2C29B19400EB4553 /* ProgressIndicatorViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorViewWrapper.swift; sourceTree = "<group>"; };
@@ -143,6 +144,9 @@
 		55D4754E2C2077DF000BE329 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		55D475502C207961000BE329 /* Alert+AddMultipleActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+AddMultipleActions.swift"; sourceTree = "<group>"; };
 		55DB49B82C245BE700397C97 /* NewLaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLaunchScreenViewController.swift; sourceTree = "<group>"; };
+		7B352EA52C2A94C500D92A43 /* ActivityAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAnnotation.swift; sourceTree = "<group>"; };
+		7B352EA72C2A9E3C00D92A43 /* ChatGPT4VisionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPT4VisionRequest.swift; sourceTree = "<group>"; };
+		7B352EA92C2A9E5E00D92A43 /* ChatGPT4VisionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPT4VisionResponse.swift; sourceTree = "<group>"; };
 		7B3ED5BE2C26EA150066149A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7B3ED5C02C26EE120066149A /* UIImage+Resized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resized.swift"; sourceTree = "<group>"; };
 		7B77263F2C28089500D71DCB /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
@@ -393,6 +397,7 @@
 				55D4752E2C20220C000BE329 /* Extensions */,
 				55D4752F2C20224C000BE329 /* UserPreferences.swift */,
 				55D475322C202335000BE329 /* AppDefine.swift */,
+				7B352EA52C2A94C500D92A43 /* ActivityAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -430,7 +435,8 @@
 		55D475522C207CF7000BE329 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				5507D8D12C2142FA00A47FA3 /* GeneralResponse.swift */,
+				7B352EA72C2A9E3C00D92A43 /* ChatGPT4VisionRequest.swift */,
+				7B352EA92C2A9E5E00D92A43 /* ChatGPT4VisionResponse.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -556,7 +562,6 @@
 				55BEF1AC2C293B4A00DA811B /* RouteViewController.swift in Sources */,
 				7B3ED5BF2C26EA150066149A /* MainTabBarController.swift in Sources */,
 				5589E1592C22FECF00D56AC8 /* HeightViewController.swift in Sources */,
-				5507D8D22C2142FA00A47FA3 /* GeneralResponse.swift in Sources */,
 				5507D8C12C208B9300A47FA3 /* Encodable+JsonToDict.swift in Sources */,
 				55B7AAC02C2565FF002B6964 /* GroupTaskViewController.swift in Sources */,
 				55BEF1B22C293CF900DA811B /* PuzzleViewController.swift in Sources */,
@@ -573,6 +578,7 @@
 				5589E1532C22FE5800D56AC8 /* NicknameViewController.swift in Sources */,
 				5589E1512C22E61100D56AC8 /* WelcomeViewController.swift in Sources */,
 				55D4754D2C2077A9000BE329 /* CommandBase.swift in Sources */,
+				7B352EAA2C2A9E5E00D92A43 /* ChatGPT4VisionResponse.swift in Sources */,
 				551C5A702C29B19400EB4553 /* ProgressIndicatorViewWrapper.swift in Sources */,
 				55DB49B92C245BE700397C97 /* NewLaunchScreenViewController.swift in Sources */,
 				5589E1572C22FEC000D56AC8 /* GenderViewController.swift in Sources */,
@@ -598,10 +604,12 @@
 				55B7AAC22C256609002B6964 /* LevelViewController.swift in Sources */,
 				5589E1612C22FF1700D56AC8 /* ActivityLevelViewController.swift in Sources */,
 				5507D8CC2C208CB000A47FA3 /* HeaderFields.swift in Sources */,
+				7B352EA82C2A9E3C00D92A43 /* ChatGPT4VisionRequest.swift in Sources */,
 				5589E1632C22FF2400D56AC8 /* ResidenceViewController.swift in Sources */,
 				55B7AAC62C25661A002B6964 /* SummaryViewController.swift in Sources */,
 				551C5A6C2C29915A00EB4553 /* ExerciseViewController.swift in Sources */,
 				55BEF1AE2C293BFC00DA811B /* Summary2ViewController.swift in Sources */,
+				7B352EA62C2A94C500D92A43 /* ActivityAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,11 +764,15 @@
 				DEVELOPMENT_TEAM = S8FBP4YLUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PercepTrail/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "此應用程式需要使用相機來拍攝照片";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "此應用程式需要訪問您的位置來進行活動";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "此應用程式需要訪問您的位置來進行活動";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "此應用程式需要訪問您的相簿來保存圖片";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -784,11 +796,15 @@
 				DEVELOPMENT_TEAM = S8FBP4YLUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PercepTrail/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "此應用程式需要使用相機來拍攝照片";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "此應用程式需要訪問您的位置來進行活動";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "此應用程式需要訪問您的位置來進行活動";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "此應用程式需要訪問您的相簿來保存圖片";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

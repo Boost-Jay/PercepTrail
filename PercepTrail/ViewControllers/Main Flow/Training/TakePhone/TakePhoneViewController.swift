@@ -265,8 +265,8 @@ class TakePhoneViewController: UIViewController {
     }
 
     private func goHomeVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
+        let storyboard = UIStoryboard(name: "SiteVisit", bundle: nil)
+        if let homeVC = storyboard.instantiateViewController(withIdentifier: "RouteViewController") as? RouteViewController {
             self.present(homeVC, animated: true, completion: nil)
         }
     }

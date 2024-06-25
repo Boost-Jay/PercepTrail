@@ -2,19 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>此應用程式需要訪問您的位置來進行活動</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>此應用程式需要訪問您的位置來進行活動</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>此應用程式需要訪問您的相簿來保存圖片</string>
-	<key>NSCameraUsageDescription</key>
-	<string>此應用程式需要使用相機來拍攝照片</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
-		<key>UIApplicationSupportsTabbedSceneCollection</key>
-		<false/>
 		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UIApplicationSupportsTabbedSceneCollection</key>
 		<false/>
 		<key>UISceneConfigurations</key>
 		<dict>
