@@ -13,6 +13,7 @@ import UIKit
 // MARK: - TakePhoneViewController
 
 class TakePhoneViewController: UIViewController {
+    
     // MARK: - IBOutlet
 
     @IBOutlet var vScanRect: UIView!
@@ -87,6 +88,7 @@ class TakePhoneViewController: UIViewController {
 
     @IBAction func pressedPhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings()
+        
         // 指定拍攝的預覽格式，包括像素格式
         if let availablePreviewPhotoPixelFormatTypes = settings.availablePreviewPhotoPixelFormatTypes.first {
             settings.previewPhotoFormat = [
@@ -106,7 +108,8 @@ class TakePhoneViewController: UIViewController {
 
         PHPhotoLibrary.requestAuthorization { status in
             DispatchQueue.main.async {
-                if status == .authorized {
+                switch status {
+                case .authorized:
                     PHPhotoLibrary.shared().performChanges({
                         PHAssetChangeRequest.creationRequestForAsset(from: image)
                     }) { success, error in
@@ -122,8 +125,15 @@ class TakePhoneViewController: UIViewController {
                             Alert.showToastWith(message: "保存失敗！", vc: self, during: .long)
                         }
                     }
-                } else {
-                    Alert.showToastWith(message: "相簿存取被拒！", vc: self, during: .long)
+                case .denied, .restricted:
+                    Alert.showAlertWithError(title: "相簿訪問被拒",
+                                             message: "此功能需要訪問您的相簿，請在設定中允許訪問",
+                                             vc: self,
+                                             confirmTitle: "確認", confirm: {
+                        CommandBase.sharedInstance.openURL(with: AppDefine.SettingsURLScheme.Photos.rawValue)
+                    })
+                default:
+                    break
                 }
             }
         }
@@ -186,7 +196,6 @@ class TakePhoneViewController: UIViewController {
         }
         captureSession.addInput(input)
 
-        // Set up photo output
         let output = AVCapturePhotoOutput()
         if captureSession.canAddOutput(output) {
             captureSession.addOutput(output)
@@ -205,14 +214,21 @@ class TakePhoneViewController: UIViewController {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
                 DispatchQueue.main.async {
+                    guard let self = self else { return }
                     if granted {
-                        self?.setupCaptureSession()
-                        self?.setupPreviewLayer()
+                        self.setupCaptureSession()
+                        self.setupPreviewLayer()
                     } else {
-                        print("Access denied")
+                        // 弹出警告框
+                        Alert.showAlertWithError(title: "相機訪問被拒",
+                                                 message: "此功能需要使用您的相機，請在設定中允許訪問相機", vc: self,
+                                                confirmTitle: "確認", confirm: {
+                            CommandBase.sharedInstance.openURL(with: AppDefine.SettingsURLScheme.Camera.rawValue)
+                        })
                     }
                 }
             }
+
 
         default:
             print("Access to camera was denied or restricted")

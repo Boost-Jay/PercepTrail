@@ -16,7 +16,6 @@ class SummaryViewController: UIViewController {
     @IBOutlet weak var lbTotalPoints: UILabel!
     @IBOutlet weak var vPointRing: RingProgressView!
     @IBOutlet weak var imgPartner: UIImageView!
-    @IBOutlet weak var imageBG: UIImageView!
     
     // MARK: - Properties
     
@@ -54,8 +53,8 @@ class SummaryViewController: UIViewController {
             }
         }
         
-        if totalPoint > UserPreferences.shared.MaxQQScore {
-            UserPreferences.shared.MaxQQScore = totalPoint
+        if totalPoint > UserPreferences.shared.QQMaxScore {
+            UserPreferences.shared.QQMaxScore = totalPoint
         }
     }
     
@@ -73,8 +72,8 @@ class SummaryViewController: UIViewController {
     fileprivate func calculatePoints() {
         let pointsFromCorrect = correctCount * 100
         let pointsFromIncorrect = incorrectCount * 50
-        totalPoint = pointsFromCorrect - pointsFromIncorrect
         
+        totalPoint = pointsFromCorrect - pointsFromIncorrect
         UserPreferences.shared.TotalScore += totalPoint
         
         if totalPoint < 0 {
@@ -84,11 +83,11 @@ class SummaryViewController: UIViewController {
     
     private func calculateFinalProgress() -> Double {
         var progress: Double
-        if UserPreferences.shared.MaxQQScore == 0 {
-            UserPreferences.shared.MaxQQScore = totalPoint
+        if UserPreferences.shared.QQMaxScore == 0 {
+            UserPreferences.shared.QQMaxScore = totalPoint
             progress = 1.0
         } else {
-            let maxPointPreference = UserPreferences.shared.MaxQQScore
+            let maxPointPreference = UserPreferences.shared.QQMaxScore
             progress = Double(totalPoint) / Double(maxPointPreference)
         }
         

@@ -19,21 +19,42 @@ final class UserPreferences {
     }
     
     private func registerDefaults() {
-        let defaults = [PreferenceKey.MaxQQScore.rawValue: 0]
+        let defaults = [PreferenceKey.QQMaxScore.rawValue: 0]
         userPreference.register(defaults: defaults)
     }
     
     enum PreferenceKey: String {
-        case MaxQQScore
+        case QQMaxScore
+        
+        case PairMaxScore
+        
+        case IdentificationMaxScore
+        
+        case PuzzleMaxScore
         
         case TotalScore
     }
     
-    var MaxQQScore: Int {
-        get { userPreference.integer(forKey: PreferenceKey.MaxQQScore.rawValue) }
-        set { userPreference.set(newValue, forKey: PreferenceKey.MaxQQScore.rawValue) }
+    var QQMaxScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.QQMaxScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.QQMaxScore.rawValue) }
     }
     
+    
+    var PairMaxScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.PairMaxScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.PairMaxScore.rawValue) }
+    }
+    
+    var IdentificationMaxScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.IdentificationMaxScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.IdentificationMaxScore.rawValue) }
+    }
+    
+    var PuzzleMaxScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.PuzzleMaxScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.PuzzleMaxScore.rawValue) }
+    }
     
     var TotalScore: Int {
         get { userPreference.integer(forKey: PreferenceKey.TotalScore.rawValue) }

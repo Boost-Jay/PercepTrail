@@ -21,7 +21,6 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var imgPartner: UIImageView!
     var progressIndicatorViewController: UIHostingController<ProgressIndicatorViewWrapper>?
     
-    
     // MARK: - Properties
     
     var prizeTime: Int?
@@ -43,10 +42,15 @@ class LevelViewController: UIViewController {
         startHintTimer()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        hintTimer?.invalidate()
+    }
+    
     // MARK: - UI Settings
     
     fileprivate func setupUI() {
-        addSwiftUIProgressIndicator()
+        addProgressIndicator()
         loadQuestion()
         setupImage()
     }
@@ -58,7 +62,20 @@ class LevelViewController: UIViewController {
         imgPartner.layer.masksToBounds = true
         imgPartner.image = UIImage(named: "partner")
     }
-
+    
+    private func addProgressIndicator() {
+        let progressView = ProgressIndicatorViewWrapper(progressData: progressData)
+        let hostingController = UIHostingController(rootView: progressView)
+        self.addChild(hostingController)
+        
+        let screenWidth = UIScreen.main.bounds.width
+        hostingController.view.frame = CGRect(x: 0, y: 180, width: screenWidth, height: 25)
+        view.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
+        
+        self.progressIndicatorViewController = hostingController
+    }
+    
     // MARK: - IBAction
     
     @IBAction func isClickedTrue(_ sender: Any) {
@@ -88,19 +105,18 @@ class LevelViewController: UIViewController {
             break
         }
     }
-
     
     // MARK: - Function
     
     private func checkAnswer(userAnswer: Bool) {
-        var isCorrect: Bool = false
+        var isCorrect = false
         switch AppDefine.currentQuestionType {
         case .predefined(let question):
             isCorrect = (userAnswer == question.isCorrect)
         case .photoQuestion(_, _, let correctAnswer):
             isCorrect = (userAnswer == correctAnswer)
         }
-
+        
         if isCorrect {
             correctCount += 1
             print("Correct: \(correctCount)")
@@ -113,7 +129,6 @@ class LevelViewController: UIViewController {
             self.loadQuestion()
         }
     }
-
     
     private func startHintTimer() {
         hintTimer = Timer.scheduledTimer(timeInterval: 31, target: self, selector: #selector(updateHint), userInfo: nil, repeats: true)
@@ -121,7 +136,7 @@ class LevelViewController: UIViewController {
     
     private func loadQuestion() {
         let hasPhotos = databaseHasPhotos()
-
+        
         if hasPhotos && Bool.random() {
             let photos = LocalDatabase.shared.fetchPhotos()
             if let randomPhoto = photos.randomElement() {
@@ -140,21 +155,6 @@ class LevelViewController: UIViewController {
             imgQuestion.image = question.image
             lbQuestion.text = question.description
         }
-    }
-
-
-
-    
-    private func addSwiftUIProgressIndicator() {
-        let progressIndicatorView = ProgressIndicatorViewWrapper(progressData: progressData)
-        let hostingController = UIHostingController(rootView: progressIndicatorView)
-        self.progressIndicatorViewController = hostingController
-        
-        addChild(hostingController)
-        let screenWidth = UIScreen.main.bounds.width
-        hostingController.view.frame = CGRect(x: 0, y: 180, width: screenWidth, height: 25)
-        view.addSubview(hostingController.view)
-        hostingController.didMove(toParent: self)
     }
     
     private func startProgressTimer() {
@@ -197,6 +197,7 @@ class LevelViewController: UIViewController {
     }
     
     // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pushToSummaryVC" {
             if let summaryVC = segue.destination as? SummaryViewController {
@@ -205,43 +206,6 @@ class LevelViewController: UIViewController {
             }
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        hintTimer?.invalidate()
-        timer?.invalidate()
-    }
-}
-
-// MARK: - ProgressData
-
-class ProgressData: ObservableObject {
-    @Published var progress: CGFloat = 0.0
-}
-
-// MARK: - ProgressIndicatorViewWrapper
-
-struct ProgressIndicatorViewWrapper: View {
-    @ObservedObject var progressData: ProgressData
-    
-    var body: some View {
-        ProgressIndicatorView(isVisible: .constant(true), type: .bar(progress: $progressData.progress, backgroundColor: .gray.opacity(0.25)))
-            .frame(height: 8.0)
-    }
-}
-
-// MARK: - CustomProgressIndicatorView
-
-struct CustomProgressIndicatorView: View {
-    @Binding var progress: CGFloat
-    var backgroundColor: Color = .gray
-    var foregroundColor: Color = .red
-    
-    var body: some View {
-        ProgressIndicatorView(isVisible: .constant(true), type: .bar(progress: $progress, backgroundColor: backgroundColor))
-            .frame(height: 8.0)
-            .background(foregroundColor.opacity(0.5))
-    }
 }
 
 @available(iOS 17.0, *)
@@ -249,7 +213,3 @@ struct CustomProgressIndicatorView: View {
     let vc = UIStoryboard(name: "QuickQuiz", bundle: nil)
     return vc.instantiateViewController(withIdentifier: "LevelViewController")
 }
-
-
-
-

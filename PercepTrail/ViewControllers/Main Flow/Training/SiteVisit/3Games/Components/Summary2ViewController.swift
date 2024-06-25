@@ -16,51 +16,61 @@ class Summary2ViewController: UIViewController {
     @IBOutlet weak var vPointRing: RingProgressView!
     @IBOutlet weak var vTimeRing: RingProgressView!
     @IBOutlet weak var imgPartner: UIImageView!
+    @IBOutlet weak var lbScore: UILabel!
+    @IBOutlet weak var lbTime: UILabel!
     
     // MARK: - Properties
     
     var correctCount: Int = 0
     var incorrectCount: Int = 0
     var totalPoint: Int = 0
+    var totalTime: Int = 0
+    var source: String?
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        calculatePoints()
+//        calculatePoints()
         setupUI()
     }
     
     fileprivate func setupUI() {
         vPointRing.progress = 0.0
-        lbTotalPoints.text = "+ \(totalPoint)"
+        vTimeRing.progress = 0.0
         updateProgressAnimated()
         setupImage()
+        lbScore.text = "+ \(totalPoint)"
+        lbTime.text = "\(totalTime) 秒"
     }
     
     fileprivate func setupImage() {
         imgPartner.sd_setImage(with: URL(fileURLWithPath: Bundle.main.path(forResource: "summary", ofType: "gif")!))
     }
 
-
-    
     private func updateProgressAnimated() {
         let finalProgress = calculateFinalProgress()
-        print("finalProgress: \(finalProgress)")
+        
+        let finalTimeProgress = calculateTimeProgress()
+        
+        print("totalTime\(totalTime)")
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             UIView.animate(withDuration: 2.0) {
                 self.vPointRing.progress = finalProgress
+                self.vTimeRing.progress = finalTimeProgress
             }
         }
         
-        if totalPoint > UserPreferences.shared.MaxQQScore {
-            UserPreferences.shared.MaxQQScore = totalPoint
-        }
+        
+        updateMaxScore()
     }
+
     
     // MARK: - IBAction
     
     @IBAction func homeButtonPressed(_ unwindSegue: UIStoryboardSegue) {
+        UserPreferences.shared.TotalScore += totalPoint
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
             present(homeVC, animated: true, completion: nil)
@@ -69,32 +79,75 @@ class Summary2ViewController: UIViewController {
     
     // MARK: - Functions
     
-    fileprivate func calculatePoints() {
-        let pointsFromCorrect = correctCount * 100
-        let pointsFromIncorrect = incorrectCount * 50
-        totalPoint = pointsFromCorrect - pointsFromIncorrect
-        
-        UserPreferences.shared.TotalScore += totalPoint
-        
-        if totalPoint < 0 {
-            totalPoint = 20
+//    fileprivate func calculatePoints() {
+//        let pointsFromCorrect = correctCount * 100
+//        let pointsFromIncorrect = incorrectCount * 50
+//        
+//        totalPoint = pointsFromCorrect - pointsFromIncorrect
+//        UserPreferences.shared.TotalScore += totalPoint
+//
+//        if totalPoint < 0 {
+//            totalPoint = 20
+//        }
+//    }
+    
+    private func updateMaxScore() {
+        if let sourceType = source {
+            switch sourceType {
+            case "Pairing":
+                if totalPoint > UserPreferences.shared.PairMaxScore {
+                    UserPreferences.shared.PairMaxScore = totalPoint
+                }
+            case "Identification":
+                if totalPoint > UserPreferences.shared.IdentificationMaxScore {
+                    UserPreferences.shared.IdentificationMaxScore = totalPoint
+                }
+            case "Puzzle":
+                if totalPoint > UserPreferences.shared.PuzzleMaxScore {
+                    UserPreferences.shared.PuzzleMaxScore = totalPoint
+                }
+            default:
+                break
+            }
         }
     }
     
+    private func calculateTimeProgress() -> Double {
+        let timePerCircle = 30.0  // 每圈時間
+        let progress = Double(totalTime) / timePerCircle
+        let formattedProgress = String(format: "%.2f", progress)
+        return Double(formattedProgress) ?? progress
+    }
+
+    
     private func calculateFinalProgress() -> Double {
-        var progress: Double
-        if UserPreferences.shared.MaxQQScore == 0 {
-            UserPreferences.shared.MaxQQScore = totalPoint
+        var progress: Double = 0.0
+        var maxScore = 0
+
+        if let sourceType = source {
+            switch sourceType {
+            case "Pairing":
+                maxScore = UserPreferences.shared.PairMaxScore
+            case "Identification":
+                maxScore = UserPreferences.shared.IdentificationMaxScore
+            case "Puzzle":
+                maxScore = UserPreferences.shared.PuzzleMaxScore
+            default:
+                break
+            }
+        }
+
+        if maxScore == 0 {
+            maxScore = totalPoint
             progress = 1.0
         } else {
-            let maxPointPreference = UserPreferences.shared.MaxQQScore
-            progress = Double(totalPoint) / Double(maxPointPreference)
+            progress = Double(totalPoint) / Double(maxScore)
         }
-        
+
         if progress > 3 {
             progress = 3.0
         }
-        
+
         let formattedProgress = String(format: "%.2f", progress)
         return Double(formattedProgress) ?? progress
     }

@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import MapKit
+import MKRingProgressView
 
 class RouteViewController: UIViewController {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var vTimeRing: MKRingProgressView!
-    @IBOutlet weak var vWorkoutRing: MKRingProgressView!
+    @IBOutlet weak var vTimeRing: RingProgressView!
+    @IBOutlet weak var vWorkoutRing: RingProgressView!
     @IBOutlet weak var vMap: MKMapView!
     
     
