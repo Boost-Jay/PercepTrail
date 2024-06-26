@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HealthKit
 
 class TrainingMainViewController: UIViewController {
     
@@ -15,23 +16,40 @@ class TrainingMainViewController: UIViewController {
     @IBOutlet weak var lbTotalPoints: UILabel!
     @IBOutlet weak var lbWalkingDistance: UILabel!
     @IBOutlet weak var lbTrainingTime: UILabel!
-        
+    
+    
     // MARK: - Properties
     
+    var healthStore: HKHealthStore?
     
+
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        updateStepCount()
     }
     
     // MARK: - UI Settings
     
     fileprivate func setupUI() {
         lbTotalPoints.text = "\(UserPreferences.shared.TotalScore)"
+        setupHealthStore()
     }
+    
+    func setupHealthStore() {
+            if HKHealthStore.isHealthDataAvailable() {
+                healthStore = HKHealthStore()
+                let allTypes = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
+                healthStore?.requestAuthorization(toShare: nil, read: allTypes) { (success, error) in
+                    if !success {
+                        print("HealthKit authorization denied!")
+                    }
+                }
+            }
+        }
     
     // MARK: - IBAction
 
@@ -39,12 +57,28 @@ class TrainingMainViewController: UIViewController {
     
     // MARK: - Function
     
+    func updateStepCount() {
+        guard let healthStore = healthStore else { return }
+        let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+        
+        let query = HKStatisticsQuery(quantityType: stepType, quantitySamplePredicate: predicate, options: .cumulativeSum) { [weak self] _, result, error in
+            guard let self = self else { return }
+            var stepCount = 0.0
+            if let sum = result?.sumQuantity() {
+                stepCount = sum.doubleValue(for: HKUnit.count())
+            }
+            
+            DispatchQueue.main.async {
+                self.lbWalkingDistance.text = "\(Int(stepCount))"
+            }
+        }
+        healthStore.execute(query)
+    }
     
 }
-
-// MARK: - Extensions
-
-
 
 // MARK: - Protocols
 

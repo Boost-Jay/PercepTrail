@@ -5,31 +5,33 @@
 //  Created by 王柏崴 on 6/21/24.
 //
 
-import AVFoundation
-import Photos
-import PhotosUI
 import UIKit
+import AVFoundation
+import MaterialShowcase
+import Photos
 
 // MARK: - TakePhoneViewController
 
 class TakePhoneViewController: UIViewController {
-    
     // MARK: - IBOutlet
 
     @IBOutlet var vScanRect: UIView!
     @IBOutlet var btnTakePhone: UIButton!
     @IBOutlet var btnCheckmark: UIButton!
-    @IBOutlet weak var btnRemove: UIButton!
-    @IBOutlet weak var btnBackVC: UIButton!
+    @IBOutlet var btnRemove: UIButton!
+    @IBOutlet var btnBackVC: UIButton!
     @IBOutlet var lbHint: UILabel!
-    @IBOutlet weak var lbCancle: UILabel!
-    
+    @IBOutlet var lbCancle: UILabel!
+
     // MARK: - Variables
 
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     var captureSession: AVCaptureSession!
     var photoOutput: AVCapturePhotoOutput?
     var capturedImage: UIImage?
+    var fromTask: Bool = false
+    let sequence = MaterialShowcaseSequence()
+    let sequence2 = MaterialShowcaseSequence()
 
     // MARK: - LifeCycle
 
@@ -53,16 +55,72 @@ class TakePhoneViewController: UIViewController {
         lbHint.text = "拍照"
         lbCancle.isHidden = true
         btnBackVC.isHidden = false
-        
+        addShowCase()
     }
 
+    private func addShowCase() {
+        DispatchQueue.main.async {
+            let oneTimeKey = "camera"
+            let showcase1 = self.createShowcase(for: self.btnTakePhone,
+                                                withText: "點擊此處來紀錄旅途風景",
+                                                withColor: .showcase)
+            let showcase2 = self.createShowcase(for: self.btnBackVC,
+                                                withText: "點擊此處來返回主畫面",
+                                                withColor: .showcase)
+
+            self.sequence
+                .temp(showcase1)
+                .temp(showcase2)
+                .setKey(key: oneTimeKey)
+                .start()
+        }
+    }
+    
+    private func addShowCase2() {
+        DispatchQueue.main.async {
+            let oneTimeKey = "photo"
+            let showcase3 = self.createShowcase(for: self.btnCheckmark,
+                                                withText: "點擊此處來保存沿途風光，可以在手機相簿內查看",
+                                                withColor: .blue)
+            let showcase4 = self.createShowcase(for: self.btnRemove,
+                                                withText: "點擊此處來重新拍攝",
+                                                withColor: .blue)
+
+            self.sequence2
+                .temp(showcase3)
+                .temp(showcase4)
+                .setKey(key: oneTimeKey)
+                .start()
+        }
+    }
+
+    private func createShowcase(for view: UIView, withText: String, withColor: UIColor) -> MaterialShowcase {
+        let showCase = MaterialShowcase()
+        showCase.delegate = self
+        showCase.setTargetView(view: view)
+        showCase.primaryText = withText
+        showCase.secondaryText = ""
+        showCase.backgroundAlpha = 1
+        showCase.shouldSetTintColor = false
+        showCase.backgroundPromptColor = withColor
+        showCase.backgroundPromptColorAlpha = 0.6
+        showCase.backgroundViewType = .circle
+        showCase.backgroundRadius = 400
+        showCase.targetTintColor = .blue
+        showCase.targetHolderRadius = 60
+        showCase.targetHolderColor = .clear
+        showCase.isTapRecognizerForTargetView = true
+        
+        return showCase
+    }
+    
     private func setupButtonStatus() {
         btnCheckmark.isHidden = true
         btnCheckmark.isEnabled = false
 
         btnTakePhone.isHidden = false
         btnTakePhone.isEnabled = true
-        
+
         btnRemove.isHidden = true
         btnRemove.isEnabled = false
     }
@@ -77,7 +135,7 @@ class TakePhoneViewController: UIViewController {
             let resizedCheckmarkImage = checkmarkImage.resizeImage(to: CGSize(width: 60, height: 60))
             btnCheckmark.setImage(resizedCheckmarkImage, for: .normal)
         }
-        
+
         if let xmarkImage = UIImage(systemName: "xmark")?.withTintColor(.white, renderingMode: .alwaysOriginal) {
             let resizedxmarkImage = xmarkImage.resizeImage(to: CGSize(width: 60, height: 60))
             btnRemove.setImage(resizedxmarkImage, for: .normal)
@@ -88,13 +146,13 @@ class TakePhoneViewController: UIViewController {
 
     @IBAction func pressedPhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings()
-        
+
         // 指定拍攝的預覽格式，包括像素格式
         if let availablePreviewPhotoPixelFormatTypes = settings.availablePreviewPhotoPixelFormatTypes.first {
             settings.previewPhotoFormat = [
                 kCVPixelBufferPixelFormatTypeKey as String: availablePreviewPhotoPixelFormatTypes,
                 kCVPixelBufferWidthKey as String: NSNumber(value: Float(vScanRect.bounds.width)),
-                kCVPixelBufferHeightKey as String: NSNumber(value: Float(vScanRect.bounds.height))
+                kCVPixelBufferHeightKey as String: NSNumber(value: Float(vScanRect.bounds.height)),
             ]
         }
         photoOutput?.capturePhoto(with: settings, delegate: self)
@@ -125,28 +183,32 @@ class TakePhoneViewController: UIViewController {
                             Alert.showToastWith(message: "保存失敗！", vc: self, during: .long)
                         }
                     }
+
                 case .denied, .restricted:
                     Alert.showAlertWithError(title: "相簿訪問被拒",
                                              message: "此功能需要訪問您的相簿，請在設定中允許訪問",
                                              vc: self,
                                              confirmTitle: "確認", confirm: {
-                        CommandBase.sharedInstance.openURL(with: AppDefine.SettingsURLScheme.Photos.rawValue)
-                    })
+                                                 CommandBase.sharedInstance.openURL(with: AppDefine.SettingsURLScheme.Photos.rawValue)
+                                             })
+
                 default:
                     break
                 }
             }
         }
     }
-    
+
     @IBAction func cancelPhoto(_ sender: Any) {
         vScanRect.subviews.forEach { $0.removeFromSuperview() }
 
         // 重新啟動攝影機預覽
         if !captureSession.isRunning {
-            captureSession.startRunning()
+            DispatchQueue.global().async {
+                self.captureSession.startRunning()
+            }
         }
-		
+
         btnCheckmark.isHidden = true
         btnCheckmark.isEnabled = false
         lbCancle.isHidden = true
@@ -156,10 +218,9 @@ class TakePhoneViewController: UIViewController {
         btnTakePhone.isHidden = false
         btnRemove.isHidden = true
         btnRemove.isEnabled = false
-        
+
         lbHint.text = "拍照"
     }
-
 
     @IBAction func goHomeVC(_ sender: Any) {
         goHomeVC()
@@ -222,13 +283,12 @@ class TakePhoneViewController: UIViewController {
                         // 弹出警告框
                         Alert.showAlertWithError(title: "相機訪問被拒",
                                                  message: "此功能需要使用您的相機，請在設定中允許訪問相機", vc: self,
-                                                confirmTitle: "確認", confirm: {
-                            CommandBase.sharedInstance.openURL(with: AppDefine.SettingsURLScheme.Camera.rawValue)
-                        })
+                                                 confirmTitle: "確認", confirm: {
+                                                     CommandBase.sharedInstance.openURL(with: AppDefine.SettingsURLScheme.Camera.rawValue)
+                                                 })
                     }
                 }
             }
-
 
         default:
             print("Access to camera was denied or restricted")
@@ -255,7 +315,7 @@ class TakePhoneViewController: UIViewController {
     }
 
     private func saveImageToDatabase(image: UIImage) {
-        if let imagePath = self.saveImageToDocumentsDirectory(image: image) {
+        if let imagePath = saveImageToDocumentsDirectory(image: image) {
             let imageName = URL(fileURLWithPath: imagePath).lastPathComponent
             LocalDatabase.shared.insertPhoto(name: imageName, imagePath: imagePath)
             print("Photo saved to local database at \(imagePath)")
@@ -265,14 +325,30 @@ class TakePhoneViewController: UIViewController {
     }
 
     private func goHomeVC() {
-        let storyboard = UIStoryboard(name: "SiteVisit", bundle: nil)
-        if let homeVC = storyboard.instantiateViewController(withIdentifier: "RouteViewController") as? RouteViewController {
-            self.present(homeVC, animated: true, completion: nil)
+        if fromTask {
+            let storyboard = UIStoryboard(name: "SiteVisit", bundle: nil)
+            if let routeVC = storyboard.instantiateViewController(withIdentifier: "RouteViewController") as? RouteViewController {
+                present(routeVC, animated: true, completion: nil)
+            }
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
+                present(homeVC, animated: true, completion: nil)
+            }
         }
     }
 }
 
-// MARK: AVCapturePhotoCaptureDelegate
+// MARK: - TakePhoneViewController: MaterialShowcaseDelegate
+
+extension TakePhoneViewController: MaterialShowcaseDelegate {
+    func showCaseDidDismiss(showcase: MaterialShowcase, didTapTarget: Bool) {
+        sequence.showCaseWillDismis()
+        sequence2.showCaseWillDismis()
+    }
+}
+
+// MARK: - TakePhoneViewController + AVCapturePhotoCaptureDelegate
 
 extension TakePhoneViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -293,7 +369,7 @@ extension TakePhoneViewController: AVCapturePhotoCaptureDelegate {
 
         // 裁剪圖像以符合預覽層的視角
         let croppedImage = cropImageToPreviewLayer(originalImage: image)
-        self.capturedImage = croppedImage
+        capturedImage = croppedImage
 
         DispatchQueue.main.async {
             if let croppedImage = croppedImage {
@@ -309,14 +385,16 @@ extension TakePhoneViewController: AVCapturePhotoCaptureDelegate {
 
                 self.btnTakePhone.isHidden = true
                 self.btnTakePhone.isEnabled = false
-                
+
                 self.btnRemove.isHidden = false
                 self.btnRemove.isEnabled = true
-                
+
                 self.lbCancle.isHidden = false
                 self.btnBackVC.isHidden = true
-
+            
                 self.lbHint.text = "保存"
+                
+                self.addShowCase2()
             } else {
                 print("Failed to crop image")
             }

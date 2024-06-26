@@ -66,8 +66,13 @@ class ActivityDiscoveryViewController: UIViewController {
     // MARK: - IBAction
 
     @IBAction func openTaskPage(_ sender: Any) {
-        performSegue(withIdentifier: "pushToRouteVC", sender: nil)
+        if selectedActivityCoordinate != nil {
+            performSegue(withIdentifier: "pushToRouteVC", sender: nil)
+        } else {
+            Alert.showToastWith(message: "請選擇一個活動地點以繼續", vc: self, during: .long)
+        }
     }
+
 
     // MARK: - Function
 
@@ -104,6 +109,7 @@ extension ActivityDiscoveryViewController: CLLocationManagerDelegate {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         let region = MKCoordinateRegion(center: locValue, latitudinalMeters: 500, longitudinalMeters: 500)
         vMap.setRegion(region, animated: true)
+        manager.stopUpdatingLocation()
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -137,7 +143,7 @@ extension ActivityDiscoveryViewController: CLLocationManagerDelegate {
 
 extension ActivityDiscoveryViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if let activityAnnotation = annotation as? ActivityAnnotation  {
+        if annotation is ActivityAnnotation  {
             let identifier = "Activity"
             var view: MKMarkerAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
@@ -194,7 +200,6 @@ extension ActivityDiscoveryViewController: MKMapViewDelegate {
     }
 }
 
-// MARK: - Protocols
 
 @available(iOS 17.0, *)
 #Preview {

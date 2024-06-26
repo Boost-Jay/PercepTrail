@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import ProgressIndicatorView
+import MaterialShowcase
 
 // MARK: - LevelViewController
 
@@ -19,10 +20,13 @@ class LevelViewController: UIViewController {
     @IBOutlet weak var imgQuestion: UIImageView!
     @IBOutlet weak var lbHint: UILabel!
     @IBOutlet weak var imgPartner: UIImageView!
-    var progressIndicatorViewController: UIHostingController<ProgressIndicatorViewWrapper>?
+    @IBOutlet weak var btnTrue: UIButton!
+    @IBOutlet weak var btnFalse: UIButton!
+    
     
     // MARK: - Properties
     
+    var progressIndicatorViewController: UIHostingController<ProgressIndicatorViewWrapper>?
     var prizeTime: Int?
     var progress: CGFloat = 0.0
     var progressData = ProgressData()
@@ -32,6 +36,7 @@ class LevelViewController: UIViewController {
     var currentQuestion: AppDefine.Question = .p1
     var hintTimer: Timer?
     var secondsPassed = 0.0
+    let sequence = MaterialShowcaseSequence()
     
     // MARK: - LifeCycle
     
@@ -53,6 +58,7 @@ class LevelViewController: UIViewController {
         addProgressIndicator()
         loadQuestion()
         setupImage()
+        addShowCase()
     }
     
     private func setupImage() {
@@ -61,6 +67,44 @@ class LevelViewController: UIViewController {
         imgPartner.layer.cornerRadius = 15
         imgPartner.layer.masksToBounds = true
         imgPartner.image = UIImage(named: "partner")
+    }
+    
+    private func addShowCase() {
+        DispatchQueue.main.async {
+            let oneTimeKey = "third"
+            let showcase1 = self.createShowcase(for: self.btnTrue,
+                                                withText: "圖片與題目相符，請點擊此處",
+                                                withColor: .showcase)
+            let showcase2 = self.createShowcase(for: self.btnFalse,
+                                                withText: "圖片與題目無關，請點擊此處",
+                                                withColor: .showcase)
+
+            self.sequence
+                .temp(showcase1)
+                .temp(showcase2)
+                .setKey(key: oneTimeKey)
+                .start()
+        }
+    }
+    
+    private func createShowcase(for view: UIView, withText: String, withColor: UIColor) -> MaterialShowcase {
+        let showCase = MaterialShowcase()
+        showCase.delegate = self
+        showCase.setTargetView(view: view)
+        showCase.primaryText = withText
+        showCase.secondaryText = ""
+        showCase.backgroundAlpha = 1
+        showCase.shouldSetTintColor = false
+        showCase.backgroundPromptColor = withColor
+        showCase.backgroundPromptColorAlpha = 0.6
+        showCase.backgroundViewType = .circle
+        showCase.backgroundRadius = 300
+        showCase.targetTintColor = .blue
+        showCase.targetHolderRadius = 70
+        showCase.targetHolderColor = .clear
+        showCase.isTapRecognizerForTargetView = true
+        
+        return showCase
     }
     
     private func addProgressIndicator() {
@@ -205,6 +249,14 @@ class LevelViewController: UIViewController {
                 summaryVC.incorrectCount = self.incorrectCount
             }
         }
+    }
+}
+
+// MARK: - LevelViewController: MaterialShowcaseDelegate
+
+extension LevelViewController: MaterialShowcaseDelegate {
+    func showCaseDidDismiss(showcase: MaterialShowcase, didTapTarget: Bool) {
+        sequence.showCaseWillDismis()
     }
 }
 

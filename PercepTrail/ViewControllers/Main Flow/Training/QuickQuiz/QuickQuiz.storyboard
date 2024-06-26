@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4DC-Iz-A7H">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -82,6 +83,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bSw-u4-dHZ"/>
                     <connections>
+                        <outlet property="btnSelectTime" destination="CAP-aN-Mf5" id="6BJ-Zz-ts9"/>
                         <outlet property="vWheel" destination="wPU-b5-kvc" id="Tgh-zo-9Fg"/>
                         <segue destination="pJU-qd-VKu" kind="show" identifier="pushToTimerVC" id="jol-lw-n7k"/>
                     </connections>
@@ -159,6 +161,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="N1f-9k-qiA"/>
                     <connections>
+                        <outlet property="btnStart" destination="wOu-8y-gfe" id="gMr-J1-GV8"/>
                         <outlet property="lbTimer" destination="ujR-KS-CdS" id="IeT-q4-AEw"/>
                         <segue destination="25Z-ZW-kEV" kind="show" identifier="pushToLevelVC" id="8Oo-F7-w9w"/>
                     </connections>
@@ -175,34 +178,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLE-U6-biY">
-                                <rect key="frame" x="24" y="666.66666666666663" width="149" height="153.33333333333337"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="○" cornerStyle="dynamic">
-                                    <backgroundConfiguration key="background" cornerRadius="10">
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="60"/>
-                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="51e-KD-723">
+                                <rect key="frame" x="16" y="14.000000000000007" width="106" height="106.66666666666669"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
-                                        <real key="value" value="0.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
-                                        <size key="value" width="0.0" height="3"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="isClickedTrue:" destination="25Z-ZW-kEV" eventType="touchUpInside" id="lgB-an-WHT"/>
-                                </connections>
-                            </button>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PwG-fd-IQc">
+                                <rect key="frame" x="8" y="370" width="377" height="272.66666666666674"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="HJ8-ZA-WwF">
+                                <rect key="frame" x="136" y="10" width="215" height="101"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開始了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDo-Cr-Z2N">
+                                <rect key="frame" x="168.33333333333331" y="44.666666666666664" width="150.33333333333331" height="31.999999999999993"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="計時3分鐘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvu-OV-otQ">
+                                <rect key="frame" x="8" y="245.00000000000003" width="377" height="100.33333333333334"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epu-k4-ltR">
                                 <rect key="frame" x="220" y="666.66666666666663" width="149" height="153.33333333333337"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -231,33 +233,34 @@
                                     <action selector="isClickedFalse:" destination="25Z-ZW-kEV" eventType="touchUpInside" id="i0M-IF-8aY"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="51e-KD-723">
-                                <rect key="frame" x="16" y="14.000000000000007" width="106" height="106.66666666666669"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLE-U6-biY">
+                                <rect key="frame" x="24" y="666.66666666666663" width="149" height="153.33333333333337"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="○" cornerStyle="dynamic">
+                                    <backgroundConfiguration key="background" cornerRadius="10">
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="60"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PwG-fd-IQc">
-                                <rect key="frame" x="8" y="370" width="377" height="272.66666666666674"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="HJ8-ZA-WwF">
-                                <rect key="frame" x="136" y="10" width="215" height="101"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開始了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDo-Cr-Z2N">
-                                <rect key="frame" x="168.33333333333331" y="44.666666666666664" width="150.33333333333331" height="31.999999999999993"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="計時3分鐘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvu-OV-otQ">
-                                <rect key="frame" x="8" y="245.00000000000003" width="377" height="100.33333333333334"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <connections>
+                                    <action selector="isClickedTrue:" destination="25Z-ZW-kEV" eventType="touchUpInside" id="lgB-an-WHT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XRH-JU-GG3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -294,6 +297,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="tsp-tS-fpM"/>
                     <connections>
+                        <outlet property="btnFalse" destination="epu-k4-ltR" id="yxJ-xt-PcR"/>
+                        <outlet property="btnTrue" destination="yLE-U6-biY" id="GMt-8r-obH"/>
                         <outlet property="imgPartner" destination="51e-KD-723" id="wS4-yt-DtH"/>
                         <outlet property="imgQuestion" destination="PwG-fd-IQc" id="4b4-QR-bhx"/>
                         <outlet property="lbHint" destination="ZDo-Cr-Z2N" id="ARt-fB-Qha"/>
@@ -426,6 +431,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cc1-Hi-dAZ"/>
                     <connections>
+                        <outlet property="btnHome" destination="MKv-SZ-nnC" id="Vxt-cE-zLF"/>
                         <outlet property="imgPartner" destination="NYL-2b-De8" id="kzm-aZ-gSR"/>
                         <outlet property="lbTotalPoints" destination="6yf-SU-b6G" id="Ucs-fP-SHf"/>
                         <outlet property="vPointRing" destination="4rX-vm-83c" id="2xC-oG-Tod"/>

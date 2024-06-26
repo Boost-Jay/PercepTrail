@@ -18,6 +18,7 @@
 		551C5A6C2C29915A00EB4553 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C5A6B2C29915A00EB4553 /* ExerciseViewController.swift */; };
 		551C5A6E2C29917300EB4553 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C5A6D2C29917300EB4553 /* WorkoutViewController.swift */; };
 		551C5A702C29B19400EB4553 /* ProgressIndicatorViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C5A6F2C29B19400EB4553 /* ProgressIndicatorViewWrapper.swift */; };
+		551C5A952C2B030800EB4553 /* MaterialShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = 551C5A942C2B030800EB4553 /* MaterialShowcase */; };
 		5589E14E2C22E33400D56AC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5589E14D2C22E33400D56AC8 /* Main.storyboard */; };
 		5589E14F2C22E34400D56AC8 /* Initial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D474AD2C2014A9000BE329 /* Initial.storyboard */; };
 		5589E1512C22E61100D56AC8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589E1502C22E61100D56AC8 /* WelcomeViewController.swift */; };
@@ -147,6 +148,7 @@
 		7B352EA52C2A94C500D92A43 /* ActivityAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAnnotation.swift; sourceTree = "<group>"; };
 		7B352EA72C2A9E3C00D92A43 /* ChatGPT4VisionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPT4VisionRequest.swift; sourceTree = "<group>"; };
 		7B352EA92C2A9E5E00D92A43 /* ChatGPT4VisionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPT4VisionResponse.swift; sourceTree = "<group>"; };
+		7B352EAC2C2BB97100D92A43 /* PercepTrail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PercepTrail.entitlements; sourceTree = "<group>"; };
 		7B3ED5BE2C26EA150066149A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7B3ED5C02C26EE120066149A /* UIImage+Resized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resized.swift"; sourceTree = "<group>"; };
 		7B77263F2C28089500D71DCB /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				7B77263D2C28028500D71DCB /* SQLite in Frameworks */,
 				55B7AA7F2C255001002B6964 /* SwiftFortuneWheel in Frameworks */,
 				55B7AA822C25518E002B6964 /* MKRingProgressView in Frameworks */,
+				551C5A952C2B030800EB4553 /* MaterialShowcase in Frameworks */,
 				55BEF15D2C266B2200DA811B /* ProgressIndicatorView in Frameworks */,
 				55BEF1A22C292C1100DA811B /* SDWebImageMapKit in Frameworks */,
 				55D475552C207D7A000BE329 /* IQKeyboardManagerSwift in Frameworks */,
@@ -366,6 +369,7 @@
 		55D474A62C2014A9000BE329 /* PercepTrail */ = {
 			isa = PBXGroup;
 			children = (
+				7B352EAC2C2BB97100D92A43 /* PercepTrail.entitlements */,
 				55D474A72C2014A9000BE329 /* AppDelegate.swift */,
 				55D474A92C2014A9000BE329 /* SceneDelegate.swift */,
 				55D474B22C2014AA000BE329 /* LaunchScreen.storyboard */,
@@ -483,6 +487,7 @@
 				7B77263C2C28028500D71DCB /* SQLite */,
 				55BEF19F2C292C1100DA811B /* SDWebImage */,
 				55BEF1A12C292C1100DA811B /* SDWebImageMapKit */,
+				551C5A942C2B030800EB4553 /* MaterialShowcase */,
 			);
 			productName = PercepTrail;
 			productReference = 55D474A42C2014A9000BE329 /* PercepTrail.app */;
@@ -519,6 +524,7 @@
 				55BEF15B2C266B2200DA811B /* XCRemoteSwiftPackageReference "ProgressIndicatorView" */,
 				7B77263B2C28028500D71DCB /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 				55BEF19E2C292C1100DA811B /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				551C5A932C2B030800EB4553 /* XCRemoteSwiftPackageReference "material-showcase-ios" */,
 			);
 			productRefGroup = 55D474A52C2014A9000BE329 /* Products */;
 			projectDirPath = "";
@@ -759,12 +765,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PercepTrail/PercepTrail.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S8FBP4YLUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PercepTrail/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "此應用程式需要使用相機來拍攝照片";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "需要訪問您的活動數據來顯示步數";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "需要訪問您的活動數據來顯示步數";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "此應用程式需要訪問您的位置來進行活動";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "此應用程式需要訪問您的位置來進行活動";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "此應用程式需要訪問您的相簿來保存圖片";
@@ -773,6 +782,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -791,12 +801,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PercepTrail/PercepTrail.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S8FBP4YLUA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PercepTrail/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "此應用程式需要使用相機來拍攝照片";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "需要訪問您的活動數據來顯示步數";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "需要訪問您的活動數據來顯示步數";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "此應用程式需要訪問您的位置來進行活動";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "此應用程式需要訪問您的位置來進行活動";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "此應用程式需要訪問您的相簿來保存圖片";
@@ -805,6 +818,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -842,6 +856,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		551C5A932C2B030800EB4553 /* XCRemoteSwiftPackageReference "material-showcase-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aromajoin/material-showcase-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.8.0;
+			};
+		};
 		55B7AA7D2C255001002B6964 /* XCRemoteSwiftPackageReference "SwiftFortuneWheel" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sh-khashimov/SwiftFortuneWheel.git";
@@ -893,6 +915,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		551C5A942C2B030800EB4553 /* MaterialShowcase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 551C5A932C2B030800EB4553 /* XCRemoteSwiftPackageReference "material-showcase-ios" */;
+			productName = MaterialShowcase;
+		};
 		55B7AA7E2C255001002B6964 /* SwiftFortuneWheel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 55B7AA7D2C255001002B6964 /* XCRemoteSwiftPackageReference "SwiftFortuneWheel" */;

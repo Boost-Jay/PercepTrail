@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftFortuneWheel
+import MaterialShowcase
 
 // MARK: - WheelViewController
 
@@ -23,9 +24,14 @@ class WheelViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var btnSelectTime: UIButton!
+    
+    
     // MARK: - Properties
     
     var currentStopIndex: Int?
+    
+    let sequence = MaterialShowcaseSequence()
     
     var prizes = [(name: "1分鐘", color: #colorLiteral(red: 0.8828339577, green: 0.3921767175, blue: 0.4065475464, alpha: 1), textColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),
                   (name: "2分鐘", color: #colorLiteral(red: 1, green: 0.5892302394, blue: 0.3198351264, alpha: 1), textColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),
@@ -49,6 +55,48 @@ class WheelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    
+    // MARK: - UI Settings
+
+    fileprivate func setupUI() {
+        addShowCase()
+    }
+    
+    private func addShowCase() {
+        DispatchQueue.main.async {
+            let oneTimeKey = "first"
+            let showcase1 = self.createShowcase(for: self.btnSelectTime,
+                                                withText: "點擊此處來隨機選出此活動可以進行的時長",
+                                                withColor: .showcase)
+
+            self.sequence
+                .temp(showcase1)
+                .setKey(key: oneTimeKey)
+                .start()
+        }
+    }
+    
+    private func createShowcase(for view: UIView, withText: String, withColor: UIColor) -> MaterialShowcase {
+        let showCase = MaterialShowcase()
+        showCase.delegate = self
+        showCase.setTargetView(view: view)
+        showCase.primaryText = withText
+        showCase.secondaryText = ""
+        showCase.backgroundAlpha = 1
+        showCase.shouldSetTintColor = false
+        showCase.backgroundPromptColor = withColor
+        showCase.backgroundPromptColorAlpha = 0.6
+        showCase.backgroundViewType = .circle
+        showCase.backgroundRadius = 400
+        showCase.targetTintColor = .blue
+        showCase.targetHolderRadius = 80
+        showCase.targetHolderColor = .clear
+        showCase.isTapRecognizerForTargetView = true
+        
+        return showCase
     }
     
     // MARK: - IBAction
@@ -69,7 +117,7 @@ class WheelViewController: UIViewController {
         }
     }
 
-    // MARK: - Function
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pushToTimerVC" {
@@ -83,6 +131,12 @@ class WheelViewController: UIViewController {
 }
 
 // MARK: - Extensions
+
+extension WheelViewController: MaterialShowcaseDelegate {
+    func showCaseDidDismiss(showcase: MaterialShowcase, didTapTarget: Bool) {
+        sequence.showCaseWillDismis()
+    }
+}
 
 extension TextPreferences {
     static func variousWheelPodiumText(textColor: UIColor) -> TextPreferences {

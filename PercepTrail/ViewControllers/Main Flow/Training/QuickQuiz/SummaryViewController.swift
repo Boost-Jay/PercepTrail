@@ -8,6 +8,7 @@
 import UIKit
 import MKRingProgressView
 import SDWebImage
+import MaterialShowcase
 
 class SummaryViewController: UIViewController {
     
@@ -16,12 +17,14 @@ class SummaryViewController: UIViewController {
     @IBOutlet weak var lbTotalPoints: UILabel!
     @IBOutlet weak var vPointRing: RingProgressView!
     @IBOutlet weak var imgPartner: UIImageView!
+    @IBOutlet weak var btnHome: UIButton!
     
     // MARK: - Properties
     
     var correctCount: Int = 0
     var incorrectCount: Int = 0
     var totalPoint: Int = 0
+    let sequence = MaterialShowcaseSequence()
     
     // MARK: - LifeCycle
     
@@ -36,13 +39,46 @@ class SummaryViewController: UIViewController {
         lbTotalPoints.text = "+ \(totalPoint)"
         updateProgressAnimated()
         setupImage()
+        addShowCase()
     }
     
     fileprivate func setupImage() {
         imgPartner.sd_setImage(with: URL(fileURLWithPath: Bundle.main.path(forResource: "summary", ofType: "gif")!))
     }
+    
+    private func addShowCase() {
+        DispatchQueue.main.async {
+            let oneTimeKey = "fouth"
+            let showcase1 = self.createShowcase(for: self.btnHome,
+                                                withText: "恭喜你完成了這次挑戰，別忘了回主頁查看總分！",
+                                                withColor: .showcase)
 
-
+            self.sequence
+                .temp(showcase1)
+                .setKey(key: oneTimeKey)
+                .start()
+        }
+    }
+    
+    private func createShowcase(for view: UIView, withText: String, withColor: UIColor) -> MaterialShowcase {
+        let showCase = MaterialShowcase()
+        showCase.delegate = self
+        showCase.setTargetView(view: view)
+        showCase.primaryText = withText
+        showCase.secondaryText = ""
+        showCase.backgroundAlpha = 1
+        showCase.shouldSetTintColor = false
+        showCase.backgroundPromptColor = withColor
+        showCase.backgroundPromptColorAlpha = 0.6
+        showCase.backgroundViewType = .circle
+        showCase.backgroundRadius = 300
+        showCase.targetTintColor = .blue
+        showCase.targetHolderRadius = 100
+        showCase.targetHolderColor = .clear
+        showCase.isTapRecognizerForTargetView = true
+        
+        return showCase
+    }
     
     private func updateProgressAnimated() {
         let finalProgress = calculateFinalProgress()
@@ -74,11 +110,11 @@ class SummaryViewController: UIViewController {
         let pointsFromIncorrect = incorrectCount * 50
         
         totalPoint = pointsFromCorrect - pointsFromIncorrect
-        UserPreferences.shared.TotalScore += totalPoint
         
         if totalPoint < 0 {
             totalPoint = 20
         }
+        UserPreferences.shared.TotalScore += totalPoint
     }
     
     private func calculateFinalProgress() -> Double {
@@ -97,6 +133,14 @@ class SummaryViewController: UIViewController {
         
         let formattedProgress = String(format: "%.2f", progress)
         return Double(formattedProgress) ?? progress
+    }
+}
+
+// MARK: - Extension
+
+extension SummaryViewController: MaterialShowcaseDelegate {
+    func showCaseDidDismiss(showcase: MaterialShowcase, didTapTarget: Bool) {
+        sequence.showCaseWillDismis()
     }
 }
 

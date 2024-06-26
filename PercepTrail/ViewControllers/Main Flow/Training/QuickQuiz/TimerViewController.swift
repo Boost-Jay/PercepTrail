@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MaterialShowcase
 
 class TimerViewController: UIViewController {
     
@@ -13,11 +14,12 @@ class TimerViewController: UIViewController {
     
     @IBOutlet weak var lbTimer: UILabel!
     
+    @IBOutlet weak var btnStart: UIButton!
     
     // MARK: - Properties
     
     var prizeName: String?
-    
+    let sequence = MaterialShowcaseSequence()
     
     // MARK: - LifeCycle
     
@@ -30,6 +32,41 @@ class TimerViewController: UIViewController {
     
     fileprivate func setupUI() {
         lbTimer.text = "計時：\(prizeName ?? "無資料")"
+        addShowCase()
+    }
+    
+    private func addShowCase() {
+        DispatchQueue.main.async {
+            let oneTimeKey = "second"
+            let showcase1 = self.createShowcase(for: self.btnStart,
+                                                withText: "準備好的話就可以點擊此處開始活動了！",
+                                                withColor: .showcase)
+
+            self.sequence
+                .temp(showcase1)
+                .setKey(key: oneTimeKey)
+                .start()
+        }
+    }
+    
+    private func createShowcase(for view: UIView, withText: String, withColor: UIColor) -> MaterialShowcase {
+        let showCase = MaterialShowcase()
+        showCase.delegate = self
+        showCase.setTargetView(view: view)
+        showCase.primaryText = withText
+        showCase.secondaryText = ""
+        showCase.backgroundAlpha = 1
+        showCase.shouldSetTintColor = false
+        showCase.backgroundPromptColor = withColor
+        showCase.backgroundPromptColorAlpha = 0.6
+        showCase.backgroundViewType = .circle
+        showCase.backgroundRadius = 400
+        showCase.targetTintColor = .blue
+        showCase.targetHolderRadius = 80
+        showCase.targetHolderColor = .clear
+        showCase.isTapRecognizerForTargetView = true
+        
+        return showCase
     }
     
     // MARK: - IBAction
@@ -38,8 +75,7 @@ class TimerViewController: UIViewController {
         performSegue(withIdentifier: "pushToLevelVC", sender: nil)
     }
     
-    
-    // MARK: - Function
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pushToLevelVC" {
@@ -50,15 +86,15 @@ class TimerViewController: UIViewController {
             }
         }
     }
-
-    
 }
 
 // MARK: - Extensions
 
-
-
-// MARK: - Protocols
+extension TimerViewController: MaterialShowcaseDelegate {
+    func showCaseDidDismiss(showcase: MaterialShowcase, didTapTarget: Bool) {
+        sequence.showCaseWillDismis()
+    }
+}
 
 @available(iOS 17.0, *)
 #Preview {
