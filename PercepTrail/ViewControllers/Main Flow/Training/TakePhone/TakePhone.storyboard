@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,11 +20,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzm-Ce-AXI">
-                                <rect key="frame" x="0.0" y="83" width="393" height="547"/>
+                                <rect key="frame" x="0.0" y="83" width="393" height="541"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VP3-of-Ldk">
+                                <rect key="frame" x="244.66666666666663" y="672" width="100" height="100"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <imageReference key="image" image="camera" catalog="system" symbolScale="default" renderingMode="hierarchical">
+                                        <hierarchicalColors>
+                                            <color systemColor="labelColor"/>
+                                            <color systemColor="secondaryLabelColor"/>
+                                            <color systemColor="tertiaryLabelColor"/>
+                                        </hierarchicalColors>
+                                    </imageReference>
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressedPhoto:" destination="5UG-VE-enC" eventType="touchUpInside" id="SNZ-L0-OP5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拍照" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqp-aO-G6v">
+                                <rect key="frame" x="244.66666666666663" y="780" width="100" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRq-ur-NwH">
+                                <rect key="frame" x="48.333333333333343" y="672" width="100" height="100"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelPhoto:" destination="5UG-VE-enC" eventType="touchUpInside" id="pdc-Le-Z3p"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取消" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCa-QX-hrc">
+                                <rect key="frame" x="48.333333333333343" y="780" width="100" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tf8-uE-Cjr">
+                                <rect key="frame" x="244.66666666666663" y="672" width="100" height="100"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <imageReference key="image" image="checkmark" catalog="system" symbolScale="large" renderingMode="template"/>
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="savePhoto:" destination="5UG-VE-enC" eventType="touchUpInside" id="phe-P4-CcH"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2K8-lQ-X9Z">
-                                <rect key="frame" x="39.333333333333329" y="729" width="157.33333333333337" height="65"/>
+                                <rect key="frame" x="19.666666666666671" y="689.66666666666663" width="157.33333333333331" height="65"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
@@ -51,96 +110,38 @@
                                     <action selector="goHomeVC:" destination="5UG-VE-enC" eventType="touchUpInside" id="ncL-u7-epD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VP3-of-Ldk">
-                                <rect key="frame" x="244.66666666666663" y="678" width="100" height="100"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
-                                    <imageReference key="image" image="camera" catalog="system" symbolScale="default" renderingMode="hierarchical">
-                                        <hierarchicalColors>
-                                            <color systemColor="labelColor"/>
-                                            <color systemColor="secondaryLabelColor"/>
-                                            <color systemColor="tertiaryLabelColor"/>
-                                        </hierarchicalColors>
-                                    </imageReference>
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="pressedPhoto:" destination="5UG-VE-enC" eventType="touchUpInside" id="SNZ-L0-OP5"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拍照" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqp-aO-G6v">
-                                <rect key="frame" x="244.66666666666663" y="786" width="100" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRq-ur-NwH">
-                                <rect key="frame" x="48.333333333333343" y="678" width="100" height="100"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="cancelPhoto:" destination="5UG-VE-enC" eventType="touchUpInside" id="pdc-Le-Z3p"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取消" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCa-QX-hrc">
-                                <rect key="frame" x="48.333333333333343" y="786" width="100" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tf8-uE-Cjr">
-                                <rect key="frame" x="244.66666666666663" y="678" width="100" height="100"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
-                                    <imageReference key="image" image="checkmark" catalog="system" symbolScale="large" renderingMode="template"/>
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" name="AccentColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="savePhoto:" destination="5UG-VE-enC" eventType="touchUpInside" id="phe-P4-CcH"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gI7-Xc-XfD"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstItem="tf8-uE-Cjr" firstAttribute="width" secondItem="VP3-of-Ldk" secondAttribute="width" id="0ta-Fg-pKb"/>
-                            <constraint firstItem="fCa-QX-hrc" firstAttribute="centerX" secondItem="mRq-ur-NwH" secondAttribute="centerX" id="2hy-pR-6Oq"/>
+                            <constraint firstItem="mRq-ur-NwH" firstAttribute="height" secondItem="tf8-uE-Cjr" secondAttribute="height" id="0vi-dV-nhZ"/>
+                            <constraint firstItem="tf8-uE-Cjr" firstAttribute="top" secondItem="rzm-Ce-AXI" secondAttribute="bottom" constant="48" id="3Ff-Ja-cQG"/>
+                            <constraint firstItem="Rqp-aO-G6v" firstAttribute="width" secondItem="MKh-KT-PlC" secondAttribute="width" multiplier="0.254453" id="3M3-pg-dmn"/>
+                            <constraint firstItem="VP3-of-Ldk" firstAttribute="height" secondItem="tf8-uE-Cjr" secondAttribute="height" id="7Nk-Bk-Gtd"/>
                             <constraint firstItem="rzm-Ce-AXI" firstAttribute="leading" secondItem="gI7-Xc-XfD" secondAttribute="leading" id="7tc-Hx-9xU"/>
-                            <constraint firstItem="mRq-ur-NwH" firstAttribute="centerX" secondItem="gI7-Xc-XfD" secondAttribute="centerX" multiplier="0.5" id="8La-zK-09h"/>
-                            <constraint firstItem="VP3-of-Ldk" firstAttribute="height" secondItem="MKh-KT-PlC" secondAttribute="height" multiplier="0.117371" id="CCZ-iE-S5P"/>
-                            <constraint firstItem="VP3-of-Ldk" firstAttribute="top" secondItem="rzm-Ce-AXI" secondAttribute="bottom" constant="48" id="DIE-qN-05a"/>
-                            <constraint firstItem="Rqp-aO-G6v" firstAttribute="width" secondItem="VP3-of-Ldk" secondAttribute="width" id="Dje-oz-qEC"/>
-                            <constraint firstItem="fCa-QX-hrc" firstAttribute="width" secondItem="mRq-ur-NwH" secondAttribute="width" id="Hcw-nY-QaI"/>
-                            <constraint firstItem="Rqp-aO-G6v" firstAttribute="centerX" secondItem="VP3-of-Ldk" secondAttribute="centerX" id="Ko4-54-1N4"/>
-                            <constraint firstItem="gI7-Xc-XfD" firstAttribute="bottom" secondItem="2K8-lQ-X9Z" secondAttribute="bottom" constant="24" id="QKB-tD-rNZ"/>
-                            <constraint firstItem="2K8-lQ-X9Z" firstAttribute="width" secondItem="MKh-KT-PlC" secondAttribute="width" multiplier="0.4" id="RI9-PT-1GY"/>
-                            <constraint firstItem="mRq-ur-NwH" firstAttribute="centerY" secondItem="tf8-uE-Cjr" secondAttribute="centerY" id="SE1-oH-0Dn"/>
-                            <constraint firstItem="VP3-of-Ldk" firstAttribute="centerX" secondItem="gI7-Xc-XfD" secondAttribute="centerX" multiplier="1.5" id="SHo-Nu-jEb"/>
-                            <constraint firstItem="fCa-QX-hrc" firstAttribute="top" secondItem="mRq-ur-NwH" secondAttribute="bottom" constant="8" symbolic="YES" id="Tdr-7q-4OJ"/>
-                            <constraint firstItem="VP3-of-Ldk" firstAttribute="width" secondItem="MKh-KT-PlC" secondAttribute="width" multiplier="0.254453" id="ZWb-gY-taD"/>
-                            <constraint firstItem="mRq-ur-NwH" firstAttribute="height" secondItem="tf8-uE-Cjr" secondAttribute="height" id="a4W-d2-UYD"/>
-                            <constraint firstItem="tf8-uE-Cjr" firstAttribute="centerY" secondItem="VP3-of-Ldk" secondAttribute="centerY" id="bi7-im-vzK"/>
-                            <constraint firstItem="fCa-QX-hrc" firstAttribute="height" secondItem="mRq-ur-NwH" secondAttribute="height" multiplier="0.3" id="bpG-cH-NCh"/>
-                            <constraint firstItem="Rqp-aO-G6v" firstAttribute="top" secondItem="VP3-of-Ldk" secondAttribute="bottom" constant="8" symbolic="YES" id="bwj-dG-5Y1"/>
+                            <constraint firstItem="VP3-of-Ldk" firstAttribute="centerX" secondItem="tf8-uE-Cjr" secondAttribute="centerX" id="9Ws-tg-OIP"/>
+                            <constraint firstItem="VP3-of-Ldk" firstAttribute="width" secondItem="tf8-uE-Cjr" secondAttribute="width" id="9mI-jT-Tqh"/>
+                            <constraint firstItem="tf8-uE-Cjr" firstAttribute="centerX" secondItem="Rqp-aO-G6v" secondAttribute="centerX" id="AbN-qD-eu3"/>
+                            <constraint firstItem="tf8-uE-Cjr" firstAttribute="width" secondItem="Rqp-aO-G6v" secondAttribute="width" id="DgE-k4-lT4"/>
+                            <constraint firstItem="tf8-uE-Cjr" firstAttribute="height" secondItem="Rqp-aO-G6v" secondAttribute="height" multiplier="3.33333" id="Hw7-lL-nKn"/>
+                            <constraint firstItem="fCa-QX-hrc" firstAttribute="width" secondItem="mRq-ur-NwH" secondAttribute="width" id="N0O-2j-Nre"/>
+                            <constraint firstItem="mRq-ur-NwH" firstAttribute="centerY" secondItem="tf8-uE-Cjr" secondAttribute="centerY" id="Nny-hk-GtQ"/>
+                            <constraint firstItem="Rqp-aO-G6v" firstAttribute="top" secondItem="tf8-uE-Cjr" secondAttribute="bottom" constant="8" symbolic="YES" id="Nph-yh-Rcc"/>
+                            <constraint firstItem="2K8-lQ-X9Z" firstAttribute="centerX" secondItem="mRq-ur-NwH" secondAttribute="centerX" id="POs-Li-9R2"/>
+                            <constraint firstItem="fCa-QX-hrc" firstAttribute="top" secondItem="mRq-ur-NwH" secondAttribute="bottom" constant="8" symbolic="YES" id="SAX-t1-4fD"/>
+                            <constraint firstItem="fCa-QX-hrc" firstAttribute="height" secondItem="mRq-ur-NwH" secondAttribute="height" multiplier="0.3" id="Vvz-lh-hsE"/>
+                            <constraint firstItem="2K8-lQ-X9Z" firstAttribute="width" secondItem="tf8-uE-Cjr" secondAttribute="width" multiplier="1.57333" id="XV4-jX-Ofi"/>
+                            <constraint firstItem="2K8-lQ-X9Z" firstAttribute="centerY" secondItem="tf8-uE-Cjr" secondAttribute="centerY" id="c5z-MZ-gol"/>
                             <constraint firstItem="rzm-Ce-AXI" firstAttribute="top" secondItem="gI7-Xc-XfD" secondAttribute="top" constant="24" id="cVz-sm-lfm"/>
-                            <constraint firstItem="VP3-of-Ldk" firstAttribute="bottom" secondItem="2K8-lQ-X9Z" secondAttribute="bottom" multiplier="0.98" id="h8a-yM-pUt"/>
-                            <constraint firstItem="2K8-lQ-X9Z" firstAttribute="centerX" secondItem="gI7-Xc-XfD" secondAttribute="centerX" multiplier="0.6" id="kVJ-C0-We1"/>
-                            <constraint firstItem="mRq-ur-NwH" firstAttribute="width" secondItem="tf8-uE-Cjr" secondAttribute="width" id="nDi-uI-jmU"/>
-                            <constraint firstItem="tf8-uE-Cjr" firstAttribute="centerX" secondItem="VP3-of-Ldk" secondAttribute="centerX" id="rFt-Za-AxX"/>
-                            <constraint firstItem="tf8-uE-Cjr" firstAttribute="height" secondItem="VP3-of-Ldk" secondAttribute="height" id="uXe-bi-wnq"/>
+                            <constraint firstItem="VP3-of-Ldk" firstAttribute="centerY" secondItem="tf8-uE-Cjr" secondAttribute="centerY" id="e5Y-eM-c0k"/>
+                            <constraint firstItem="mRq-ur-NwH" firstAttribute="centerX" secondItem="gI7-Xc-XfD" secondAttribute="centerX" multiplier="0.5" id="f6f-jH-Icl"/>
+                            <constraint firstItem="fCa-QX-hrc" firstAttribute="centerX" secondItem="mRq-ur-NwH" secondAttribute="centerX" id="ggD-k0-3Bd"/>
+                            <constraint firstItem="Rqp-aO-G6v" firstAttribute="height" secondItem="MKh-KT-PlC" secondAttribute="height" multiplier="0.0352113" id="hna-Wg-Pz6"/>
+                            <constraint firstItem="Rqp-aO-G6v" firstAttribute="centerX" secondItem="gI7-Xc-XfD" secondAttribute="centerX" multiplier="1.5" id="iDp-16-HxA"/>
+                            <constraint firstItem="mRq-ur-NwH" firstAttribute="width" secondItem="tf8-uE-Cjr" secondAttribute="width" id="lRi-si-Umh"/>
+                            <constraint firstItem="2K8-lQ-X9Z" firstAttribute="height" secondItem="tf8-uE-Cjr" secondAttribute="height" multiplier="0.65" id="vHw-zv-FDc"/>
+                            <constraint firstItem="gI7-Xc-XfD" firstAttribute="bottom" secondItem="Rqp-aO-G6v" secondAttribute="bottom" constant="8" id="vS1-YK-VO3"/>
                             <constraint firstItem="gI7-Xc-XfD" firstAttribute="trailing" secondItem="rzm-Ce-AXI" secondAttribute="trailing" id="wLb-d7-zgq"/>
-                            <constraint firstItem="2K8-lQ-X9Z" firstAttribute="height" secondItem="MKh-KT-PlC" secondAttribute="height" multiplier="0.0762911" id="xN0-tX-Ihw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IIJ-wL-I1A"/>

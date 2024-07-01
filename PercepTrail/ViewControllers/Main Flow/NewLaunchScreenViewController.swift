@@ -13,14 +13,19 @@ class NewLaunchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        performAutoSegue()
+                
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
+            self.performAutoSegue(self)
+        }
     }
     
     // MARK: - Function
     
-    private func performAutoSegue() {
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
-            self.performSegue(withIdentifier: "showMainPage", sender: self)
+    func performAutoSegue(_ sender: Any) {
+        if UserPreferences.shared.finishInit {
+            performSegue(withIdentifier: "pushMain", sender: nil)
+        } else {
+            performSegue(withIdentifier: "showExercisePage", sender: nil)
         }
     }
 }
@@ -30,3 +35,4 @@ class NewLaunchScreenViewController: UIViewController {
     let vc = UIStoryboard(name: "Main", bundle: nil)
     return vc.instantiateViewController(withIdentifier: "NewLaunchScreenViewController")
 }
+

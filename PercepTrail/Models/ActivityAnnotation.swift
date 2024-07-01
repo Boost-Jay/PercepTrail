@@ -20,11 +20,14 @@ class ActivityAnnotation: NSObject, MKAnnotation {
 }
 
 class DestinationAnnotation: NSObject, MKAnnotation {
-    var coordinate: CLLocationCoordinate2D
+    dynamic var coordinate: CLLocationCoordinate2D
     var title: String?
+    var imageName: String?
 
-    init(coordinate: CLLocationCoordinate2D, title: String) {
+    init(coordinate: CLLocationCoordinate2D, title: String, imageName: String) {
         self.coordinate = coordinate
         self.title = title
+        self.imageName = imageName
     }
 }
+

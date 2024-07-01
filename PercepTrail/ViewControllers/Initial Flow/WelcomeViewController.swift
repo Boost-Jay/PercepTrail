@@ -38,7 +38,6 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func pushToNicknameVC(_ sender: Any) {
         self.performSegue(withIdentifier: "welcomeToNicknameSegue", sender: nil)
-//        self.performSegue(withIdentifier: "gotoBuildMemberId", sender: nil)
     }
 
     

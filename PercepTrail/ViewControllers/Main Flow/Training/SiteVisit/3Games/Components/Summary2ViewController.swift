@@ -70,7 +70,7 @@ class Summary2ViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func homeButtonPressed(_ unwindSegue: UIStoryboardSegue) {
-        UserPreferences.shared.TotalScore += totalPoint
+        UserPreferences.shared.totalScore += (totalPoint + 2000)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
             present(homeVC, animated: true, completion: nil)
@@ -84,7 +84,7 @@ class Summary2ViewController: UIViewController {
 //        let pointsFromIncorrect = incorrectCount * 50
 //        
 //        totalPoint = pointsFromCorrect - pointsFromIncorrect
-//        UserPreferences.shared.TotalScore += totalPoint
+//        UserPreferences.shared.totalScore += totalPoint
 //
 //        if totalPoint < 0 {
 //            totalPoint = 20
@@ -95,16 +95,16 @@ class Summary2ViewController: UIViewController {
         if let sourceType = source {
             switch sourceType {
             case "Pairing":
-                if totalPoint > UserPreferences.shared.PairMaxScore {
-                    UserPreferences.shared.PairMaxScore = totalPoint
+                if totalPoint > UserPreferences.shared.pairMaxScore {
+                    UserPreferences.shared.pairMaxScore = totalPoint
                 }
             case "Identification":
-                if totalPoint > UserPreferences.shared.IdentificationMaxScore {
-                    UserPreferences.shared.IdentificationMaxScore = totalPoint
+                if totalPoint > UserPreferences.shared.identificationMaxScore {
+                    UserPreferences.shared.identificationMaxScore = totalPoint
                 }
             case "Puzzle":
-                if totalPoint > UserPreferences.shared.PuzzleMaxScore {
-                    UserPreferences.shared.PuzzleMaxScore = totalPoint
+                if totalPoint > UserPreferences.shared.puzzleMaxScore {
+                    UserPreferences.shared.puzzleMaxScore = totalPoint
                 }
             default:
                 break
@@ -127,11 +127,11 @@ class Summary2ViewController: UIViewController {
         if let sourceType = source {
             switch sourceType {
             case "Pairing":
-                maxScore = UserPreferences.shared.PairMaxScore
+                maxScore = UserPreferences.shared.pairMaxScore
             case "Identification":
-                maxScore = UserPreferences.shared.IdentificationMaxScore
+                maxScore = UserPreferences.shared.identificationMaxScore
             case "Puzzle":
-                maxScore = UserPreferences.shared.PuzzleMaxScore
+                maxScore = UserPreferences.shared.puzzleMaxScore
             default:
                 break
             }

@@ -19,45 +19,75 @@ final class UserPreferences {
     }
     
     private func registerDefaults() {
-        let defaults = [PreferenceKey.QQMaxScore.rawValue: 0]
+        let defaults = [
+            PreferenceKey.qqMaxScore.rawValue: 0,
+            PreferenceKey.pairMaxScore.rawValue: 0,
+            PreferenceKey.identificationMaxScore.rawValue: 0,
+            PreferenceKey.puzzleMaxScore.rawValue: 0,
+            PreferenceKey.totalScore.rawValue: 0,
+            PreferenceKey.userStep.rawValue: 0,
+            PreferenceKey.userExerciseTime.rawValue: 0,
+            PreferenceKey.finishInit.rawValue: false
+        ] as [String : Any]
         userPreference.register(defaults: defaults)
     }
-    
+
     enum PreferenceKey: String {
-        case QQMaxScore
+        case qqMaxScore
         
-        case PairMaxScore
+        case pairMaxScore
         
-        case IdentificationMaxScore
+        case identificationMaxScore
         
-        case PuzzleMaxScore
+        case puzzleMaxScore
         
-        case TotalScore
+        case totalScore
+        
+        case userStep
+        
+        case userExerciseTime
+        
+        case finishInit
     }
     
-    var QQMaxScore: Int {
-        get { userPreference.integer(forKey: PreferenceKey.QQMaxScore.rawValue) }
-        set { userPreference.set(newValue, forKey: PreferenceKey.QQMaxScore.rawValue) }
+    var qqMaxScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.qqMaxScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.qqMaxScore.rawValue) }
     }
     
-    
-    var PairMaxScore: Int {
-        get { userPreference.integer(forKey: PreferenceKey.PairMaxScore.rawValue) }
-        set { userPreference.set(newValue, forKey: PreferenceKey.PairMaxScore.rawValue) }
+    var pairMaxScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.pairMaxScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.pairMaxScore.rawValue) }
     }
     
-    var IdentificationMaxScore: Int {
-        get { userPreference.integer(forKey: PreferenceKey.IdentificationMaxScore.rawValue) }
-        set { userPreference.set(newValue, forKey: PreferenceKey.IdentificationMaxScore.rawValue) }
+    var identificationMaxScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.identificationMaxScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.identificationMaxScore.rawValue) }
     }
     
-    var PuzzleMaxScore: Int {
-        get { userPreference.integer(forKey: PreferenceKey.PuzzleMaxScore.rawValue) }
-        set { userPreference.set(newValue, forKey: PreferenceKey.PuzzleMaxScore.rawValue) }
+    var puzzleMaxScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.puzzleMaxScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.puzzleMaxScore.rawValue) }
     }
     
-    var TotalScore: Int {
-        get { userPreference.integer(forKey: PreferenceKey.TotalScore.rawValue) }
-        set { userPreference.set(newValue, forKey: PreferenceKey.TotalScore.rawValue) }
+    var totalScore: Int {
+        get { userPreference.integer(forKey: PreferenceKey.totalScore.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.totalScore.rawValue) }
+    }
+    
+    var userStep: Int {
+        get { userPreference.integer(forKey: PreferenceKey.userStep.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.userStep.rawValue) }
+    }
+    
+    var userExerciseTime: Int {
+        get { userPreference.integer(forKey: PreferenceKey.userExerciseTime.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.userExerciseTime.rawValue) }
+    }
+    
+    var finishInit: Bool {
+        get { userPreference.bool(forKey: PreferenceKey.finishInit.rawValue) }
+        set { userPreference.set(newValue, forKey: PreferenceKey.finishInit.rawValue) }
     }
 }
+

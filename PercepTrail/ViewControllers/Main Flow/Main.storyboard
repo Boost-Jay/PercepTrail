@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,7 +33,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="DTy-dq-C8f" kind="show" identifier="showMainPage" id="2in-1s-ocB"/>
+                        <segue destination="VXh-Pn-rA8" kind="show" identifier="showExercisePage" id="NVF-d0-SxA"/>
+                        <segue destination="DTy-dq-C8f" kind="show" identifier="pushMain" id="ep5-qC-CxS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOj-KG-gkX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -60,49 +62,215 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1Z-s5-U1w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139.69465648854961" y="65.492957746478879"/>
+            <point key="canvasLocation" x="123" y="80"/>
         </scene>
         <!--Workout View Controller-->
         <scene sceneID="HcX-y2-E9Y">
             <objects>
-                <viewController storyboardIdentifier="WorkoutViewController" id="o7N-0n-Tg6" customClass="WorkoutViewController" customModule="PercepTrail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkoutViewController" modalPresentationStyle="fullScreen" id="o7N-0n-Tg6" customClass="WorkoutViewController" customModule="PercepTrail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FJ5-UV-qYS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SlQ-QT-ZvX">
-                                <rect key="frame" x="76" y="320" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6000" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hN0-Sr-duP">
+                                <rect key="frame" x="61.666666666666657" y="422" width="210.99999999999997" height="93"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6000" minValue="3000" maxValue="20000" translatesAutoresizingMaskIntoConstraints="NO" id="L3H-a0-4ID">
+                                <rect key="frame" x="68.666666666666686" y="547" width="256" height="30"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定每日目標步數" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxf-cT-ERb">
+                                <rect key="frame" x="0.0" y="307" width="393" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="步" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvP-YL-Wqs">
+                                <rect key="frame" x="296.66666666666669" y="447" width="96.333333333333314" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zac-3Q-nVn">
+                                <rect key="frame" x="24" y="739" width="345" height="65"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="確認" cornerStyle="dynamic">
+                                    <backgroundConfiguration key="background" cornerRadius="10">
+                                        <color key="backgroundColor" name="Color 2"/>
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="28"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pushToMainVC:" destination="o7N-0n-Tg6" eventType="touchUpInside" id="4v5-rs-BkP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v2y-Gk-SMt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="L3H-a0-4ID" firstAttribute="centerX" secondItem="v2y-Gk-SMt" secondAttribute="centerX" id="0kS-xQ-V5h"/>
+                            <constraint firstItem="hN0-Sr-duP" firstAttribute="centerY" secondItem="v2y-Gk-SMt" secondAttribute="centerY" multiplier="1.1" id="1vQ-Yy-Gw5"/>
+                            <constraint firstItem="v2y-Gk-SMt" firstAttribute="trailing" secondItem="Cxf-cT-ERb" secondAttribute="trailing" id="8Fs-mJ-0hN"/>
+                            <constraint firstItem="L3H-a0-4ID" firstAttribute="width" secondItem="hN0-Sr-duP" secondAttribute="width" multiplier="1.19431" id="A6V-dl-Lqe"/>
+                            <constraint firstItem="hN0-Sr-duP" firstAttribute="height" secondItem="FJ5-UV-qYS" secondAttribute="height" multiplier="0.109155" id="ChP-Me-tVc"/>
+                            <constraint firstItem="v2y-Gk-SMt" firstAttribute="trailing" secondItem="Zac-3Q-nVn" secondAttribute="trailing" constant="24" id="DDg-3w-uQY"/>
+                            <constraint firstItem="hN0-Sr-duP" firstAttribute="centerX" secondItem="v2y-Gk-SMt" secondAttribute="centerX" multiplier="0.85" id="HUV-lk-uoe"/>
+                            <constraint firstItem="Zac-3Q-nVn" firstAttribute="height" secondItem="FJ5-UV-qYS" secondAttribute="height" multiplier="0.0762911" id="Qpk-g4-CH2"/>
+                            <constraint firstItem="v2y-Gk-SMt" firstAttribute="bottom" secondItem="Zac-3Q-nVn" secondAttribute="bottom" constant="48" id="RSV-H1-9IL"/>
+                            <constraint firstItem="hN0-Sr-duP" firstAttribute="width" secondItem="FJ5-UV-qYS" secondAttribute="width" multiplier="0.536896" id="ZT9-Ef-tXp"/>
+                            <constraint firstItem="Cxf-cT-ERb" firstAttribute="height" secondItem="hN0-Sr-duP" secondAttribute="height" multiplier="0.462366" id="ZX3-4C-Gtq"/>
+                            <constraint firstItem="L3H-a0-4ID" firstAttribute="height" secondItem="hN0-Sr-duP" secondAttribute="height" multiplier="0.311828" id="eB7-2d-46K"/>
+                            <constraint firstItem="Zac-3Q-nVn" firstAttribute="leading" secondItem="v2y-Gk-SMt" secondAttribute="leading" constant="24" id="i1N-Ev-DVh"/>
+                            <constraint firstItem="Cxf-cT-ERb" firstAttribute="leading" secondItem="v2y-Gk-SMt" secondAttribute="leading" id="jU7-V0-jlU"/>
+                            <constraint firstItem="nvP-YL-Wqs" firstAttribute="centerY" secondItem="hN0-Sr-duP" secondAttribute="centerY" id="lb1-Bg-hSS"/>
+                            <constraint firstItem="L3H-a0-4ID" firstAttribute="top" secondItem="hN0-Sr-duP" secondAttribute="bottom" constant="32" id="m0T-TH-su7"/>
+                            <constraint firstItem="nvP-YL-Wqs" firstAttribute="height" secondItem="hN0-Sr-duP" secondAttribute="height" multiplier="0.462366" id="o9R-gr-mJQ"/>
+                            <constraint firstItem="hN0-Sr-duP" firstAttribute="top" secondItem="Cxf-cT-ERb" secondAttribute="bottom" constant="72" id="oeH-3x-Ktr"/>
+                            <constraint firstItem="v2y-Gk-SMt" firstAttribute="trailing" secondItem="nvP-YL-Wqs" secondAttribute="trailing" id="qnr-UM-LAW"/>
+                            <constraint firstItem="nvP-YL-Wqs" firstAttribute="leading" secondItem="hN0-Sr-duP" secondAttribute="trailing" constant="24" id="s4R-Ny-HZx"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ZXo-ov-Fm8"/>
+                    <connections>
+                        <outlet property="sldStep" destination="L3H-a0-4ID" id="NmF-YB-FAZ"/>
+                        <outlet property="txfStep" destination="hN0-Sr-duP" id="BHF-qU-I9V"/>
+                        <segue destination="DTy-dq-C8f" kind="show" identifier="showMainPage" id="TeM-AR-D96"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AgP-8u-SLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-582" y="-190"/>
+            <point key="canvasLocation" x="-647" y="-318"/>
         </scene>
         <!--Exercise View Controller-->
         <scene sceneID="FPT-Sc-2JX">
             <objects>
-                <viewController storyboardIdentifier="ExerciseViewController" id="VXh-Pn-rA8" customClass="ExerciseViewController" customModule="PercepTrail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExerciseViewController" modalPresentationStyle="fullScreen" id="VXh-Pn-rA8" customClass="ExerciseViewController" customModule="PercepTrail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TVz-Ch-cRX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aA4-dA-CaH">
-                                <rect key="frame" x="76" y="325" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="30" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b33-bl-8tW">
+                                <rect key="frame" x="61.666666666666657" y="422" width="210.99999999999997" height="93"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="20" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="Ngn-Yc-DNy">
+                                <rect key="frame" x="68.666666666666686" y="547" width="256" height="30"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分鐘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nv8-uJ-dbj">
+                                <rect key="frame" x="288.66666666666669" y="447" width="104.33333333333331" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HW9-bX-0ab">
+                                <rect key="frame" x="24" y="739" width="345" height="65"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="確認" cornerStyle="dynamic">
+                                    <backgroundConfiguration key="background" cornerRadius="10">
+                                        <color key="backgroundColor" name="Color 2"/>
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="28"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pushToWorkoutVC:" destination="VXh-Pn-rA8" eventType="touchUpInside" id="lcX-Rg-cZs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定每日活動時間上限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieG-rV-rdI">
+                                <rect key="frame" x="0.0" y="307" width="393" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u5l-do-cRR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ngn-Yc-DNy" firstAttribute="centerX" secondItem="u5l-do-cRR" secondAttribute="centerX" id="1Yh-pY-1S4"/>
+                            <constraint firstItem="b33-bl-8tW" firstAttribute="centerY" secondItem="u5l-do-cRR" secondAttribute="centerY" multiplier="1.1" id="1jr-Rw-V0O"/>
+                            <constraint firstItem="b33-bl-8tW" firstAttribute="width" secondItem="TVz-Ch-cRX" secondAttribute="width" multiplier="0.536896" id="3aL-an-2rG"/>
+                            <constraint firstItem="ieG-rV-rdI" firstAttribute="leading" secondItem="u5l-do-cRR" secondAttribute="leading" id="3wZ-Fl-hwr"/>
+                            <constraint firstItem="HW9-bX-0ab" firstAttribute="leading" secondItem="u5l-do-cRR" secondAttribute="leading" constant="24" id="4wT-YM-gQz"/>
+                            <constraint firstItem="nv8-uJ-dbj" firstAttribute="height" secondItem="b33-bl-8tW" secondAttribute="height" multiplier="0.462366" id="6CR-oo-WWI"/>
+                            <constraint firstItem="nv8-uJ-dbj" firstAttribute="centerY" secondItem="b33-bl-8tW" secondAttribute="centerY" id="6wT-Ww-de0"/>
+                            <constraint firstItem="u5l-do-cRR" firstAttribute="trailing" secondItem="nv8-uJ-dbj" secondAttribute="trailing" id="B3B-pb-gi5"/>
+                            <constraint firstItem="ieG-rV-rdI" firstAttribute="height" secondItem="TVz-Ch-cRX" secondAttribute="height" multiplier="0.0504695" id="BDA-8s-q1b"/>
+                            <constraint firstItem="u5l-do-cRR" firstAttribute="bottom" secondItem="HW9-bX-0ab" secondAttribute="bottom" constant="48" id="IPE-D0-QW4"/>
+                            <constraint firstItem="HW9-bX-0ab" firstAttribute="height" secondItem="TVz-Ch-cRX" secondAttribute="height" multiplier="0.0762911" id="Rhr-eR-lTJ"/>
+                            <constraint firstItem="b33-bl-8tW" firstAttribute="top" secondItem="ieG-rV-rdI" secondAttribute="bottom" constant="72" id="bGf-46-NLf"/>
+                            <constraint firstItem="u5l-do-cRR" firstAttribute="trailing" secondItem="HW9-bX-0ab" secondAttribute="trailing" constant="24" id="fdh-rS-1r8"/>
+                            <constraint firstItem="nv8-uJ-dbj" firstAttribute="leading" secondItem="b33-bl-8tW" secondAttribute="trailing" constant="16" id="fhF-86-aRB"/>
+                            <constraint firstItem="u5l-do-cRR" firstAttribute="trailing" secondItem="ieG-rV-rdI" secondAttribute="trailing" id="o9U-1G-ybW"/>
+                            <constraint firstItem="b33-bl-8tW" firstAttribute="height" secondItem="TVz-Ch-cRX" secondAttribute="height" multiplier="0.109155" id="r5L-Zb-kus"/>
+                            <constraint firstItem="Ngn-Yc-DNy" firstAttribute="height" secondItem="b33-bl-8tW" secondAttribute="height" multiplier="0.311828" id="spR-Rb-clw"/>
+                            <constraint firstItem="b33-bl-8tW" firstAttribute="centerX" secondItem="u5l-do-cRR" secondAttribute="centerX" multiplier="0.85" id="tcg-Jb-OQi"/>
+                            <constraint firstItem="Ngn-Yc-DNy" firstAttribute="width" secondItem="b33-bl-8tW" secondAttribute="width" multiplier="1.19431" id="xO0-fU-MuB"/>
+                            <constraint firstItem="Ngn-Yc-DNy" firstAttribute="top" secondItem="b33-bl-8tW" secondAttribute="bottom" constant="32" id="xtr-0b-191"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JSv-OU-MkG"/>
+                    <connections>
+                        <outlet property="sldExerciseTime" destination="Ngn-Yc-DNy" id="wVi-ra-bdh"/>
+                        <outlet property="txfExerciseTime" destination="b33-bl-8tW" id="jdl-5J-tav"/>
+                        <segue destination="o7N-0n-Tg6" kind="show" identifier="showWorkoutPage" id="AlG-6L-XhT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YS6-NM-tMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1418" y="-190"/>
+            <point key="canvasLocation" x="-1367" y="-317"/>
         </scene>
         <!--Trophy-->
         <scene sceneID="hjD-aM-xd6">
@@ -145,8 +313,14 @@
             <point key="canvasLocation" x="-921" y="601"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TeM-AR-D96"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="AppIcon" width="128" height="128"/>
+        <namedColor name="Color 2">
+            <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

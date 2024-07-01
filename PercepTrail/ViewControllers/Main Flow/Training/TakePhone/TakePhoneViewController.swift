@@ -30,8 +30,11 @@ class TakePhoneViewController: UIViewController {
     var photoOutput: AVCapturePhotoOutput?
     var capturedImage: UIImage?
     var fromTask: Bool = false
+    var fromSettlement: Bool = false
     let sequence = MaterialShowcaseSequence()
     let sequence2 = MaterialShowcaseSequence()
+    var destinationCoordinate: CLLocationCoordinate2D?
+
 
     // MARK: - LifeCycle
 
@@ -55,7 +58,9 @@ class TakePhoneViewController: UIViewController {
         lbHint.text = "拍照"
         lbCancle.isHidden = true
         btnBackVC.isHidden = false
-        addShowCase()
+        if !fromTask {
+            addShowCase()
+        }
     }
 
     private func addShowCase() {
@@ -325,14 +330,20 @@ class TakePhoneViewController: UIViewController {
     }
 
     private func goHomeVC() {
+        let storyboard = UIStoryboard(name: "SiteVisit", bundle: nil)
+        let storyboard2 = UIStoryboard(name: "Main", bundle: nil)
+        
         if fromTask {
-            let storyboard = UIStoryboard(name: "SiteVisit", bundle: nil)
             if let routeVC = storyboard.instantiateViewController(withIdentifier: "RouteViewController") as? RouteViewController {
+                routeVC.destinationCoordinate = destinationCoordinate
                 present(routeVC, animated: true, completion: nil)
             }
+        } else if fromSettlement {
+            let viewControllerID = Bool.random() ? "PairingViewController" : "IdentificationViewController"
+            let selectedVC = storyboard.instantiateViewController(withIdentifier: viewControllerID)
+            present(selectedVC, animated: true, completion: nil)
         } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
+            if let homeVC = storyboard2.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
                 present(homeVC, animated: true, completion: nil)
             }
         }
@@ -394,7 +405,9 @@ extension TakePhoneViewController: AVCapturePhotoCaptureDelegate {
             
                 self.lbHint.text = "保存"
                 
-                self.addShowCase2()
+                if !self.fromTask {
+                    self.addShowCase2()
+                }
             } else {
                 print("Failed to crop image")
             }

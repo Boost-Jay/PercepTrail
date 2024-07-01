@@ -26,6 +26,11 @@ class TrainingMainViewController: UIViewController {
     
     // MARK: - LifeCycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupHealthStore()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -35,8 +40,7 @@ class TrainingMainViewController: UIViewController {
     // MARK: - UI Settings
     
     fileprivate func setupUI() {
-        lbTotalPoints.text = "\(UserPreferences.shared.TotalScore)"
-        setupHealthStore()
+        lbTotalPoints.text = "\(UserPreferences.shared.totalScore)"
     }
     
     func setupHealthStore() {
@@ -50,9 +54,6 @@ class TrainingMainViewController: UIViewController {
                 }
             }
         }
-    
-    // MARK: - IBAction
-
     
     
     // MARK: - Function
