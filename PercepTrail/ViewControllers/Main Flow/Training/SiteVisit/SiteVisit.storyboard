@@ -650,13 +650,13 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lzo-Xb-UNC">
-                                <rect key="frame" x="48.000000000000007" y="524" width="120.66666666666669" height="150"/>
+                                <rect key="frame" x="48.000000000000007" y="543" width="120.66666666666669" height="150"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2s5-7E-UEk">
-                                <rect key="frame" x="48.000000000000007" y="358" width="120.66666666666669" height="150"/>
+                                <rect key="frame" x="48.000000000000007" y="377" width="120.66666666666669" height="150"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BrW-lr-wvm">
-                                <rect key="frame" x="224.33333333333334" y="524" width="120.66666666666666" height="150"/>
+                                <rect key="frame" x="224.33333333333334" y="543" width="120.66666666666666" height="150"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="6zh-j1-mXf">
                                 <rect key="frame" x="138" y="78" width="253" height="101"/>
@@ -668,12 +668,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1wO-2i-oHh">
-                                <rect key="frame" x="224.33333333333334" y="358" width="120.66666666666666" height="150"/>
+                                <rect key="frame" x="224.33333333333334" y="377" width="120.66666666666666" height="150"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="計時3分鐘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAo-yQ-LPP">
-                                <rect key="frame" x="8" y="248.66666666666666" width="377" height="85.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="計時3分鐘計時3分鐘計時3分鐘" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAo-yQ-LPP">
+                                <rect key="frame" x="8" y="262" width="377" height="91"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -681,7 +681,7 @@
                         <viewLayoutGuide key="safeArea" id="l3P-AB-Qtk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cAo-yQ-LPP" firstAttribute="height" secondItem="l3P-AB-Qtk" secondAttribute="height" multiplier="0.112429" id="42V-jj-0Cy"/>
+                            <constraint firstItem="cAo-yQ-LPP" firstAttribute="height" secondItem="l3P-AB-Qtk" secondAttribute="height" multiplier="0.12" id="42V-jj-0Cy"/>
                             <constraint firstItem="lzo-Xb-UNC" firstAttribute="top" secondItem="2s5-7E-UEk" secondAttribute="bottom" constant="16" id="CXJ-WZ-OU3"/>
                             <constraint firstItem="l3P-AB-Qtk" firstAttribute="trailing" secondItem="Fwq-Rl-pbt" secondAttribute="trailing" constant="24" id="ElN-Wn-bDr"/>
                             <constraint firstItem="aOK-DZ-deO" firstAttribute="width" secondItem="eV1-bB-GBF" secondAttribute="width" multiplier="0.26972" id="FIy-0B-0nd"/>
@@ -697,7 +697,7 @@
                             <constraint firstItem="GQm-Td-2Ux" firstAttribute="centerX" secondItem="6zh-j1-mXf" secondAttribute="centerX" id="PNU-7U-WHD"/>
                             <constraint firstItem="GQm-Td-2Ux" firstAttribute="height" secondItem="6zh-j1-mXf" secondAttribute="height" multiplier="0.316832" id="RH3-Ev-1H4"/>
                             <constraint firstItem="BrW-lr-wvm" firstAttribute="centerY" secondItem="lzo-Xb-UNC" secondAttribute="centerY" id="RmA-A9-Ycf"/>
-                            <constraint firstItem="Fwq-Rl-pbt" firstAttribute="top" secondItem="lzo-Xb-UNC" secondAttribute="bottom" constant="55" id="UbH-UO-8sI"/>
+                            <constraint firstItem="Fwq-Rl-pbt" firstAttribute="top" secondItem="lzo-Xb-UNC" secondAttribute="bottom" constant="36" id="UbH-UO-8sI"/>
                             <constraint firstItem="6zh-j1-mXf" firstAttribute="height" secondItem="aOK-DZ-deO" secondAttribute="height" multiplier="0.946875" id="VfV-9e-oJL"/>
                             <constraint firstItem="1wO-2i-oHh" firstAttribute="centerX" secondItem="BrW-lr-wvm" secondAttribute="centerX" id="W8j-1S-Fbn"/>
                             <constraint firstItem="GQm-Td-2Ux" firstAttribute="centerY" secondItem="6zh-j1-mXf" secondAttribute="centerY" id="X86-1v-WK4"/>
@@ -737,7 +737,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lTF-cv-GfA"/>
+        <segue reference="ddl-eZ-TOa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bubble" width="128" height="128"/>

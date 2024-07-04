@@ -83,6 +83,10 @@
 		7B7726402C28089500D71DCB /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77263F2C28089500D71DCB /* LocalDatabase.swift */; };
 		7BC7560B2C2D1FC700EF60AD /* SettlementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC7560A2C2D1FC700EF60AD /* SettlementViewController.swift */; };
 		7BF18EEA2C34E62700D110A1 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF18EE92C34E62700D110A1 /* GeneralResponse.swift */; };
+		7BF18EFD2C363FA100D110A1 /* PairingUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF18EFC2C363FA100D110A1 /* PairingUserViewController.swift */; };
+		7BF18EFF2C363FC900D110A1 /* TargetTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF18EFE2C363FC900D110A1 /* TargetTaskViewController.swift */; };
+		7BF18F012C363FD800D110A1 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF18F002C363FD800D110A1 /* QRCodeViewController.swift */; };
+		7BF18F032C36477600D110A1 /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF18F022C36477600D110A1 /* ScanQRCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +160,10 @@
 		7B77263F2C28089500D71DCB /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
 		7BC7560A2C2D1FC700EF60AD /* SettlementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettlementViewController.swift; sourceTree = "<group>"; };
 		7BF18EE92C34E62700D110A1 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
+		7BF18EFC2C363FA100D110A1 /* PairingUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingUserViewController.swift; sourceTree = "<group>"; };
+		7BF18EFE2C363FC900D110A1 /* TargetTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetTaskViewController.swift; sourceTree = "<group>"; };
+		7BF18F002C363FD800D110A1 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		7BF18F022C36477600D110A1 /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +312,10 @@
 			children = (
 				55B7AABD2C2565F7002B6964 /* GroupTask.storyboard */,
 				55B7AABF2C2565FF002B6964 /* GroupTaskViewController.swift */,
+				7BF18EFC2C363FA100D110A1 /* PairingUserViewController.swift */,
+				7BF18EFE2C363FC900D110A1 /* TargetTaskViewController.swift */,
+				7BF18F002C363FD800D110A1 /* QRCodeViewController.swift */,
+				7BF18F022C36477600D110A1 /* ScanQRCodeViewController.swift */,
 			);
 			path = GroupTask;
 			sourceTree = "<group>";
@@ -588,12 +600,14 @@
 				5589E15F2C22FF0700D56AC8 /* MedicationUsageViewController.swift in Sources */,
 				55B7AAC82C256623002B6964 /* TimerViewController.swift in Sources */,
 				5589E1532C22FE5800D56AC8 /* NicknameViewController.swift in Sources */,
+				7BF18EFF2C363FC900D110A1 /* TargetTaskViewController.swift in Sources */,
 				7BC7560B2C2D1FC700EF60AD /* SettlementViewController.swift in Sources */,
 				7BF18EEA2C34E62700D110A1 /* GeneralResponse.swift in Sources */,
 				5589E1512C22E61100D56AC8 /* WelcomeViewController.swift in Sources */,
 				55D4754D2C2077A9000BE329 /* CommandBase.swift in Sources */,
 				7B352EAA2C2A9E5E00D92A43 /* ChatGPT4VisionResponse.swift in Sources */,
 				551C5A702C29B19400EB4553 /* ProgressIndicatorViewWrapper.swift in Sources */,
+				7BF18EFD2C363FA100D110A1 /* PairingUserViewController.swift in Sources */,
 				55DB49B92C245BE700397C97 /* NewLaunchScreenViewController.swift in Sources */,
 				5589E1572C22FEC000D56AC8 /* GenderViewController.swift in Sources */,
 				551C5A6E2C29917300EB4553 /* WorkoutViewController.swift in Sources */,
@@ -607,6 +621,7 @@
 				55D474AA2C2014A9000BE329 /* SceneDelegate.swift in Sources */,
 				55D475512C207962000BE329 /* Alert+AddMultipleActions.swift in Sources */,
 				5507D8CE2C208CC400A47FA3 /* RequestMethod.swift in Sources */,
+				7BF18F032C36477600D110A1 /* ScanQRCodeViewController.swift in Sources */,
 				559632102C244D3E0016F826 /* TrainingMainViewController.swift in Sources */,
 				7B7726402C28089500D71DCB /* LocalDatabase.swift in Sources */,
 				5507D8D02C208D1600A47FA3 /* PercepTrailDataAPIClient.swift in Sources */,
@@ -622,6 +637,7 @@
 				5589E1632C22FF2400D56AC8 /* ResidenceViewController.swift in Sources */,
 				55B7AAC62C25661A002B6964 /* SummaryViewController.swift in Sources */,
 				551C5A6C2C29915A00EB4553 /* ExerciseViewController.swift in Sources */,
+				7BF18F012C363FD800D110A1 /* QRCodeViewController.swift in Sources */,
 				55BEF1AE2C293BFC00DA811B /* Summary2ViewController.swift in Sources */,
 				7B352EA62C2A94C500D92A43 /* ActivityAnnotation.swift in Sources */,
 			);
