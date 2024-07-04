@@ -70,7 +70,7 @@ class Summary2ViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction func homeButtonPressed(_ unwindSegue: UIStoryboardSegue) {
-        UserPreferences.shared.totalScore += (totalPoint + 2000)
+        UserPreferences.shared.totalScore += (totalPoint + 1000)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
             present(homeVC, animated: true, completion: nil)

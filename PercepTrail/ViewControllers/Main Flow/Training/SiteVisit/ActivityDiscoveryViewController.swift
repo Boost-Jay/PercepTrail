@@ -159,7 +159,6 @@ extension ActivityDiscoveryViewController: MKMapViewDelegate {
             view.markerTintColor = UIColor.blue
             view.glyphTintColor = UIColor.white
 
-
             return view
         }
         return nil

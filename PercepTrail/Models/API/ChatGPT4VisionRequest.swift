@@ -49,4 +49,3 @@ struct ImageUrl: Encodable {
     var detail: String
 }
 
-

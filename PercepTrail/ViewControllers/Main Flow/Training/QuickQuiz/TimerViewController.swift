@@ -36,7 +36,7 @@ class TimerViewController: UIViewController {
     }
     
     private func addShowCase() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let oneTimeKey = "second"
             let showcase1 = self.createShowcase(for: self.btnStart,
                                                 withText: "準備好的話就可以點擊此處開始活動了！",

@@ -46,11 +46,14 @@ enum PercepTrailDataAPIClient {
     
     enum Endpoint {
         case chatGPT4V(ApiVersion)
-        
+        case custom(String)
+
         var endpoint: String {
             switch self {
             case .chatGPT4V(let apiVersion):
                 return apiVersion.description + "/chat/completions"
+            case .custom(let path):
+                return path
             }
         }
     }

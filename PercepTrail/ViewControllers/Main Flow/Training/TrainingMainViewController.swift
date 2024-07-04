@@ -49,9 +49,14 @@ class TrainingMainViewController: UIViewController {
                 let allTypes = Set([HKObjectType.quantityType(forIdentifier: .stepCount)!])
                 healthStore?.requestAuthorization(toShare: nil, read: allTypes) { (success, error) in
                     if !success {
-                        print("HealthKit authorization denied!")
+                        print("HealthKit authorization denied! \(error?.localizedDescription ?? "No error provided")")
+                    } else {
+                        DispatchQueue.main.async {
+                            self.updateStepCount()
+                        }
                     }
                 }
+
             }
         }
     

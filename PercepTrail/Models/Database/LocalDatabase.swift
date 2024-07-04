@@ -91,4 +91,27 @@ extension LocalDatabase {
         }
         return results
     }
+    
+    func fetchRandomPhotos(limit: Int) -> [(name: String, path: String)] {
+        guard let db = db else {
+            print("Database connection is closed.")
+            return []
+        }
+        var results: [(name: String, path: String)] = []
+        let photos = Table("photos")
+        let nameColumn = Expression<String?>("name")
+        let pathColumn = Expression<String>("path")
+
+        do {
+            for photo in try db.prepare(photos.order(Expression<Int64>.random()).limit(limit)) {
+                let name = photo[nameColumn] ?? "Unnamed"
+                let path = photo[pathColumn]
+                results.append((name: name, path: path))
+            }
+        } catch {
+            print("Fetch failed: \(error)")
+        }
+        return results
+    }
+
 }

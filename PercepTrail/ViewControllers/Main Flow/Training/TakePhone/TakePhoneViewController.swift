@@ -5,10 +5,10 @@
 //  Created by 王柏崴 on 6/21/24.
 //
 
-import UIKit
 import AVFoundation
 import MaterialShowcase
 import Photos
+import UIKit
 
 // MARK: - TakePhoneViewController
 
@@ -34,7 +34,11 @@ class TakePhoneViewController: UIViewController {
     let sequence = MaterialShowcaseSequence()
     let sequence2 = MaterialShowcaseSequence()
     var destinationCoordinate: CLLocationCoordinate2D?
-
+    var selectedVC: String = ""
+    
+    var photos: [UIImage] = []
+    var questionText: String = ""
+    var answerArray: [Int] = []
 
     // MARK: - LifeCycle
 
@@ -48,6 +52,11 @@ class TakePhoneViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         videoPreviewLayer?.frame = vScanRect.bounds
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        videoPreviewLayer.session?.stopRunning()
     }
 
     // MARK: - UI Settings
@@ -80,7 +89,7 @@ class TakePhoneViewController: UIViewController {
                 .start()
         }
     }
-    
+
     private func addShowCase2() {
         DispatchQueue.main.async {
             let oneTimeKey = "photo"
@@ -115,10 +124,10 @@ class TakePhoneViewController: UIViewController {
         showCase.targetHolderRadius = 60
         showCase.targetHolderColor = .clear
         showCase.isTapRecognizerForTargetView = true
-        
+
         return showCase
     }
-    
+
     private func setupButtonStatus() {
         btnCheckmark.isHidden = true
         btnCheckmark.isEnabled = false
@@ -193,8 +202,11 @@ class TakePhoneViewController: UIViewController {
                     Alert.showAlertWithError(title: "相簿訪問被拒",
                                              message: "此功能需要訪問您的相簿，請在設定中允許訪問",
                                              vc: self,
-                                             confirmTitle: "確認", confirm: {
-                                                 CommandBase.sharedInstance.openURL(with: AppDefine.SettingsURLScheme.Photos.rawValue)
+                                             confirmTitle: "開啟設定", confirm: {
+//                                                 CommandBase.sharedInstance.openURL(with: AppDefine.SettingsURLScheme.Photos.rawValue)
+                        if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        }
                                              })
 
                 default:
@@ -252,12 +264,15 @@ class TakePhoneViewController: UIViewController {
 
     private func setupCaptureSession() {
         captureSession = AVCaptureSession()
+        captureSession.beginConfiguration()  // 開始配置
+
         captureSession.sessionPreset = .high
 
         guard let captureDevice = AVCaptureDevice.default(for: .video),
               let input = try? AVCaptureDeviceInput(device: captureDevice),
               captureSession.canAddInput(input) else {
             print("Failed to set up the camera input")
+            captureSession.commitConfiguration()  // 提交配置，即使失敗也應提交
             return
         }
         captureSession.addInput(input)
@@ -268,8 +283,13 @@ class TakePhoneViewController: UIViewController {
             photoOutput = output
         }
 
-        captureSession.startRunning()
+        captureSession.commitConfiguration()  // 提交配置
+
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.captureSession.startRunning()  // 在提交配置之後啟動會話
+        }
     }
+
 
     private func requestCameraAccessAndSetupSession() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -288,8 +308,10 @@ class TakePhoneViewController: UIViewController {
                         // 弹出警告框
                         Alert.showAlertWithError(title: "相機訪問被拒",
                                                  message: "此功能需要使用您的相機，請在設定中允許訪問相機", vc: self,
-                                                 confirmTitle: "確認", confirm: {
-                                                     CommandBase.sharedInstance.openURL(with: AppDefine.SettingsURLScheme.Camera.rawValue)
+                                                 confirmTitle: "開啟設定", confirm: {
+                                                     if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+                                                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                                     }
                                                  })
                     }
                 }
@@ -332,16 +354,26 @@ class TakePhoneViewController: UIViewController {
     private func goHomeVC() {
         let storyboard = UIStoryboard(name: "SiteVisit", bundle: nil)
         let storyboard2 = UIStoryboard(name: "Main", bundle: nil)
-        
+
         if fromTask {
             if let routeVC = storyboard.instantiateViewController(withIdentifier: "RouteViewController") as? RouteViewController {
                 routeVC.destinationCoordinate = destinationCoordinate
                 present(routeVC, animated: true, completion: nil)
             }
         } else if fromSettlement {
-            let viewControllerID = Bool.random() ? "PairingViewController" : "IdentificationViewController"
-            let selectedVC = storyboard.instantiateViewController(withIdentifier: viewControllerID)
-            present(selectedVC, animated: true, completion: nil)
+            let viewControllerID = selectedVC
+            if viewControllerID == "IdentificationViewController" {
+                if let nextVC = storyboard.instantiateViewController(withIdentifier: "IdentificationViewController") as? IdentificationViewController {
+                    nextVC.photos = photos
+                    nextVC.questionText = questionText
+                    nextVC.answerArray = answerArray
+                    present(nextVC, animated: true, completion: nil)
+
+                }
+            } else {
+                let selectedVC = storyboard.instantiateViewController(withIdentifier: viewControllerID)
+                present(selectedVC, animated: true, completion: nil)
+            }
         } else {
             if let homeVC = storyboard2.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController {
                 present(homeVC, animated: true, completion: nil)
@@ -350,7 +382,7 @@ class TakePhoneViewController: UIViewController {
     }
 }
 
-// MARK: - TakePhoneViewController: MaterialShowcaseDelegate
+// MARK: MaterialShowcaseDelegate
 
 extension TakePhoneViewController: MaterialShowcaseDelegate {
     func showCaseDidDismiss(showcase: MaterialShowcase, didTapTarget: Bool) {
@@ -359,7 +391,7 @@ extension TakePhoneViewController: MaterialShowcaseDelegate {
     }
 }
 
-// MARK: - TakePhoneViewController + AVCapturePhotoCaptureDelegate
+// MARK: AVCapturePhotoCaptureDelegate
 
 extension TakePhoneViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -402,9 +434,9 @@ extension TakePhoneViewController: AVCapturePhotoCaptureDelegate {
 
                 self.lbCancle.isHidden = false
                 self.btnBackVC.isHidden = true
-            
+
                 self.lbHint.text = "保存"
-                
+
                 if !self.fromTask {
                     self.addShowCase2()
                 }
